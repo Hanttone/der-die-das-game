@@ -18,7 +18,7 @@ export default function BottomLayout () {
 
 const LayoutWrapper = styled.section`
 width: 100%;
-height: 100vh;
+height: 48vh;
 position: relative;
 overflow: hidden;
 z-index: 0;
