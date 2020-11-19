@@ -1,16 +1,29 @@
 import GlobalStyle from "./Services/GlobalStyle"
 import styled from "styled-components/macro"
-import Game from "./Pages/Game"
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
+import Game from "./Pages/Game"
+import Home from "./Pages/Home"
+
+ 
 
 
 function App() {
   return (
-
-    <AppWrapper>
-      <GlobalStyle></GlobalStyle>
-      <Game></Game>
-    </AppWrapper>
+    <Router>
+      <Switch>
+        <AppWrapper>
+          <GlobalStyle></GlobalStyle>
+          <Route exact path="/game">
+            <Home></Home>
+          </Route>
+          <Route exact path="/game">
+            <Game></Game>
+          </Route>
+          
+        </AppWrapper>
+      </Switch>
+    </Router>
   );
 }
 
