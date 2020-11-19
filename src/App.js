@@ -1,13 +1,23 @@
 import GlobalStyle from "./Services/GlobalStyle"
+import styled from "styled-components/macro"
+import Game from "./Pages/Game"
+
+
 
 function App() {
   return (
 
-    <div className="App">
+    <AppWrapper>
       <GlobalStyle></GlobalStyle>
-      <h1>Hello World!</h1>
-    </div>
+      <Game></Game>
+    </AppWrapper>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.section`
+background-color: #2C2972;
+width: 100%;
+height: 100vh;
+`;
