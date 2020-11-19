@@ -5,6 +5,7 @@ function App() {
 
     <div className="App">
       <GlobalStyle></GlobalStyle>
+      <h1>Hello World!</h1>
     </div>
   );
 }
