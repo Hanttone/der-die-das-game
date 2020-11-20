@@ -1,8 +1,8 @@
 import styled from "styled-components/macro"
-import {ReactComponent as NavIconOpen} from "../Assets/navIconOpen.svg"
-import {ReactComponent as NavIconClose} from "../Assets/navIconClose.svg"
+import {ReactComponent as NavIconOpen} from "../../Assets/navIconOpen.svg"
+import {ReactComponent as NavIconClose} from "../../Assets/navIconClose.svg"
 import { useState } from "react"
-import NavItem from "./NavItem"
+import NavItem from "../NavItem/NavItem"
 
 export default function Navigation () {
 

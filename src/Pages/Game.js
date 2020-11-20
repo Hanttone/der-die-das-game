@@ -1,7 +1,7 @@
-import Navigation from "../Components/Navigation";
-import BottomLayout from "../Components/BottomLayout";
+import Navigation from "../Components/Navigation/Navigation";
+import BottomLayout from "../Components/BottomLayout/BottomLayout";
 import styled from "styled-components/macro";
-import Header from "../Components/Header"
+import Header from "../Components/Header/Header"
 
 export default function GamePage () {
 

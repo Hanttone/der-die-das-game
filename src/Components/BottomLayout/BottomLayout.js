@@ -1,8 +1,8 @@
-import {ReactComponent as Blue} from "../Assets/blueWave.svg"
-import {ReactComponent as Lightgreen} from "../Assets/greenFaded.svg"
-import {ReactComponent as Green} from "../Assets/greenWave.svg"
-import {ReactComponent as Lightpurple} from "../Assets/purpleFaded.svg"
-import {ReactComponent as Purple} from "../Assets/purpleStrong.svg"
+import {ReactComponent as Blue} from "../../Assets/blueWave.svg"
+import {ReactComponent as Lightgreen} from "../../Assets/greenFaded.svg"
+import {ReactComponent as Green} from "../../Assets/greenWave.svg"
+import {ReactComponent as Lightpurple} from "../../Assets/purpleFaded.svg"
+import {ReactComponent as Purple} from "../../Assets/purpleStrong.svg"
 import styled from "styled-components/macro";
 
 export default function BottomLayout () {

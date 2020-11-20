@@ -1,7 +1,7 @@
 import styled from "styled-components/macro"
-import Navigation from "../Components/Navigation"
-import Header from "../Components/Header"
-import BottomLayout from "../Components/BottomLayout"
+import Navigation from "../Components/Navigation/Navigation"
+import Header from "../Components/Header/Header"
+import BottomLayout from "../Components/BottomLayout/BottomLayout"
 
 export default function Home () {
 
