@@ -4,11 +4,12 @@ import { NavLink } from "react-router-dom";
 
 export default function NavItem() {
 
+    /*<NavLinkStyled to="/settings" activeClassName="active">Settings</NavLinkStyled> */
+
     return <NavWrapper>
         <NavLinkStyled exact to="/" activeClassName="active">Home</NavLinkStyled>
         <NavLinkStyled to="/game" activeClassName="active">Game</NavLinkStyled>
-        <NavLinkStyled to="/highscores" activeClassName="active">High Score</NavLinkStyled>
-        <NavLinkStyled to="/settings" activeClassName="active">Settings</NavLinkStyled>
+        <NavLinkStyled to="/highscore" activeClassName="active">High Score</NavLinkStyled>
     </NavWrapper>
 }
 
@@ -38,3 +39,4 @@ padding-left: 10%;
     opacity: 0.5;
 }
 `;
+

@@ -4,8 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Game from "./Pages/Game"
 import Home from "./Pages/Home"
-
- 
+import HighScore from "./Pages/HighScore"
 
 
 function App() {
@@ -19,6 +18,9 @@ function App() {
           </Route>
           <Route path="/game">
             <Game></Game>
+          </Route>
+          <Route path="/highscore">
+            <HighScore></HighScore>
           </Route>
         </AppWrapper>
       </Switch>
