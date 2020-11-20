@@ -6,10 +6,10 @@ import Header from "../Components/Header"
 export default function GamePage () {
 
     return <GameWrapper>
-        <Navigation></Navigation>
-        <Header>Game</Header>
-        <BottomLayout></BottomLayout>
-    </GameWrapper>
+                <Navigation></Navigation>
+                <Header>Game</Header>
+                <BottomLayout></BottomLayout>
+            </GameWrapper>
 }
 
 const GameWrapper = styled.main`

@@ -14,13 +14,12 @@ function App() {
       <Switch>
         <AppWrapper>
           <GlobalStyle></GlobalStyle>
-          <Route exact path="/game">
+          <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route exact path="/game">
+          <Route path="/game">
             <Game></Game>
           </Route>
-          
         </AppWrapper>
       </Switch>
     </Router>
