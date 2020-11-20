@@ -1,9 +1,9 @@
 import styled from "styled-components/macro";
 
-export default function Button({width, radius, text}) {
+export default function Button({width, radius, text, row, column}) {
     
     return <>
-    <ButtonStyled width={width} radius={radius}>{text}</ButtonStyled>
+    <ButtonStyled width={width} radius={radius} row={row} column={column}>{text}</ButtonStyled>
     </>
 }
 
@@ -16,4 +16,5 @@ font-size: 1.78rem;
 color: white;
 border: none;
 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+grid-row: ${props => props.row};
 `;

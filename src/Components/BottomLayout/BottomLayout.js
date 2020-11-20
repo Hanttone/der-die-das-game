@@ -22,6 +22,7 @@ height: 48vh;
 position: relative;
 overflow: hidden;
 z-index: 0;
+grid-row: 5;
 `;
 
 const BlueWave = styled(Blue)`

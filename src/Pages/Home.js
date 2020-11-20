@@ -9,7 +9,7 @@ export default function Home () {
     return <HomeWrapper>
         <Navigation></Navigation>
         <Header>Der, die und das</Header>
-        <Button width="80%" radius="28px" text="Play"></Button>
+        <Button width="80%" radius="28px" text="Play" row="4"></Button>
         <BottomLayout></BottomLayout>
     </HomeWrapper>
 
@@ -18,7 +18,7 @@ export default function Home () {
 const HomeWrapper = styled.main`
 height: 100vh;
 width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
+display: grid;
+grid-template-rows: repeat(5, 1fr);
+grid-template-columns: 1fr;
 `;
