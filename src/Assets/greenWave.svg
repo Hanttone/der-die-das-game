@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="374.562" height="162.136" viewBox="0 0 374.562 162.136">
+  <defs>
+    <linearGradient id="linear-gradient1" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4fd1c7"/>
+      <stop offset="1" stop-color="#17767e"/>
+    </linearGradient>
+  </defs>
+  <path id="GreenWave" d="M679.248,1235.562s86.443,2.782,148.826,27.739,69.429,46.852,100.708,72.091,38.141,28.454,69.4,31.974,55.63-17.895,55.63-17.895V1397.7H679.248Z" transform="translate(-679.248 -1235.562)" fill="url(#linear-gradient1)"/>
+</svg>
+
+
+
