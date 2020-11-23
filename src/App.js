@@ -1,11 +1,14 @@
-import GlobalStyle from "./Services/GlobalStyle"
-import styled from "styled-components/macro"
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import GlobalStyle from './Services/GlobalStyle';
+import styled from 'styled-components/macro';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-import Game from "./Pages/Game"
-import Home from "./Pages/Home"
-import HighScore from "./Pages/HighScore"
-
+import Game from './Pages/Game';
+import Home from './Pages/Home';
+import HighScore from './Pages/HighScore';
 
 function App() {
   return (
@@ -14,13 +17,13 @@ function App() {
         <AppWrapper>
           <GlobalStyle></GlobalStyle>
           <Route exact path="/">
-            <Home></Home>
+            <Home />
           </Route>
           <Route path="/game">
-            <Game></Game>
+            <Game />
           </Route>
           <Route path="/highscore">
-            <HighScore></HighScore>
+            <HighScore />
           </Route>
         </AppWrapper>
       </Switch>
@@ -31,7 +34,7 @@ function App() {
 export default App;
 
 const AppWrapper = styled.section`
-background-color: #2C2972;
-width: 100%;
-height: 100vh;
+  background-color: #2c2972;
+  width: 100%;
+  height: 100vh;
 `;
