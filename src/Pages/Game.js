@@ -6,6 +6,7 @@ import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import WordCard from '../Components/WordCard/WordCard';
 import Scores from '../Components/Scores/Scores';
+import Lives from '../Components/Lives/Lives';
 
 export default function GamePage() {
   return (
@@ -15,6 +16,7 @@ export default function GamePage() {
       <Scores
         myScore="100"
         highScore="10000"></Scores>
+      <Lives />
       <WordCard word="Stuhl" />
       <ButtonWrapper>
         <Button
@@ -41,6 +43,7 @@ const GameWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 const ButtonWrapper = styled.div`
@@ -48,4 +51,7 @@ const ButtonWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3%;
+  position: absolute;
+  bottom: 6%;
+  z-index: 1;
 `;

@@ -35,7 +35,7 @@ const ButtonStyled = styled.button`
   border-radius: ${(props) => props.radius};
   background-image: linear-gradient(
     40deg,
-    #6c24b4,
+    #6c24b4 15%,
     #a626b7,
     #b12dc3,
     #dc45f0
