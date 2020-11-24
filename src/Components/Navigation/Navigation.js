@@ -33,7 +33,7 @@ export default function Navigation() {
 
 const NavWrapper = styled.div`
   width: 100%;
-  height: 11vh;
+  height: 6vh;
   text-align: right;
   display: grid;
   grid-template-columns: 1fr 1fr;

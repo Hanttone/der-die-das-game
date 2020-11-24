@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 
 export default function Button({
   width,
@@ -20,6 +21,14 @@ export default function Button({
   );
 }
 
+Button.propTypes = {
+  width: PropTypes.string,
+  radius: PropTypes.string,
+  row: PropTypes.number,
+  column: PropTypes.number,
+  text: PropTypes.string,
+};
+
 const ButtonStyled = styled.button`
   width: ${(props) => props.width};
   height: 8vh;
@@ -32,7 +41,6 @@ const ButtonStyled = styled.button`
     #dc45f0
   );
   font-size: 1.78rem;
-  color: white;
   border: none;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   grid-row: ${(props) => props.row};

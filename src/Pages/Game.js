@@ -4,12 +4,18 @@ import Navigation from '../Components/Navigation/Navigation';
 import BottomLayout from '../Components/BottomLayout/BottomLayout';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
+import WordCard from '../Components/WordCard/WordCard';
+import Scores from '../Components/Scores/Scores';
 
 export default function GamePage() {
   return (
     <GameWrapper>
       <Navigation></Navigation>
       <Header>Game</Header>
+      <Scores
+        myScore="100"
+        highScore="10000"></Scores>
+      <WordCard word="Stuhl" />
       <ButtonWrapper>
         <Button
           width="100%"
@@ -22,8 +28,7 @@ export default function GamePage() {
         <Button
           width="100%"
           radius="20px"
-          text="Das"
-          row="5"></Button>
+          text="Das"></Button>
       </ButtonWrapper>
       <BottomLayout></BottomLayout>
     </GameWrapper>
