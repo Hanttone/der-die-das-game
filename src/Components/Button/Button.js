@@ -5,16 +5,10 @@ export default function Button({
   width,
   radius,
   text,
-  row,
-  column,
 }) {
   return (
     <>
-      <ButtonStyled
-        width={width}
-        radius={radius}
-        row={row}
-        column={column}>
+      <ButtonStyled width={width} radius={radius}>
         {text}
       </ButtonStyled>
     </>
@@ -24,8 +18,6 @@ export default function Button({
 Button.propTypes = {
   width: PropTypes.string,
   radius: PropTypes.string,
-  row: PropTypes.number,
-  column: PropTypes.number,
   text: PropTypes.string,
 };
 
@@ -43,5 +35,4 @@ const ButtonStyled = styled.button`
   font-size: 1.78rem;
   border: none;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  grid-row: ${(props) => props.row};
 `;

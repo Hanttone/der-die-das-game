@@ -27,7 +27,8 @@ export default function NavItem() {
 }
 
 const NavWrapper = styled.nav`
-  height: 40vh;
+  height: 299px;
+  width: 211px;
   background-color: #32a19e;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   grid-column: 2;

@@ -17,7 +17,7 @@ const WordCardWrapper = styled.section`
   z-index: 1;
 
   div {
-    width: 80%;
+    width: 87.5%;
     height: 182px;
     background-color: white;
     opacity: 0.1;

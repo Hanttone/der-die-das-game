@@ -8,13 +8,12 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Navigation></Navigation>
-      <Header>Der, die und das</Header>
+      <Header>Der, die & das</Header>
       <ButtonWrapper>
         <Button
           width="80%"
           radius="28px"
-          text="Play"
-          row="4"></Button>
+          text="Play"></Button>
       </ButtonWrapper>
       <BottomLayout></BottomLayout>
     </HomeWrapper>
