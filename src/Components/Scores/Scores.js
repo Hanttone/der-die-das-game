@@ -23,7 +23,7 @@ const ScoreWrapper = styled.section`
   grid-template-columns: repeat(2, 1fr);
   width: 80%;
   justify-content: space-around;
-  margin-top: 5vh;
+  margin-bottom: 35px;
 
   div {
     font-size: 1.56rem;

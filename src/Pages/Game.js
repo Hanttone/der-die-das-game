@@ -7,6 +7,7 @@ import Button from '../Components/Button/Button';
 import WordCard from '../Components/WordCard/WordCard';
 import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
+import TimerBar from '../Components/TimerBar/TimerBar';
 
 export default function GamePage() {
   return (
@@ -17,20 +18,24 @@ export default function GamePage() {
         myScore="100"
         highScore="10000"></Scores>
       <Lives />
+      <TimerBar />
       <WordCard word="Stuhl" />
       <ButtonWrapper>
         <Button
           width="100%"
           radius="20px"
-          text="Der"></Button>
+          text="Der"
+          zindex="1"></Button>
         <Button
           width="100%"
           radius="20px"
-          text="Die"></Button>
+          text="Die"
+          zindex="1"></Button>
         <Button
           width="100%"
           radius="20px"
-          text="Das"></Button>
+          text="Das"
+          zindex="1"></Button>
       </ButtonWrapper>
       <BottomLayout></BottomLayout>
     </GameWrapper>
@@ -52,6 +57,6 @@ const ButtonWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3%;
   position: absolute;
-  bottom: 6%;
+  bottom: 60px;
   z-index: 1;
 `;

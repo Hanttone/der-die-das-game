@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.852" height="80.532" viewBox="0 0 85.852 80.532"><defs><style>.a{fill:url(#a);}.b{filter:url(#b);}</style><linearGradient id="a" x1="0.163" y1="0.152" x2="1" y2="0.679" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#42c9c3"/><stop offset="0.493" stop-color="#309b96"/><stop offset="1" stop-color="#298d89"/></linearGradient><filter id="b" x="0" y="0" width="85.852" height="80.532" filterUnits="userSpaceOnUse"><feOffset input="SourceAlpha"/><feGaussianBlur stdDeviation="5" result="c"/><feFlood flood-opacity="0.251"/><feComposite operator="in" in2="c"/><feComposite in="SourceGraphic"/></filter></defs><g class="b" transform="matrix(1, 0, 0, 1, 0, 0)"><path class="a" d="M27.926,50.532C12.91,40.443,5.035,31.264,1.806,23.582-6.847,2.994,17.866-6.851,27.926,5.3,37.985-6.851,62.7,2.994,54.046,23.582,50.816,31.264,42.941,40.443,27.926,50.532Z" transform="translate(15 15)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.852" height="80.532" viewBox="0 0 85.852 80.532">
+    <defs>
+        <style>.heart{fill:url(#heart);}.heartb{filter:url(#heartb);}</style>
+        <linearGradient id="heart" x1="0.163" y1="0.152" x2="1" y2="0.679" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#42c9c3"/>
+            <stop offset="0.493" stop-color="#309b96"/>
+            <stop offset="1" stop-color="#298d89"/>
+        </linearGradient>
+        <filter id="heartb" x="0" y="0" width="85.852" height="80.532" filterUnits="userSpaceOnUse">
+            <feOffset input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="5" result="c"/>
+            <feFlood flood-opacity="0.251"/>
+            <feComposite operator="in" in2="c"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g class="heartb" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <path class="heart" d="M27.926,50.532C12.91,40.443,5.035,31.264,1.806,23.582-6.847,2.994,17.866-6.851,27.926,5.3,37.985-6.851,62.7,2.994,54.046,23.582,50.816,31.264,42.941,40.443,27.926,50.532Z" transform="translate(15 15)"/>
+    </g>
+</svg>

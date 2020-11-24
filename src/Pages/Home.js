@@ -9,11 +9,13 @@ export default function Home() {
     <HomeWrapper>
       <Navigation></Navigation>
       <Header>Der, die und das</Header>
-      <Button
-        width="80%"
-        radius="28px"
-        text="Play"
-        row="4"></Button>
+      <ButtonWrapper>
+        <Button
+          width="80%"
+          radius="28px"
+          text="Play"
+          row="4"></Button>
+      </ButtonWrapper>
       <BottomLayout></BottomLayout>
     </HomeWrapper>
   );
@@ -22,7 +24,16 @@ export default function Home() {
 const HomeWrapper = styled.main`
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+`;
+
+const ButtonWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 43px;
+  z-index: 1;
 `;

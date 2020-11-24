@@ -11,14 +11,14 @@ export default function WordCard({ word }) {
 
 const WordCardWrapper = styled.section`
   width: 100%;
-  height: 18.2vh;
   display: grid;
   align-items: center;
   justify-items: center;
+  z-index: 1;
 
   div {
     width: 80%;
-    height: 18.2vh;
+    height: 182px;
     background-color: white;
     opacity: 0.1;
     border-radius: 28px;
