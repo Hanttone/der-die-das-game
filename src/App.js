@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Switch>
         <AppWrapper>
-          <GlobalStyle></GlobalStyle>
+          <GlobalStyle />
           <Route exact path="/">
             <Home />
           </Route>
@@ -34,7 +34,7 @@ function App() {
 export default App;
 
 const AppWrapper = styled.section`
-  background-color: #2c2972;
   width: 100%;
   height: 100vh;
+  background-color: #2c2972;
 `;

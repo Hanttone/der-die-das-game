@@ -19,19 +19,19 @@ const WordCardWrapper = styled.section`
   div {
     width: 87.5%;
     height: 182px;
-    background-color: white;
-    opacity: 0.1;
-    border-radius: 28px;
     grid-column: 1;
     grid-row: 1;
+    border-radius: 28px;
+    background-color: white;
+    opacity: 0.1;
   }
 
   h2 {
     width: 100%;
+    grid-column: 1;
+    grid-row: 1;
     text-align: center;
     font-size: 1.78rem;
     color: white;
-    grid-column: 1;
-    grid-row: 1;
   }
 `;

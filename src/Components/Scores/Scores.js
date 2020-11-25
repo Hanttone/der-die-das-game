@@ -19,11 +19,11 @@ export default function Scores({
 }
 
 const ScoreWrapper = styled.section`
+  width: 87.5%;
+  margin-bottom: 35px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 87.5%;
   justify-content: space-around;
-  margin-bottom: 35px;
 
   div {
     font-size: 1.56rem;

@@ -1,14 +1,14 @@
 import Navigation from '../Components/Navigation/Navigation';
-import BottomLayout from '../Components/BottomLayout/BottomLayout';
+import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import styled from 'styled-components/macro';
 import Header from '../Components/Header/Header';
 
 export default function HighScore() {
   return (
     <HighScoreWrapper>
-      <Navigation></Navigation>
+      <Navigation />
       <Header>High Score</Header>
-      <BottomLayout></BottomLayout>
+      <WaveDesignBackground />
     </HighScoreWrapper>
   );
 }
