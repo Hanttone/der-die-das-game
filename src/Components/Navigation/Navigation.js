@@ -34,11 +34,11 @@ export default function Navigation() {
 const NavWrapper = styled.div`
   width: 100%;
   height: 6vh;
-  text-align: right;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: end;
   align-items: start;
+  text-align: right;
 `;
 
 const NavIconOpenStyled = styled(NavIconOpen)`
@@ -51,6 +51,6 @@ const NavIconCloseStyled = styled(NavIconClose)`
   margin: 8%;
   grid-column: 2;
   grid-row: 1;
-  z-index: 15;
   justify-self: end;
+  z-index: 15;
 `;

@@ -24,7 +24,9 @@ Button.propTypes = {
 const ButtonStyled = styled.button`
   width: ${(props) => props.width};
   height: 63px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   border-radius: ${(props) => props.radius};
+  border: none;
   background-image: linear-gradient(
     40deg,
     #6c24b4 15%,
@@ -33,6 +35,4 @@ const ButtonStyled = styled.button`
     #dc45f0
   );
   font-size: 1.78rem;
-  border: none;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 `;

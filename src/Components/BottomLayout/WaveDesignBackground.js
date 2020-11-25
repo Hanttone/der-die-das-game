@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
-import { ReactComponent as BottomDesign } from '../../Assets/bottomDesign.svg';
+import { ReactComponent as WaveDesign } from '../../Assets/waveDesign.svg';
 
-export default function BottomLayout() {
+export default function WaveDesignBackground() {
   return (
     <LayoutWrapper>
-      <BottomDesign></BottomDesign>
+      <WaveDesign />
     </LayoutWrapper>
   );
 }

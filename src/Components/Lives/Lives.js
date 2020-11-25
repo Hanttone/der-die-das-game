@@ -12,8 +12,8 @@ export default function Lives() {
 }
 
 const LivesWrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   width: 80%;
   margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `;

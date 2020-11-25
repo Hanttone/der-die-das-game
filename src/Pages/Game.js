@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 import Navigation from '../Components/Navigation/Navigation';
-import BottomLayout from '../Components/BottomLayout/BottomLayout';
+import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import WordCard from '../Components/WordCard/WordCard';
@@ -12,7 +12,7 @@ import TimerBar from '../Components/TimerBar/TimerBar';
 export default function GamePage() {
   return (
     <GameWrapper>
-      <Navigation></Navigation>
+      <Navigation />
       <Header>Game</Header>
       <Scores
         myScore="100"
@@ -37,7 +37,7 @@ export default function GamePage() {
           text="Das"
           zindex="1"></Button>
       </ButtonWrapper>
-      <BottomLayout></BottomLayout>
+      <WaveDesignBackground />
     </GameWrapper>
   );
 }
