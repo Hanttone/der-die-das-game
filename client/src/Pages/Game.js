@@ -9,7 +9,29 @@ import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
 import TimerBar from '../Components/TimerBar/TimerBar';
 
-export default function GamePage() {
+export default function GamePage({ wordData }) {
+  const randomIndex = Math.floor(
+    Math.random() * wordData.length
+  );
+
+  function randomWord() {
+    const wordToShow =
+      wordData[randomIndex].germanNoun;
+
+    return wordToShow;
+  }
+
+  function handleClick(nounGender) {
+    if (
+      wordData[randomIndex].gender === nounGender
+    ) {
+      console.log('you guessed correct');
+    } else {
+      console.log('sorry you guessed wrong');
+      randomWord();
+    }
+  }
+
   return (
     <GameWrapper>
       <Navigation />
@@ -19,23 +41,32 @@ export default function GamePage() {
         highScore="10000"></Scores>
       <Lives />
       <TimerBar />
-      <WordCard word="Stuhl" />
+      <WordCard word={randomWord()} />
       <ButtonWrapper>
         <Button
           width="100%"
           radius="20px"
           text="Der"
-          zindex="1"></Button>
+          zindex="1"
+          onPlayerClick={() =>
+            handleClick('der')
+          }></Button>
         <Button
           width="100%"
           radius="20px"
           text="Die"
-          zindex="1"></Button>
+          zindex="1"
+          onPlayerClick={() =>
+            handleClick('die')
+          }></Button>
         <Button
           width="100%"
           radius="20px"
           text="Das"
-          zindex="1"></Button>
+          zindex="1"
+          onPlayerClick={() =>
+            handleClick('das')
+          }></Button>
       </ButtonWrapper>
       <WaveDesignBackground />
     </GameWrapper>

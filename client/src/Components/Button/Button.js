@@ -5,10 +5,14 @@ export default function Button({
   width,
   radius,
   text,
+  onPlayerClick,
 }) {
   return (
     <>
-      <ButtonStyled width={width} radius={radius}>
+      <ButtonStyled
+        onClick={onPlayerClick}
+        width={width}
+        radius={radius}>
         {text}
       </ButtonStyled>
     </>

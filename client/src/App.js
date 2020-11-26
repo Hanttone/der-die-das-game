@@ -5,12 +5,26 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import fetchData from './Services/fetchData';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
 import HighScore from './Pages/HighScore';
 
 function App() {
+  const [gameData, setGameData] = useState([]);
+
+  useEffect(
+    () =>
+      fetchData().then((data) =>
+        setGameData(data)
+      ),
+    []
+  );
+
+  console.log(gameData);
+
   return (
     <Router>
       <Switch>
@@ -20,7 +34,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/game">
-            <Game />
+            <Game wordData={gameData[1]} />
           </Route>
           <Route path="/highscore">
             <HighScore />
