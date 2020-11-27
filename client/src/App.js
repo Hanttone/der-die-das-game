@@ -23,8 +23,6 @@ function App() {
     []
   );
 
-  console.log(gameData);
-
   return (
     <Router>
       <Switch>
