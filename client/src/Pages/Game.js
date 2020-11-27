@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -15,7 +15,14 @@ export default function GamePage({ wordData }) {
     selectedWord,
     setSelectedWord,
   ] = useState('');
-  let correctAnswer = '';
+  const [
+    correctAnswer,
+    setCorrectAnswer,
+  ] = useState('');
+  const [
+    displayAnswer,
+    setDisplayAnswer,
+  ] = useState(true);
 
   function randomWord() {
     const randomNumber = Math.floor(
@@ -26,20 +33,27 @@ export default function GamePage({ wordData }) {
     return setSelectedWord(selectedWord);
   }
 
+  useEffect(() => randomWord(), []);
+
   function handleClick(nounGender) {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
     );
     if (wordData[index].gender === nounGender) {
-      console.log('you guessed correct');
+      console.log('you got 10 points');
       randomWord();
     } else {
-      correctAnswer = nounGender;
+      const correctAnswer = nounGender;
+      setCorrectAnswer(correctAnswer);
+      setDisplayAnswer(false);
       randomWord();
+      setTimeout(
+        () => setDisplayAnswer(true),
+        3000
+      );
     }
   }
 
-  console.log(correctAnswer);
   return (
     <GameWrapper>
       <Navigation />
@@ -49,8 +63,14 @@ export default function GamePage({ wordData }) {
         highScore="10000"></Scores>
       <Lives />
       <TimerBar />
-      <WordCard word={selectedWord} />
-      <h1>{correctAnswer}</h1>
+      {displayAnswer ? (
+        <WordCard word={selectedWord} />
+      ) : (
+        <WordCard
+          text="The correct answer is:"
+          word={correctAnswer}
+        />
+      )}
       <ButtonWrapper>
         <Button
           width="100%"
