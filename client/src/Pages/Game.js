@@ -23,6 +23,12 @@ export default function GamePage({ wordData }) {
     displayAnswer,
     setDisplayAnswer,
   ] = useState(true);
+  const [playerScore, setPlayerScore] = useState(
+    0
+  );
+  const [playerLives, setPlayerLives] = useState(
+    3
+  );
 
   function randomWord() {
     const randomNumber = Math.floor(
@@ -41,12 +47,14 @@ export default function GamePage({ wordData }) {
     );
     if (wordData[index].gender === nounGender) {
       console.log('you got 10 points');
+      setPlayerScore(playerScore + 5);
       randomWord();
     } else {
       const correctAnswer = nounGender;
       setCorrectAnswer(correctAnswer);
       setDisplayAnswer(false);
       randomWord();
+      setPlayerLives(playerLives - 1);
       setTimeout(
         () => setDisplayAnswer(true),
         3000
@@ -59,9 +67,9 @@ export default function GamePage({ wordData }) {
       <Navigation />
       <Header>Game</Header>
       <Scores
-        myScore="100"
+        myScore={playerScore}
         highScore="10000"></Scores>
-      <Lives />
+      <Lives livesLeft={playerLives} />
       <TimerBar />
       {displayAnswer ? (
         <WordCard word={selectedWord} />
