@@ -30,6 +30,8 @@ export default function GamePage({ wordData }) {
     3
   );
 
+  useEffect(() => randomWord(), []);
+
   function randomWord() {
     const randomNumber = Math.floor(
       Math.random() * wordData.length
@@ -39,14 +41,11 @@ export default function GamePage({ wordData }) {
     return setSelectedWord(selectedWord);
   }
 
-  useEffect(() => randomWord(), []);
-
   function handleClick(nounGender) {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
     );
     if (wordData[index].gender === nounGender) {
-      console.log('you got 10 points');
       setPlayerScore(playerScore + 5);
       randomWord();
     } else {
