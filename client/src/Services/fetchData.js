@@ -17,5 +17,6 @@ export default async function fetchData() {
     return allData;
   } catch (error) {
     console.log(error.message);
+    return <div>{error.message}</div>;
   }
 }

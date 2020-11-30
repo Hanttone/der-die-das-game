@@ -20,8 +20,8 @@ export default function GamePage({ wordData }) {
     setCorrectAnswer,
   ] = useState('');
   const [
-    displayAnswer,
-    setDisplayAnswer,
+    isAnswerDisplayed,
+    setIsAnswerDisplayed,
   ] = useState(true);
   const [playerScore, setPlayerScore] = useState(
     0
@@ -36,9 +36,9 @@ export default function GamePage({ wordData }) {
     const randomNumber = Math.floor(
       Math.random() * wordData.length
     );
-    const selectedWord =
+    const wordSelected =
       wordData[randomNumber].germanNoun;
-    return setSelectedWord(selectedWord);
+    return setSelectedWord(wordSelected);
   }
 
   function handleClick(nounGender) {
@@ -51,11 +51,11 @@ export default function GamePage({ wordData }) {
     } else {
       const correctAnswer = nounGender;
       setCorrectAnswer(correctAnswer);
-      setDisplayAnswer(false);
+      setIsAnswerDisplayed(false);
       randomWord();
       setPlayerLives(playerLives - 1);
       setTimeout(
-        () => setDisplayAnswer(true),
+        () => setIsAnswerDisplayed(true),
         3000
       );
     }
@@ -70,7 +70,7 @@ export default function GamePage({ wordData }) {
         highScore="10000"></Scores>
       <Lives livesLeft={playerLives} />
       <TimerBar />
-      {displayAnswer ? (
+      {isAnswerDisplayed ? (
         <WordCard word={selectedWord} />
       ) : (
         <WordCard

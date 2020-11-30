@@ -25,6 +25,13 @@ const ScoreWrapper = styled.section`
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;
 
+  p {
+    font-family: -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+
   div {
     font-size: 1.56rem;
     justify-self: end;
