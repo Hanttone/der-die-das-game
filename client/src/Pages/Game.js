@@ -10,7 +10,10 @@ import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
 import TimerBar from '../Components/TimerBar/TimerBar';
 
-export default function GamePage({ wordData }) {
+export default function GamePage({
+  wordData,
+  scoreData,
+}) {
   const [
     selectedWord,
     setSelectedWord,
@@ -67,7 +70,7 @@ export default function GamePage({ wordData }) {
       <Header>Game</Header>
       <Scores
         myScore={playerScore}
-        highScore="10000"></Scores>
+        highScore={scoreData}></Scores>
       <Lives livesLeft={playerLives} />
       <TimerBar />
       {isAnswerDisplayed ? (

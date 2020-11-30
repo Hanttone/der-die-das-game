@@ -1,19 +1,34 @@
 import styled from 'styled-components/macro';
+import { useHistory } from 'react-router-dom';
+
 import Navigation from '../Components/Navigation/Navigation';
 import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Button from '../Components/Button/Button';
 
 export default function Home() {
+  const history = useHistory();
+
+  function handleClick() {
+    history.push('/game');
+  }
+
   return (
     <HomeWrapper>
       <Navigation />
-      <Header>Der, die & das</Header>
+      <Header mt="118px">Der, die & das</Header>
+      <p>Want to practice the German nouns?</p>
+      <p>
+        Look no more, click on the play button and
+        your game will start.
+      </p>
+      <p>You have 3 lives, have fun!</p>
       <ButtonWrapper>
         <Button
           width="80%"
           radius="28px"
-          text="Play"></Button>
+          text="Play"
+          onPlayerClick={handleClick}></Button>
       </ButtonWrapper>
       <WaveDesignBackground />
     </HomeWrapper>
@@ -27,6 +42,16 @@ const HomeWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   position: relative;
+
+  p {
+    font-family: -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    font-size: 20px;
+    margin-bottom: 3vh;
+    width: 80%;
+  }
 `;
 
 const ButtonWrapper = styled.div`

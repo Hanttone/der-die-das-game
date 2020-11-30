@@ -1,9 +1,25 @@
 import styled from 'styled-components/macro';
+import { useState, useEffect } from 'react';
 
 export default function Scores({
   myScore,
   highScore,
 }) {
+  const [
+    currentHighScore,
+    setCurrentHighScore,
+  ] = useState(0);
+
+  useEffect(() => showHighScore(), []);
+
+  function showHighScore() {
+    highScore.map((score) => {
+      if (score.score > currentHighScore) {
+        return setCurrentHighScore(score.score);
+      }
+    });
+  }
+
   return (
     <ScoreWrapper>
       <section>
@@ -12,7 +28,9 @@ export default function Scores({
       </section>
       <div>
         <p>High Score</p>
-        <div className="left">{highScore}</div>
+        <div className="left">
+          {currentHighScore}
+        </div>
       </div>
     </ScoreWrapper>
   );
