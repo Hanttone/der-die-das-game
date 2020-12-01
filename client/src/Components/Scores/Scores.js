@@ -13,10 +13,12 @@ export default function Scores({
   useEffect(() => showHighScore(), []);
 
   function showHighScore() {
+    let highestScore = 0;
     highScore.map((score) => {
-      if (score.score > currentHighScore) {
-        return setCurrentHighScore(score.score);
+      if (score.score > highestScore) {
+        highestScore = score.score;
       }
+      return setCurrentHighScore(highestScore);
     });
   }
 

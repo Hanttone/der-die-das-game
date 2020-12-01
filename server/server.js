@@ -1,23 +1,16 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import Score from './Models/Score';
 import Noun from './Models/Noun';
+import connectDB from './Database/Connection';
 
 const server = express();
-mongoose.connect(
-  'mongodb://localhost:27017/germannouns',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  }
-);
+connectDB();
 
 server.use(express.json());
 server.use(cors());
 
-server.get('/', (req, res) => {
+server.get('/api', (req, res) => {
   res.json({
     status: 'running',
     words: '/api/germannouns',
@@ -51,9 +44,7 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-const port = 4000;
-server.listen(port, () => {
-  console.log(
-    `server is open at: http://localhost:${port}`
-  );
+const Port = process.env.Port || 4000;
+server.listen(Port, () => {
+  console.log(`server is open at: ${Port}`);
 });
