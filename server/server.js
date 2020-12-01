@@ -3,7 +3,6 @@ import Score from './Models/Score';
 import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
-import { dirname } from './helpers';
 
 const server = express();
 connectDB();
