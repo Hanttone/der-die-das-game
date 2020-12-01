@@ -1,14 +1,31 @@
 import express from 'express';
-import cors from 'cors';
 import Score from './Models/Score';
 import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
+import path from 'path';
+import { dirname } from './helpers';
 
 const server = express();
 connectDB();
 
+const Port = process.env.Port || 4000;
+
 server.use(express.json());
-server.use(cors());
+
+server.use(
+  express.static(
+    path.join(__dirname, '../client/build')
+  )
+);
+server.get('/', (req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      '../client/build',
+      'index.html'
+    )
+  );
+});
 
 server.get('/api', (req, res) => {
   res.json({
@@ -44,7 +61,8 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-const Port = process.env.Port || 4000;
 server.listen(Port, () => {
-  console.log(`server is open at: ${Port}`);
+  console.log(
+    `server is open at: http://localhost:${Port}`
+  );
 });
