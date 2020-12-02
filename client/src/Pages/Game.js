@@ -15,7 +15,6 @@ export default function GamePage({
   wordData,
   scoreData,
 }) {
-  console.log('hello');
   const [
     selectedWord,
     setSelectedWord,
@@ -74,7 +73,12 @@ export default function GamePage({
         myScore={playerScore}
         highScore={scoreData}></Scores>
       <Lives livesLeft={playerLives} />
-      <TimerBar />
+      <TimerBar
+        time={15}
+        scores={playerScore}
+        wrongAnswer={
+          isAnswerDisplayed
+        }></TimerBar>
       {isAnswerDisplayed ? (
         <WordCard word={selectedWord} />
       ) : (
