@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 const server = express();
 connectDB();
 
-const Port = process.env.Port || 4000;
+const PORT = process.env.PORT || 4000;
 const host = '0.0.0.0';
 
 server.use(express.json());
@@ -62,8 +62,8 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-server.listen(Port, host, () => {
+server.listen(PORT, host, () => {
   console.log(
-    `server is open at: http://localhost:${Port}`
+    `server is open at: http://localhost:${PORT}`
   );
 });
