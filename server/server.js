@@ -4,14 +4,16 @@ import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 const server = express();
 connectDB();
+dotenv.config();
 
-const PORT = process.env.PORT || 4000;
-const host = '0.0.0.0';
+const port = 4000;
 
 server.use(express.json());
+server.use(cors());
 
 server.use(
   express.static(
@@ -62,8 +64,8 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-server.listen(PORT, host, () => {
+server.listen(port, () => {
   console.log(
-    `server is open at: http://localhost:${PORT}`
+    `server is open at: http://localhost:${port}`
   );
 });

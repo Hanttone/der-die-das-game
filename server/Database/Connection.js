@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const url = `'mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@derdiedas.qwesx.mongodb.net/germannouns'`;
+dotenv.config({ path: './Database/.env' });
+
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@derdiedas.qwesx.mongodb.net/germannouns`;
 async function connectDB() {
   await mongoose
     .connect(url, {
