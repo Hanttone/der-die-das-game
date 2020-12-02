@@ -3,6 +3,7 @@ import Score from './Models/Score';
 import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
+import cors from 'cors';
 
 const server = express();
 connectDB();
@@ -10,6 +11,7 @@ connectDB();
 const Port = process.env.Port || 4000;
 
 server.use(express.json());
+server.use(cors());
 
 server.use(
   express.static(

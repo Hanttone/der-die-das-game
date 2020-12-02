@@ -15,7 +15,7 @@ export default function GamePage({
   wordData,
   scoreData,
 }) {
-  console.log('helloo');
+  console.log('hello');
   const [
     selectedWord,
     setSelectedWord,
