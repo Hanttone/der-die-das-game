@@ -9,6 +9,7 @@ const server = express();
 connectDB();
 
 const Port = process.env.Port || 4000;
+const host = '0.0.0.0';
 
 server.use(express.json());
 
@@ -61,7 +62,7 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-server.listen(Port, () => {
+server.listen(Port, host, () => {
   console.log(
     `server is open at: http://localhost:${Port}`
   );
