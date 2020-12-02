@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "postinstall" : "cd client && npm install && cd ../server && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm run start",
@@ -12,6 +13,11 @@
     "start": "npm run server",
     "web": "npm run start"
   },
+
+  "engines": {
+    "node" : "14.x"
+  },
+
   "keywords": [],
   "author": "",
   "license": "ISC"
