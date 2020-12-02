@@ -16,6 +16,7 @@ server.use(
     path.join(__dirname, '../client/build')
   )
 );
+
 server.get('/', (req, res) => {
   res.sendFile(
     path.join(

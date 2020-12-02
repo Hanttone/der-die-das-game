@@ -10,10 +10,12 @@ export default function Scores({
     setCurrentHighScore,
   ] = useState(0);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => showHighScore(), []);
 
   function showHighScore() {
     let highestScore = 0;
+    console.log(highestScore);
     highScore.map((score) => {
       if (score.score > highestScore) {
         highestScore = score.score;

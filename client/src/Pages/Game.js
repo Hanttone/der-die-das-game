@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
 import { useState, useEffect } from 'react';
 
@@ -14,6 +15,7 @@ export default function GamePage({
   wordData,
   scoreData,
 }) {
+  console.log('helloo');
   const [
     selectedWord,
     setSelectedWord,
