@@ -1,12 +1,39 @@
 import styled from 'styled-components/macro';
 import { ReactComponent as Heart } from '../../Assets/heartGreen.svg';
+import { ReactComponent as LostHeart } from '../../Assets/heartLost.svg';
 
-export default function Lives() {
+export default function Lives({ livesLeft }) {
+  let livesArray = [];
+  let lostLivesArray = [];
+
+  switch (livesLeft) {
+    case 3:
+      livesArray = [1, 1, 1];
+      break;
+    case 2:
+      livesArray = [1, 1];
+      lostLivesArray = [1];
+      break;
+    case 1:
+      livesArray = [1];
+      lostLivesArray = [1, 1];
+      break;
+    case 0:
+      livesArray = [];
+      lostLivesArray = [1, 1, 1];
+      break;
+    default:
+      console.log('oops something went wrong');
+  }
+
   return (
     <LivesWrapper>
-      <Heart></Heart>
-      <Heart></Heart>
-      <Heart></Heart>
+      {livesArray.map((life, index) => (
+        <Heart key={index} />
+      ))}
+      {lostLivesArray.map((lostlife, index) => (
+        <LostHeart key={index} />
+      ))}
     </LivesWrapper>
   );
 }

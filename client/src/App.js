@@ -1,10 +1,6 @@
 import GlobalStyle from './Services/GlobalStyle';
 import styled from 'styled-components/macro';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchData from './Services/fetchData';
 
@@ -24,22 +20,23 @@ function App() {
   );
 
   return (
-    <Router>
-      <Switch>
-        <AppWrapper>
-          <GlobalStyle />
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/game">
-            <Game wordData={gameData[1]} />
-          </Route>
-          <Route path="/highscore">
-            <HighScore />
-          </Route>
-        </AppWrapper>
-      </Switch>
-    </Router>
+    <Switch>
+      <AppWrapper>
+        <GlobalStyle />
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/game">
+          <Game
+            wordData={gameData[1]}
+            scoreData={gameData[0]}
+          />
+        </Route>
+        <Route path="/highscore">
+          <HighScore />
+        </Route>
+      </AppWrapper>
+    </Switch>
   );
 }
 

@@ -31,6 +31,10 @@ const WordCardWrapper = styled.section`
     grid-column: 1;
     grid-row: 1;
     margin-bottom: 8vh;
+    font-family: -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
   }
 
   h2 {

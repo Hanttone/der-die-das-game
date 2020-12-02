@@ -10,7 +10,10 @@ import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
 import TimerBar from '../Components/TimerBar/TimerBar';
 
-export default function GamePage({ wordData }) {
+export default function GamePage({
+  wordData,
+  scoreData,
+}) {
   const [
     selectedWord,
     setSelectedWord,
@@ -20,35 +23,42 @@ export default function GamePage({ wordData }) {
     setCorrectAnswer,
   ] = useState('');
   const [
-    displayAnswer,
-    setDisplayAnswer,
+    isAnswerDisplayed,
+    setIsAnswerDisplayed,
   ] = useState(true);
+  const [playerScore, setPlayerScore] = useState(
+    0
+  );
+  const [playerLives, setPlayerLives] = useState(
+    3
+  );
+
+  useEffect(() => randomWord(), []);
 
   function randomWord() {
     const randomNumber = Math.floor(
       Math.random() * wordData.length
     );
-    const selectedWord =
+    const wordSelected =
       wordData[randomNumber].germanNoun;
-    return setSelectedWord(selectedWord);
+    return setSelectedWord(wordSelected);
   }
-
-  useEffect(() => randomWord(), []);
 
   function handleClick(nounGender) {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
     );
     if (wordData[index].gender === nounGender) {
-      console.log('you got 10 points');
+      setPlayerScore(playerScore + 5);
       randomWord();
     } else {
       const correctAnswer = nounGender;
       setCorrectAnswer(correctAnswer);
-      setDisplayAnswer(false);
+      setIsAnswerDisplayed(false);
       randomWord();
+      setPlayerLives(playerLives - 1);
       setTimeout(
-        () => setDisplayAnswer(true),
+        () => setIsAnswerDisplayed(true),
         3000
       );
     }
@@ -59,11 +69,11 @@ export default function GamePage({ wordData }) {
       <Navigation />
       <Header>Game</Header>
       <Scores
-        myScore="100"
-        highScore="10000"></Scores>
-      <Lives />
+        myScore={playerScore}
+        highScore={scoreData}></Scores>
+      <Lives livesLeft={playerLives} />
       <TimerBar />
-      {displayAnswer ? (
+      {isAnswerDisplayed ? (
         <WordCard word={selectedWord} />
       ) : (
         <WordCard
