@@ -2,11 +2,13 @@ import mongoose from 'mongoose';
 
 const url = `'mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@derdiedas.qwesx.mongodb.net/germannouns'`;
 async function connectDB() {
-  await mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  });
+  await mongoose
+    .connect(url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    })
+    .catch((error) => console.log(error.message));
   console.log('db is connected');
 }
 
