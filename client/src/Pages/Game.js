@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
 import { useState, useEffect } from 'react';
+import { usePlayerLives } from '../Services/Context';
 
 import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -30,9 +31,7 @@ export default function GamePage({
   const [playerScore, setPlayerScore] = useState(
     0
   );
-  const [playerLives, setPlayerLives] = useState(
-    3
-  );
+  const setPlayerLives = usePlayerLives();
 
   useEffect(() => randomWord(), []);
 
@@ -56,7 +55,7 @@ export default function GamePage({
       const correctAnswer = nounGender;
       setCorrectAnswer(correctAnswer);
       setIsAnswerDisplayed(false);
-      setPlayerLives(playerLives - 1);
+      setPlayerLives(1);
       setTimeout(
         () => setIsAnswerDisplayed(true),
         3000
@@ -72,7 +71,7 @@ export default function GamePage({
       <Scores
         myScore={playerScore}
         highScore={scoreData}></Scores>
-      <Lives livesLeft={playerLives} />
+      <Lives />
       <TimerBar word={selectedWord}></TimerBar>
       {isAnswerDisplayed ? (
         <WordCard word={selectedWord} />

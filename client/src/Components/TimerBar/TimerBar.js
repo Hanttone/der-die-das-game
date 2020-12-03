@@ -4,14 +4,18 @@ import {
   useState,
   useRef,
 } from 'react';
+import { usePlayerLives } from '../../Services/Context';
 
 export default function TimerBar({ word }) {
   const [counter, setCounter] = useState(15);
+  const setPlayerLives = usePlayerLives();
   const timer = useRef();
 
   function setTimer() {
     if (counter > 0) {
       setCounter(counter - 1);
+    } else if (counter === 0) {
+      setPlayerLives(1);
     }
   }
 
@@ -46,7 +50,7 @@ const TimerWrapper = styled.div`
   div {
     width: 315px;
     height: 11px;
-    background-color: grey;
+    background-color: rgba(192, 192, 192, 0.3);
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }

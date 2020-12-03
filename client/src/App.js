@@ -7,6 +7,7 @@ import fetchData from './Services/fetchData';
 import Game from './Pages/Game';
 import Home from './Pages/Home';
 import HighScore from './Pages/HighScore';
+import { GameUpdateProvider } from './Services/Context';
 
 function App() {
   const [gameData, setGameData] = useState([]);
@@ -20,23 +21,25 @@ function App() {
   );
 
   return (
-    <Switch>
-      <AppWrapper>
-        <GlobalStyle />
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/game">
-          <Game
-            wordData={gameData[1]}
-            scoreData={gameData[0]}
-          />
-        </Route>
-        <Route path="/highscore">
-          <HighScore />
-        </Route>
-      </AppWrapper>
-    </Switch>
+    <GameUpdateProvider>
+      <Switch>
+        <AppWrapper>
+          <GlobalStyle />
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/game">
+            <Game
+              wordData={gameData[1]}
+              scoreData={gameData[0]}
+            />
+          </Route>
+          <Route path="/highscore">
+            <HighScore />
+          </Route>
+        </AppWrapper>
+      </Switch>
+    </GameUpdateProvider>
   );
 }
 
