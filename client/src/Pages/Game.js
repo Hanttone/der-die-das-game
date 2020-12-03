@@ -52,7 +52,8 @@ export default function GamePage({
       setPlayerScore(playerScore + 5);
       randomWord();
     } else {
-      const correctAnswer = nounGender;
+      const correctAnswer =
+        wordData[index].gender;
       setCorrectAnswer(correctAnswer);
       setIsAnswerDisplayed(false);
       setPlayerLives(1);
