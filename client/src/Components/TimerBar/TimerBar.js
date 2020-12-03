@@ -1,36 +1,38 @@
 import styled from 'styled-components/macro';
-import { useEffect, useState } from 'react';
+import {
+  useEffect,
+  useState,
+  useRef,
+} from 'react';
 
-export default function TimerBar({
-  time,
-  scores,
-  wrongAnswer,
-}) {
-  const [
-    progressbarWidth,
-    setProgressbarWidth,
-  ] = useState(time);
+export default function TimerBar({ word }) {
+  const [counter, setCounter] = useState(15);
+  const timer = useRef();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => startTimer(), [
-    progressbarWidth,
-  ]);
-
-  function startTimer() {
-    if (progressbarWidth > 0) {
-      setTimeout(
-        () =>
-          setProgressbarWidth(
-            progressbarWidth - 1
-          ),
-        1000
-      );
+  function setTimer() {
+    if (counter > 0) {
+      setCounter(counter - 1);
     }
-    console.log(progressbarWidth);
   }
 
+  useEffect(() => {
+    timer.current = setTimeout(
+      () => setTimer(),
+      1000
+    );
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
+    };
+  }, [counter]);
+
+  useEffect(() => {
+    setCounter(15);
+  }, [word]);
+
   return (
-    <TimerWrapper width={progressbarWidth * 21}>
+    <TimerWrapper width={counter * 21}>
       <div>
         <section></section>
       </div>

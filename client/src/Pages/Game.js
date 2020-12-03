@@ -56,12 +56,12 @@ export default function GamePage({
       const correctAnswer = nounGender;
       setCorrectAnswer(correctAnswer);
       setIsAnswerDisplayed(false);
-      randomWord();
       setPlayerLives(playerLives - 1);
       setTimeout(
         () => setIsAnswerDisplayed(true),
         3000
       );
+      randomWord();
     }
   }
 
@@ -73,12 +73,7 @@ export default function GamePage({
         myScore={playerScore}
         highScore={scoreData}></Scores>
       <Lives livesLeft={playerLives} />
-      <TimerBar
-        time={15}
-        scores={playerScore}
-        wrongAnswer={
-          isAnswerDisplayed
-        }></TimerBar>
+      <TimerBar word={selectedWord}></TimerBar>
       {isAnswerDisplayed ? (
         <WordCard word={selectedWord} />
       ) : (
