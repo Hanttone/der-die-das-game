@@ -25,6 +25,7 @@ const WordCardWrapper = styled.section`
     border-radius: 28px;
     background-color: white;
     opacity: 0.1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
 
   p {
