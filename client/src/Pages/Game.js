@@ -53,6 +53,7 @@ export default function GamePage({
       wordData[randomNumber].germanNoun;
     return setSelectedWord(wordSelected);
   }
+
   function timeIsOut() {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
@@ -152,10 +153,10 @@ export default function GamePage({
               disabled={
                 !isAnswerDisplayed
               }></Button>
-          </ButtonWrapper>
-          <WaveDesignBackground />{' '}
+          </ButtonWrapper>{' '}
         </>
       )}
+      <WaveDesignBackground />
     </GameWrapper>
   );
 }
