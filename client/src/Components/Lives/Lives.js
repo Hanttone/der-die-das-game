@@ -5,7 +5,6 @@ import { useLife } from '../../Services/Context';
 
 export default function Lives() {
   const life = useLife();
-  console.log(life);
   let livesArray = [];
   let lostLivesArray = [];
 

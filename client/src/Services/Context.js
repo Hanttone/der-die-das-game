@@ -6,11 +6,12 @@ export const GameUpdateContext = React.createContext(
 );
 
 export function GameUpdateProvider({ children }) {
+  //if lives disappear it is because they go below 0 then they wont be shown!
   const [playerLives, setPlayerLives] = useState(
     3
   );
 
-  //if lives disappear it is because they go below 0 then they wont be shown!
+  //timer time
   const [counter, setCounter] = useState(15);
 
   function changePlayerLives(life) {
@@ -19,7 +20,13 @@ export function GameUpdateProvider({ children }) {
 
   return (
     <GameUpdateContext.Provider
-      value={{ playerLives, changePlayerLives }}>
+      value={{
+        playerLives,
+        setPlayerLives,
+        changePlayerLives,
+        counter,
+        setCounter,
+      }}>
       {children}
     </GameUpdateContext.Provider>
   );
@@ -27,7 +34,13 @@ export function GameUpdateProvider({ children }) {
 
 export const useGameUpdate = () =>
   useContext(GameUpdateContext);
+export const useSetPlayerLives = () =>
+  useGameUpdate().setPlayerLives;
 export const usePlayerLives = () =>
   useGameUpdate().changePlayerLives;
 export const useLife = () =>
   useGameUpdate().playerLives;
+export const useCounter = () =>
+  useGameUpdate().counter;
+export const useSetCounter = () =>
+  useGameUpdate().setCounter;

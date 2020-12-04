@@ -6,13 +6,15 @@ export default function Button({
   radius,
   text,
   onPlayerClick,
+  disabled,
 }) {
   return (
     <>
       <ButtonStyled
         onClick={onPlayerClick}
         width={width}
-        radius={radius}>
+        radius={radius}
+        disabled={disabled}>
         {text}
       </ButtonStyled>
     </>

@@ -1,21 +1,18 @@
 import styled from 'styled-components/macro';
+import { useEffect, useRef } from 'react';
 import {
-  useEffect,
-  useState,
-  useRef,
-} from 'react';
-import { usePlayerLives } from '../../Services/Context';
+  useCounter,
+  useSetCounter,
+} from '../../Services/Context';
 
 export default function TimerBar({ word }) {
-  const [counter, setCounter] = useState(15);
-  const setPlayerLives = usePlayerLives();
+  const counter = useCounter();
+  const setCounter = useSetCounter();
   const timer = useRef();
 
   function setTimer() {
     if (counter > 0) {
       setCounter(counter - 1);
-    } else if (counter === 0) {
-      setPlayerLives(1);
     }
   }
 
@@ -29,10 +26,12 @@ export default function TimerBar({ word }) {
         clearTimeout(timer.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter]);
 
   useEffect(() => {
     setCounter(15);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word]);
 
   return (
