@@ -9,6 +9,8 @@ export function GameUpdateProvider({ children }) {
   const [playerLives, setPlayerLives] = useState(
     3
   );
+
+  //if lives disappear it is because they go below 0 then they wont be shown!
   const [counter, setCounter] = useState(15);
 
   function changePlayerLives(life) {
