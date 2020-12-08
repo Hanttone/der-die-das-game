@@ -18,14 +18,14 @@ export default function GameOver() {
         width="80%"
         radius="28px"
         text="Replay"
-        onPlayerClick={() =>
-          setPlayerLives(3)
-        }></Button>
+        onPlayerClick={() => setPlayerLives(3)}
+      />
       <Button
         width="80%"
         radius="28px"
         text="End game"
-        onPlayerClick={handleClick}></Button>
+        onPlayerClick={handleClick}
+      />
     </GameOverWrapper>
   );
 }
