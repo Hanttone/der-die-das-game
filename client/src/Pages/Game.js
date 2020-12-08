@@ -6,6 +6,8 @@ import {
   useCounter,
   useSetCounter,
   useLife,
+  usePlayerScore,
+  useSetPlayerScore,
 } from '../Services/Context';
 
 import Navigation from '../Components/Navigation/Navigation';
@@ -34,9 +36,11 @@ export default function GamePage({
     isAnswerDisplayed,
     setIsAnswerDisplayed,
   ] = useState(true);
-  const [playerScore, setPlayerScore] = useState(
+  /*const [playerScore, setPlayerScore] = useState(
     0
-  );
+  );*/
+  const playerScore = usePlayerScore();
+  const setPlayerScore = useSetPlayerScore();
   const setPlayerLives = usePlayerLives();
   const counter = useCounter();
   const setCounter = useSetCounter();
@@ -101,12 +105,7 @@ export default function GamePage({
     setTimeout(() => {
       setIsAnswerDisplayed(true);
     }, 3000);
-    return (
-      <GameOver
-        scoreData={scoreData}
-        playerScore={playerScore}
-      />
-    );
+    return <GameOver scoreData={scoreData} />;
   }
 
   return (

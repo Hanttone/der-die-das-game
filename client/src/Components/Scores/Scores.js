@@ -1,19 +1,19 @@
 import styled from 'styled-components/macro';
+import { usePlayerScore } from '../../Services/Context';
 
-export default function Scores({
-  myScore,
-  highScore,
-}) {
+export default function Scores({ highScore }) {
   const maxScore = highScore?.reduce(
     (max, p) => (p.score > max ? p.score : max),
     highScore[0].score
   );
 
+  const playerScore = usePlayerScore();
+
   return (
     <ScoreWrapper>
       <section>
         <p>Your Score</p>
-        <div>{myScore}</div>
+        <div>{playerScore}</div>
       </section>
       <div>
         <p>High Score</p>

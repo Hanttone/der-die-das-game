@@ -2,7 +2,9 @@ import styled from 'styled-components/macro';
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 
-export default function SubmitScore() {
+export default function SubmitScore({
+  playerScore,
+}) {
   function handleClick() {
     console.log('eellooo');
   }
@@ -10,6 +12,7 @@ export default function SubmitScore() {
   return (
     <HighScoreWrapper>
       <Header>High Score!</Header>
+      <Header>{playerScore}</Header>
       <label htmlFor="playerName">
         {' '}
         Enter your player name:
@@ -33,7 +36,7 @@ const HighScoreWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 2vh;
-  margin-top: 15vh;
+  margin-top: 5vh;
   margin-bottom: 10vh;
 
   label {

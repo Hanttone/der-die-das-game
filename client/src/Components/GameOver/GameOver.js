@@ -2,51 +2,64 @@ import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 import { useSetPlayerLives } from '../../Services/Context';
 import sortScore from '../../Services/sortScores';
-import { useState } from 'react';
+import {
+  usePlayerScore,
+  useSetPlayerScore,
+} from '../../Services/Context';
 
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import SubmitScore from '../SubmitScore/SubmitScore';
 
-export default function GameOver({
-  scoreData,
-  playerScore,
-}) {
+export default function GameOver({ scoreData }) {
   const sortedHighScores = sortScore(scoreData);
   const history = useHistory();
   const setPlayerLives = useSetPlayerLives();
+  const playerScore = usePlayerScore();
+  const setPlayerScore = useSetPlayerScore();
+
   function handleClick() {
-    setPlayerLives(3);
+    resetGame();
     history.push('/');
   }
-  const [
-    isPlayerScoreHigher,
-    setIsPlayerScoreHigher,
-  ] = useState(false);
 
-  if (typeof sortedHighScores[9] === undefined) {
-    setIsPlayerScoreHigher(true);
-    console.log(isPlayerScoreHigher);
+  function playerScoreIsHigher() {
+    if (playerScore !== 0) {
+      if (
+        playerScore > sortedHighScores[0].score ||
+        sortedHighScores[9] === undefined
+      ) {
+        return (
+          <SubmitScore
+            playerScore={playerScore}
+          />
+        );
+      }
+    }
   }
-  console.log(playerScore, sortedHighScores[9]);
+
+  function resetGame() {
+    setPlayerLives(3);
+    setPlayerScore(0);
+  }
 
   return (
     <GameOverWrapper>
       <Header>Game Over</Header>
-      {isPlayerScoreHigher && <SubmitScore />}
+      {playerScoreIsHigher()}
       <ButtonWrapper>
         <Button
           width="80%"
           radius="28px"
           text="Replay"
-          onPlayerClick={() =>
-            setPlayerLives(3)
-          }></Button>
+          onPlayerClick={() => resetGame()}
+        />
         <Button
           width="80%"
           radius="28px"
           text="End game"
-          onPlayerClick={handleClick}></Button>
+          onPlayerClick={handleClick}
+        />
       </ButtonWrapper>
     </GameOverWrapper>
   );
