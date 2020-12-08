@@ -7,8 +7,9 @@ import cors from 'cors';
 
 const server = express();
 connectDB();
+dotenv.config();
 
-const Port = process.env.Port || 4000;
+const port = process.env.PORT || 4000;
 
 server.use(express.json());
 server.use(cors());
@@ -63,8 +64,8 @@ server.post('/api/germannouns', (req, res) => {
     .then(() => res.json(germanNounData));
 });
 
-server.listen(Port, () => {
+server.listen(port, () => {
   console.log(
-    `server is open at: http://localhost:${Port}`
+    `server is open at: http://localhost:${port}`
   );
 });
