@@ -4,6 +4,7 @@ import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 const server = express();
 connectDB();

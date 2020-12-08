@@ -37,7 +37,7 @@ function App() {
             />
           </Route>
           <Route path="/highscore">
-            <HighScore />
+            <HighScore scoreData={gameData[0]} />
           </Route>
         </AppWrapper>
       </Switch>

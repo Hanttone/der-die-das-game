@@ -4,7 +4,7 @@ import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 
-export default function HighScore() {
+export default function HighScore({ scoreData }) {
   return (
     <HighScoreWrapper>
       <Navigation />
