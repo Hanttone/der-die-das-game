@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server.js",
+    "dev": "node --exec babel-node server.js",
     "start": "babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
