@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 
+import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Navigation from '../Components/Navigation/Navigation';
 import Header from '../Components/Header/Header';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Button from '../Components/Button/Button';
 
 export default function Home() {
@@ -28,7 +28,8 @@ export default function Home() {
           width="80%"
           radius="28px"
           text="Play"
-          onPlayerClick={handleClick}></Button>
+          onPlayerClick={handleClick}
+        />
       </ButtonWrapper>
       <WaveDesignBackground />
     </HomeWrapper>

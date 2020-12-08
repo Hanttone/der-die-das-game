@@ -71,7 +71,7 @@ export default function GamePage({
     }
   }
 
-  function handleClick(nounGender) {
+  function handleCorrectAnswer(nounGender) {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
     );
@@ -106,10 +106,10 @@ export default function GamePage({
           <Header>Game</Header>
           <Scores
             myScore={playerScore}
-            highScore={scoreData}></Scores>
+            highScore={scoreData}
+          />
           <Lives />
-          <TimerBar
-            word={selectedWord}></TimerBar>
+          <TimerBar word={selectedWord} />
           {isAnswerDisplayed ? (
             <WordCard word={selectedWord} />
           ) : (
@@ -122,36 +122,33 @@ export default function GamePage({
             <Button
               width="100%"
               radius="20px"
-              text="Der"
+              text="der"
               zindex="1"
               onPlayerClick={() =>
-                handleClick('der')
+                handleCorrectAnswer('der')
               }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
+              disabled={!isAnswerDisplayed}
+            />
             <Button
               width="100%"
               radius="20px"
-              text="Die"
+              text="die"
               zindex="1"
               onPlayerClick={() =>
-                handleClick('die')
+                handleCorrectAnswer('die')
               }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
+              disabled={!isAnswerDisplayed}
+            />
             <Button
               width="100%"
               radius="20px"
-              text="Das"
+              text="das"
               zindex="1"
               onPlayerClick={() =>
-                handleClick('das')
+                handleCorrectAnswer('das')
               }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
+              disabled={!isAnswerDisplayed}
+            />
           </ButtonWrapper>
           <WaveDesignBackground />{' '}
         </>

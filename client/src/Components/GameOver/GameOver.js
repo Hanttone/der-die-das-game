@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro';
-import Button from '../Button/Button';
-import Header from '../Header/Header';
 import { useSetPlayerLives } from '../../Services/Context';
 import { useHistory } from 'react-router-dom';
+
+import Button from '../Button/Button';
+import Header from '../Header/Header';
 
 export default function GameOver() {
   const history = useHistory();

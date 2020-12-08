@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+
 import { ReactComponent as WaveDesign } from '../../Assets/waveDesign.svg';
 
 export default function WaveDesignBackground() {

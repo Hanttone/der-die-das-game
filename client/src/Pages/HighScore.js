@@ -1,6 +1,7 @@
+import styled from 'styled-components/macro';
+
 import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import styled from 'styled-components/macro';
 import Header from '../Components/Header/Header';
 
 export default function HighScore() {
