@@ -1,14 +1,12 @@
 import styled from 'styled-components/macro';
+import sortScores from '../Services/sortScores';
 
 import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 
 export default function HighScore({ scoreData }) {
-  const sortedHighScores = scoreData.sort(
-    (scoreA, scoreB) =>
-      scoreB.score - scoreA.score
-  );
+  const sortedHighScores = sortScores(scoreData);
 
   return (
     <HighScoreWrapper>
