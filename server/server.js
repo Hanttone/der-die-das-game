@@ -67,7 +67,5 @@ server.post('/api/germannouns', (req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(
-    `server is open at: http://localhost:${port}`
-  );
+  console.log(`server is open at: ${port}`);
 });
