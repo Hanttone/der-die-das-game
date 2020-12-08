@@ -19,8 +19,8 @@ export default function Home() {
       <Header mt="118px">Der, die & das</Header>
       <p>Want to practice the German nouns?</p>
       <p>
-        Look no more, click on the play button and
-        your game will start.
+        Look no further, click on the play button
+        and your game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
       <ButtonWrapper>

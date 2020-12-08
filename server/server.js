@@ -3,7 +3,6 @@ import Score from './Models/Score';
 import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
-import dotenv from 'dotenv';
 import cors from 'cors';
 
 const server = express();
@@ -20,6 +19,7 @@ server.use(
     path.join(__dirname, '../client/build')
   )
 );
+
 server.get('/', (req, res) => {
   res.sendFile(
     path.join(

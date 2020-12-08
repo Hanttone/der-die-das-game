@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro';
 import { ReactComponent as Heart } from '../../Assets/heartGreen.svg';
 import { ReactComponent as LostHeart } from '../../Assets/heartLost.svg';
+import { useLife } from '../../Services/Context';
 
-export default function Lives({ livesLeft }) {
+export default function Lives() {
+  const life = useLife();
   let livesArray = [];
   let lostLivesArray = [];
 
-  switch (livesLeft) {
+  switch (life) {
     case 3:
       livesArray = [1, 1, 1];
       break;
