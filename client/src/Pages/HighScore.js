@@ -26,7 +26,9 @@ export default function HighScore({ scoreData }) {
                     {index + 1}.{' '}
                     {player.playerName}
                   </p>
-                  <p>{player.score}</p>
+                  <p key={player.id}>
+                    {player.score}
+                  </p>
                 </>
               )
             )}
