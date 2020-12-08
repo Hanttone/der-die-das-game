@@ -5,6 +5,11 @@ import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackgroun
 import Header from '../Components/Header/Header';
 
 export default function HighScore({ scoreData }) {
+  const sortedHighScores = scoreData.sort(
+    (scoreA, scoreB) =>
+      scoreB.score - scoreA.score
+  );
+
   return (
     <HighScoreWrapper>
       <Navigation />
@@ -13,15 +18,18 @@ export default function HighScore({ scoreData }) {
         <div>
           <h2>Player</h2>
           <h2>Score</h2>
-          <section className="border">
-            <p>1. Maya</p>
-            <p>2. Peter</p>
-            <p>3. kea</p>
-          </section>
           <section>
-            <p>1000</p>
-            <p>1000</p>
-            <p>1000</p>
+            {sortedHighScores.map(
+              (player, index) => (
+                <>
+                  <p key={player.id}>
+                    {index + 1}.{' '}
+                    {player.playerName}
+                  </p>
+                  <p>{player.score}</p>
+                </>
+              )
+            )}
           </section>
         </div>
       </HighScoreTableWrapper>
@@ -65,13 +73,17 @@ const HighScoreTableWrapper = styled.div`
     padding-left: 3%;
   }
 
-  .border {
-    border-right: solid white 2px;
+  section {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    grid-column: span 2;
+    align-items: center;
   }
 
   p {
-    padding: 3%;
-    font-size: 22px;
+    font-size: 20px;
     font-family: Silom;
+    padding-left: 5%;
   }
 `;

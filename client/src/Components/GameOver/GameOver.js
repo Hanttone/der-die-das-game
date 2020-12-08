@@ -14,7 +14,7 @@ export default function GameOver() {
   }
   return (
     <GameOverWrapper>
-      <Header>Game Over!</Header>
+      <Header>Game Over</Header>
       <SubmitScore />
       <ButtonWrapper>
         <Button
@@ -37,6 +37,8 @@ export default function GameOver() {
 const GameOverWrapper = styled.div`
   width: 80%;
   height: 50vh;
+  z-index: 10;
+  margin-top: 5vh;
 `;
 
 const ButtonWrapper = styled.div`

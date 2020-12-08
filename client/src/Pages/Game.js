@@ -97,11 +97,23 @@ export default function GamePage({
     }
   }
 
+  function displayGameOver() {
+    setTimeout(() => {
+      setIsAnswerDisplayed(true);
+    }, 3000);
+    return (
+      <GameOver
+        scoreData={scoreData}
+        playerScore={playerScore}
+      />
+    );
+  }
+
   return (
     <GameWrapper>
       <Navigation />
       {playerLives === 0 ? (
-        <GameOver />
+        displayGameOver()
       ) : (
         <>
           <Header>Game</Header>
