@@ -1,3 +1,3 @@
 ```js
-<Header>Game</Header>
+<Header></Header>
 ```
