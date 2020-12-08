@@ -51,7 +51,7 @@ const TimerWrapper = styled.div`
     height: 11px;
     background-color: rgba(192, 192, 192, 0.3);
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    
   }
 
   section {

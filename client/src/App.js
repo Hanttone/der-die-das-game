@@ -12,6 +12,8 @@ import { GameUpdateProvider } from './Services/Context';
 function App() {
   const [gameData, setGameData] = useState([]);
 
+  console.log(gameData);
+
   useEffect(
     () =>
       fetchData().then((data) =>
