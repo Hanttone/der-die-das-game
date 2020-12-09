@@ -37,7 +37,7 @@ export default function TimerBar({ word }) {
   return (
     <TimerWrapper width={counter * 21}>
       <div>
-        <section></section>
+        <section />
       </div>
     </TimerWrapper>
   );

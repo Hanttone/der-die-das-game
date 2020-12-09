@@ -3,7 +3,8 @@ import { usePlayerScore } from '../../Services/Context';
 
 export default function Scores({ highScore }) {
   const maxScore = highScore?.reduce(
-    (max, p) => (p.score > max ? p.score : max),
+    (max, player) =>
+      player.score > max ? player.score : max,
     highScore[0].score
   );
 

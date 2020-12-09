@@ -1,8 +1,8 @@
-import GlobalStyle from './Services/GlobalStyle';
 import styled from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchData from './Services/fetchData';
+import GlobalStyle from './Services/GlobalStyle';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';

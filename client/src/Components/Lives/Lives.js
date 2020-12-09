@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+
 import { ReactComponent as Heart } from '../../Assets/heartGreen.svg';
 import { ReactComponent as LostHeart } from '../../Assets/heartLost.svg';
 import { useLife } from '../../Services/Context';
