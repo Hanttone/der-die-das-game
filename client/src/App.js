@@ -24,15 +24,26 @@ function App() {
     []
   );
 
-  const pageTransitionVariants = {
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: '100vw',
+      scale: 1,
+    },
     in: {
       opacity: 1,
       x: 0,
+      scale: 1,
     },
     out: {
       opacity: 0,
-      x: '100vw',
+      x: '-100vw',
+      scale: 1.2,
     },
+  };
+
+  const pageTransition = {
+    ease: 'easeInOut',
   };
 
   return (
@@ -43,19 +54,21 @@ function App() {
             <GlobalStyle />
             <Route exact path="/">
               <motion.div
-                initial="out"
+                initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageTransitionVariants}>
+                transition={pageTransition}
+                variants={pageVariants}>
                 <Home />
               </motion.div>
             </Route>
             <Route path="/game">
               <motion.div
-                initial="out"
+                initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageTransitionVariants}>
+                transition={pageTransition}
+                variants={pageVariants}>
                 <Game
                   wordData={gameData[1]}
                   scoreData={gameData[0]}
@@ -64,10 +77,11 @@ function App() {
             </Route>
             <Route path="/highscore">
               <motion.div
-                initial="out"
+                initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageTransitionVariants}>
+                transition={pageTransition}
+                variants={pageVariants}>
                 <HighScore
                   scoreData={gameData[0]}
                 />
@@ -86,5 +100,5 @@ const AppWrapper = styled.section`
   width: 100%;
   height: 100vh;
   background-color: #2c2972;
-  overflow-x: hidden;
+  //overflow-x: hidden;
 `;

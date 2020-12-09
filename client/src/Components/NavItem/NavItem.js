@@ -1,28 +1,54 @@
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function NavItem() {
-  /*<NavLinkStyled to="/settings" activeClassName="active">Settings</NavLinkStyled> */
+  const navVariants = {
+    initial: {
+      opacity: 0,
+      x: '44vw',
+    },
+    in: {
+      opacity: 1,
+      x: '44vw',
+    },
+    out: {
+      opacity: 0,
+      x: '44vw',
+    },
+  };
+
+  const navTransition = {
+    type: 'spring',
+    ease: 'easeInOut',
+  };
 
   return (
-    <NavWrapper>
-      <NavLinkStyled
-        exact
-        to="/"
-        activeClassName="active">
-        Home
-      </NavLinkStyled>
-      <NavLinkStyled
-        to="/game"
-        activeClassName="active">
-        Game
-      </NavLinkStyled>
-      <NavLinkStyled
-        to="/highscore"
-        activeClassName="active">
-        High Score
-      </NavLinkStyled>
-    </NavWrapper>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={navTransition}
+      variants={navVariants}>
+      <NavWrapper>
+        <NavLinkStyled
+          exact
+          to="/"
+          activeClassName="active">
+          Home
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/game"
+          activeClassName="active">
+          Game
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/highscore"
+          activeClassName="active">
+          High Score
+        </NavLinkStyled>
+      </NavWrapper>
+    </motion.div>
   );
 }
 

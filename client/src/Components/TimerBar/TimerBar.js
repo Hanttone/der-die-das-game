@@ -36,7 +36,7 @@ export default function TimerBar({ word }) {
   }, [word]);
 
   return (
-    <TimerWrapper width={counter * 21}>
+    <TimerWrapper>
       <div>
         <motion.div
           animate={{

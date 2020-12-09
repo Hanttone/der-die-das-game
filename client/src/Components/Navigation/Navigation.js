@@ -2,6 +2,8 @@ import styled from 'styled-components/macro';
 import { ReactComponent as NavIconOpen } from '../../Assets/navIconOpen.svg';
 import { ReactComponent as NavIconClose } from '../../Assets/navIconClose.svg';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+
 import NavItem from '../NavItem/NavItem';
 
 export default function Navigation() {
@@ -17,16 +19,14 @@ export default function Navigation() {
     <NavWrapper>
       {toggleNav ? (
         <NavIconOpenStyled
-          onClick={
-            handleClick
-          }></NavIconOpenStyled>
+          onClick={handleClick}
+        />
       ) : (
         <NavIconCloseStyled
-          onClick={
-            handleClick
-          }></NavIconCloseStyled>
+          onClick={handleClick}
+        />
       )}
-      {!toggleNav && <NavItem></NavItem>}
+      {!toggleNav && <NavItem />}
     </NavWrapper>
   );
 }
@@ -39,6 +39,7 @@ const NavWrapper = styled.div`
   justify-content: end;
   align-items: start;
   text-align: right;
+  z-index: 10;
 `;
 
 const NavIconOpenStyled = styled(NavIconOpen)`
