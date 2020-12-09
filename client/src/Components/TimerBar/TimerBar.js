@@ -4,6 +4,7 @@ import {
   useCounter,
   useSetCounter,
 } from '../../Services/Context';
+import { motion } from 'framer-motion';
 
 export default function TimerBar({ word }) {
   const counter = useCounter();
@@ -37,7 +38,16 @@ export default function TimerBar({ word }) {
   return (
     <TimerWrapper width={counter * 21}>
       <div>
-        <section></section>
+        <motion.div
+          animate={{
+            width: `${counter * 21}px`,
+            backgroundImage:
+              'linear-gradient(-45deg, #d933f0,#a429b4,#9425a3)',
+          }}
+          transition={{
+            ease: 'easeInOut',
+            duration: 0.5,
+          }}></motion.div>
       </div>
     </TimerWrapper>
   );
@@ -51,18 +61,11 @@ const TimerWrapper = styled.div`
     height: 11px;
     background-color: rgba(192, 192, 192, 0.3);
     border-radius: 5px;
-    
   }
 
   section {
     width: ${(props) => props.width + 'px'};
     height: 11px;
-    background-image: linear-gradient(
-      -45deg,
-      #d933f0,
-      #a429b4,
-      #9425a3
-    );
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }

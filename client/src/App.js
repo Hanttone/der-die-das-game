@@ -3,6 +3,10 @@ import styled from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchData from './Services/fetchData';
+import {
+  AnimatePresence,
+  motion,
+} from 'framer-motion';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
@@ -20,25 +24,58 @@ function App() {
     []
   );
 
+  const pageTransitionVariants = {
+    in: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: '100vw',
+    },
+  };
+
   return (
     <GameUpdateProvider>
-      <Switch>
-        <AppWrapper>
-          <GlobalStyle />
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/game">
-            <Game
-              wordData={gameData[1]}
-              scoreData={gameData[0]}
-            />
-          </Route>
-          <Route path="/highscore">
-            <HighScore scoreData={gameData[0]} />
-          </Route>
-        </AppWrapper>
-      </Switch>
+      <AnimatePresence>
+        <Switch>
+          <AppWrapper>
+            <GlobalStyle />
+            <Route exact path="/">
+              <motion.div
+                initial="out"
+                animate="in"
+                exit="out"
+                variants={pageTransitionVariants}>
+                <Home />
+              </motion.div>
+            </Route>
+            <Route path="/game">
+              <motion.div
+                initial="out"
+                animate="in"
+                exit="out"
+                variants={pageTransitionVariants}>
+                <Game
+                  wordData={gameData[1]}
+                  scoreData={gameData[0]}
+                />
+              </motion.div>
+            </Route>
+            <Route path="/highscore">
+              <motion.div
+                initial="out"
+                animate="in"
+                exit="out"
+                variants={pageTransitionVariants}>
+                <HighScore
+                  scoreData={gameData[0]}
+                />
+              </motion.div>
+            </Route>
+          </AppWrapper>
+        </Switch>
+      </AnimatePresence>
     </GameUpdateProvider>
   );
 }
@@ -49,4 +86,5 @@ const AppWrapper = styled.section`
   width: 100%;
   height: 100vh;
   background-color: #2c2972;
+  overflow-x: hidden;
 `;
