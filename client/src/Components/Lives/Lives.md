@@ -1,3 +1,0 @@
-```js
-<Lives></Lives>
-```

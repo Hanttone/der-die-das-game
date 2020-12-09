@@ -14,6 +14,10 @@ export function GameUpdateProvider({ children }) {
   //timer time
   const [counter, setCounter] = useState(15);
 
+  const [playerScore, setPlayerScore] = useState(
+    0
+  );
+
   function changePlayerLives(life) {
     setPlayerLives(playerLives - life);
   }
@@ -26,6 +30,8 @@ export function GameUpdateProvider({ children }) {
         changePlayerLives,
         counter,
         setCounter,
+        playerScore,
+        setPlayerScore,
       }}>
       {children}
     </GameUpdateContext.Provider>
@@ -44,3 +50,7 @@ export const useCounter = () =>
   useGameUpdate().counter;
 export const useSetCounter = () =>
   useGameUpdate().setCounter;
+export const usePlayerScore = () =>
+  useGameUpdate().playerScore;
+export const useSetPlayerScore = () =>
+  useGameUpdate().setPlayerScore;

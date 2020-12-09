@@ -31,7 +31,8 @@ export default function Home() {
           onPlayerClick={handleClick}
         />
       </ButtonWrapper>
-      <WaveDesignBackground />
+      <WaveDesignBackground
+        animate={true}></WaveDesignBackground>
     </HomeWrapper>
   );
 }
@@ -40,6 +41,7 @@ const HomeWrapper = styled.main`
   height: 100vh;
   width: 100%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   position: relative;

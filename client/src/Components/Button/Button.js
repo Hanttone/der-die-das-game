@@ -41,4 +41,5 @@ const ButtonStyled = styled.button`
     #dc45f0
   );
   font-size: 1.78rem;
+  outline: none;
 `;

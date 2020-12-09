@@ -6,6 +6,8 @@ import {
   useCounter,
   useSetCounter,
   useLife,
+  usePlayerScore,
+  useSetPlayerScore,
 } from '../Services/Context';
 
 import Navigation from '../Components/Navigation/Navigation';
@@ -34,9 +36,11 @@ export default function GamePage({
     isAnswerDisplayed,
     setIsAnswerDisplayed,
   ] = useState(true);
-  const [playerScore, setPlayerScore] = useState(
+  /*const [playerScore, setPlayerScore] = useState(
     0
-  );
+  );*/
+  const playerScore = usePlayerScore();
+  const setPlayerScore = useSetPlayerScore();
   const setPlayerLives = usePlayerLives();
   const counter = useCounter();
   const setCounter = useSetCounter();
@@ -53,6 +57,7 @@ export default function GamePage({
       wordData[randomNumber].germanNoun;
     return setSelectedWord(wordSelected);
   }
+
   function timeIsOut() {
     const index = wordData.findIndex(
       (word) => word.germanNoun === selectedWord
@@ -96,11 +101,18 @@ export default function GamePage({
     }
   }
 
+  function displayGameOver() {
+    setTimeout(() => {
+      setIsAnswerDisplayed(true);
+    }, 3000);
+    return <GameOver scoreData={scoreData} />;
+  }
+
   return (
     <GameWrapper>
       <Navigation />
       {playerLives === 0 ? (
-        <GameOver />
+        displayGameOver()
       ) : (
         <>
           <Header>Game</Header>
@@ -147,12 +159,13 @@ export default function GamePage({
               onPlayerClick={() =>
                 handleCorrectAnswer('das')
               }
-              disabled={!isAnswerDisplayed}
-            />
-          </ButtonWrapper>
-          <WaveDesignBackground />{' '}
+              disabled={
+                !isAnswerDisplayed
+              } />
+          </ButtonWrapper>{' '}
         </>
       )}
+      <WaveDesignBackground />
     </GameWrapper>
   );
 }
