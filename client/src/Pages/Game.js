@@ -9,6 +9,7 @@ import {
   usePlayerScore,
   useSetPlayerScore,
 } from '../Services/Context';
+import Ripples from 'react-ripples';
 
 import Navigation from '../Components/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -131,39 +132,48 @@ export default function GamePage({
             />
           )}
           <ButtonWrapper>
-            <Button
-              width="100%"
-              radius="20px"
-              text="Der"
-              zindex="1"
-              onPlayerClick={() =>
-                handleClick('der')
-              }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
-            <Button
-              width="100%"
-              radius="20px"
-              text="Die"
-              zindex="1"
-              onPlayerClick={() =>
-                handleClick('die')
-              }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
-            <Button
-              width="100%"
-              radius="20px"
-              text="Das"
-              zindex="1"
-              onPlayerClick={() =>
-                handleClick('das')
-              }
-              disabled={
-                !isAnswerDisplayed
-              }></Button>
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Der"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleClick('der')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Die"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleClick('die')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Das"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleClick('das')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
           </ButtonWrapper>{' '}
         </>
       )}
@@ -189,4 +199,10 @@ const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 60px;
   z-index: 1;
+
+  div {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+  }
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
+import Ripples from 'react-ripples';
 
 import Navigation from '../Components/Navigation/Navigation';
 import Header from '../Components/Header/Header';
@@ -24,11 +25,16 @@ export default function Home() {
       </p>
       <p>You have 3 lives, have fun!</p>
       <ButtonWrapper>
-        <Button
-          width="80%"
-          radius="28px"
-          text="Play"
-          onPlayerClick={handleClick}></Button>
+        <div>
+          <Ripples during={1200}>
+            <Button
+              width="80%"
+              radius="28px"
+              text="Play"
+              onPlayerClick={handleClick}
+            />
+          </Ripples>
+        </div>
       </ButtonWrapper>
       <WaveDesignBackground
         animate={true}></WaveDesignBackground>
@@ -53,6 +59,7 @@ const HomeWrapper = styled.main`
     font-size: 20px;
     margin-bottom: 3vh;
     width: 80%;
+    z-index: 2;
   }
 `;
 
@@ -62,4 +69,12 @@ const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 43px;
   z-index: 1;
+
+  div {
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
 `;
