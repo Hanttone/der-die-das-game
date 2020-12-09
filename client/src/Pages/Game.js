@@ -36,9 +36,7 @@ export default function GamePage({
     isAnswerDisplayed,
     setIsAnswerDisplayed,
   ] = useState(true);
-  /*const [playerScore, setPlayerScore] = useState(
-    0
-  );*/
+
   const playerScore = usePlayerScore();
   const setPlayerScore = useSetPlayerScore();
   const setPlayerLives = usePlayerLives();
@@ -159,9 +157,8 @@ export default function GamePage({
               onPlayerClick={() =>
                 handleCorrectAnswer('das')
               }
-              disabled={
-                !isAnswerDisplayed
-              } />
+              disabled={!isAnswerDisplayed}
+            />
           </ButtonWrapper>{' '}
         </>
       )}

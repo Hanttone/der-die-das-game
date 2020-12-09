@@ -18,16 +18,14 @@ export default function Navigation() {
     <NavWrapper>
       {toggleNav ? (
         <NavIconOpenStyled
-          onClick={
-            handleClick
-          }></NavIconOpenStyled>
+          onClick={handleClick}
+        />
       ) : (
         <NavIconCloseStyled
-          onClick={
-            handleClick
-          }></NavIconCloseStyled>
+          onClick={handleClick}
+        />
       )}
-      {!toggleNav && <NavItem></NavItem>}
+      {!toggleNav && <NavItem />}
     </NavWrapper>
   );
 }

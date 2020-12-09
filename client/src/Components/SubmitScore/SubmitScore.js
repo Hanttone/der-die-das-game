@@ -26,7 +26,8 @@ export default function SubmitScore({
         width="80%"
         radius="28px"
         text="Submit"
-        onPlayerClick={handleClick}></Button>
+        onPlayerClick={handleClick}
+      />
     </HighScoreWrapper>
   );
 }

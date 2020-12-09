@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default function WordCard({ word, text }) {
   return (
     <WordCardWrapper>
-      <div></div>
+      <div />
       <p>{text}</p>
       <h2>{word}</h2>
     </WordCardWrapper>

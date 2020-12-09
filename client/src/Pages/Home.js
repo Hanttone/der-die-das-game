@@ -31,8 +31,7 @@ export default function Home() {
           onPlayerClick={handleClick}
         />
       </ButtonWrapper>
-      <WaveDesignBackground
-        animate={true}></WaveDesignBackground>
+      <WaveDesignBackground />
     </HomeWrapper>
   );
 }
