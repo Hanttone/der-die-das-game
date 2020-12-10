@@ -17,27 +17,28 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Navigation />
-      <Header mt="118px">Der, die & das</Header>
+      <Header mt="4.8rem" mb="2rem">
+        Der, die & das
+      </Header>
       <p>Want to practice the German nouns?</p>
       <p>
-        Look no further, click on the play button
-        and your game will start.
+        Look no further, with this game you can
+        practice over 100 000 German Nouns.
+      </p>
+      <p>
+        Simply click on the play button and your
+        game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
       <ButtonWrapper>
-        <div>
-          <Ripples during={1200}>
-            <Button
-              width="80%"
-              radius="28px"
-              text="Play"
-              onPlayerClick={handleClick}
-            />
-          </Ripples>
-        </div>
+        <Button
+          width="80%"
+          radius="28px"
+          text="Play"
+          onPlayerClick={handleClick}
+        />
       </ButtonWrapper>
-      <WaveDesignBackground
-        animate={true}></WaveDesignBackground>
+      <WaveDesignBackground />
     </HomeWrapper>
   );
 }
@@ -56,10 +57,12 @@ const HomeWrapper = styled.main`
       'Segoe UI', Roboto, Oxygen, Ubuntu,
       Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
-    font-size: 20px;
-    margin-bottom: 3vh;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 2vh;
     width: 80%;
     z-index: 2;
+    line-height: 1.5;
   }
 `;
 

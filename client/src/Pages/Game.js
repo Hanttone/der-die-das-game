@@ -116,7 +116,9 @@ export default function GamePage({
         displayGameOver()
       ) : (
         <>
-          <Header>Game</Header>
+          <Header mt="1.31rem" mb="1.75rem">
+            Game
+          </Header>
           <Scores
             myScore={playerScore}
             highScore={scoreData}></Scores>
@@ -204,5 +206,6 @@ const ButtonWrapper = styled.div`
     overflow: hidden;
     border-radius: 20px;
     width: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   }
 `;

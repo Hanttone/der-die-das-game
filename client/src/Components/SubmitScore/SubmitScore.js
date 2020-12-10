@@ -47,7 +47,7 @@ export default function SubmitScore({
         <p>Your score was submitted</p>
       ) : (
         <>
-          <Header>High Score!</Header>
+          <Header mt="5vh">High Score!</Header>
           <Header>{playerScore}</Header>
           <label htmlFor="playerName">
             {' '}
@@ -75,10 +75,10 @@ export default function SubmitScore({
 const HighScoreWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
   gap: 2vh;
-  margin-top: 5vh;
-  margin-bottom: 10vh;
+  margin-bottom: 2vh;
 
   label {
     display: flex;
@@ -86,19 +86,19 @@ const HighScoreWrapper = styled.div`
     flex-direction: column;
     width: 100%;
     text-align: center;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   input {
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     color: black;
-    height: 6vh;
+    height: 8vh;
     border-radius: 28px;
     border: none;
     outline: none;
     text-align: center;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   p {
@@ -107,5 +107,7 @@ const HighScoreWrapper = styled.div`
       'Segoe UI', Roboto, Oxygen, Ubuntu,
       Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
+    margin-top: 25vh;
+    margin-bottom: 20vh;
   }
 `;

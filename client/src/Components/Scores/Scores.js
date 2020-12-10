@@ -3,7 +3,8 @@ import { usePlayerScore } from '../../Services/Context';
 
 export default function Scores({ highScore }) {
   const maxScore = highScore?.reduce(
-    (max, p) => (p.score > max ? p.score : max),
+    (max, player) =>
+      player.score > max ? player.score : max,
     highScore[0].score
   );
 
@@ -25,7 +26,7 @@ export default function Scores({ highScore }) {
 
 const ScoreWrapper = styled.section`
   width: 87.5%;
-  margin-bottom: 35px;
+  margin-bottom: 2.18rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;

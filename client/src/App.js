@@ -43,7 +43,7 @@ function App() {
   };
 
   const pageTransition = {
-    ease: 'easeInOut',
+    ease: 'anticipate',
   };
 
   return (

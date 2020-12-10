@@ -39,7 +39,7 @@ const NavWrapper = styled.div`
   justify-content: end;
   align-items: start;
   text-align: right;
-  z-index: 10;
+  z-index: 50;
 `;
 
 const NavIconOpenStyled = styled(NavIconOpen)`

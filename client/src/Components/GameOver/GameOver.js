@@ -67,15 +67,18 @@ export default function GameOver({ scoreData }) {
 
 const GameOverWrapper = styled.div`
   width: 80%;
-  height: 50vh;
+  height: 90vh;
   z-index: 10;
   margin-top: 5vh;
+  position: relative;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2vh;
-  margin-top: 10vh;
+  gap: 1vh;
+  width: 100%;
+  position: absolute;
+  bottom: 4vh;
 `;

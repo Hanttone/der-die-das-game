@@ -53,8 +53,8 @@ export default function NavItem() {
 }
 
 const NavWrapper = styled.nav`
-  height: 299px;
-  width: 211px;
+  height: 40vh;
+  width: 56vw;
   grid-column: 2;
   grid-row: 1;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -72,9 +72,9 @@ const NavLinkStyled = styled(NavLink)`
   padding-left: 10%;
   font-size: 1.87rem;
   text-decoration: none;
-  opacity: 1;
+  opacity: 0.5;
 
   &.active {
-    opacity: 0.5;
+    opacity: 1;
   }
 `;
