@@ -4,7 +4,7 @@ import { ReactComponent as NavIconClose } from '../../Assets/navIconClose.svg';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import NavItem from '../NavItem/NavItem';
+import NavItem from '../../Components/NavItem/NavItem';
 
 export default function Navigation() {
   const [toggleNav, setToggleNav] = useState(

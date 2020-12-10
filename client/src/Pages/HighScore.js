@@ -1,35 +1,37 @@
 import styled from 'styled-components/macro';
 import sortScores from '../Services/sortScores';
+import { useNewHighScore } from '../Services/Context';
 
-import Navigation from '../Components/Navigation/Navigation';
+import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 
 export default function HighScore({ scoreData }) {
+  const newHighScore = useNewHighScore();
   const sortedHighScores = sortScores(scoreData);
+  const topTen = sortedHighScores.slice(0, 10);
 
   return (
     <HighScoreWrapper>
       <Navigation />
-      <Header>High Score</Header>
+      <Header mt="1.31rem" mb="1.75rem">
+        High Score
+      </Header>
       <HighScoreTableWrapper>
         <div>
           <h2>Player</h2>
           <h2>Score</h2>
           <section>
-            {sortedHighScores.map(
-              (player, index) => (
-                <>
-                  <p key={player.id}>
-                    {index + 1}.{' '}
-                    {player.playerName}
-                  </p>
-                  <p key={player.id}>
-                    {player.score}
-                  </p>
-                </>
-              )
-            )}
+            {topTen.map((player, index) => (
+              <>
+                <p key={player.id}>
+                  {index + 1}. {player.playerName}
+                </p>
+                <p key={player.id}>
+                  {player.score}
+                </p>
+              </>
+            ))}
           </section>
         </div>
       </HighScoreTableWrapper>
@@ -48,8 +50,8 @@ const HighScoreWrapper = styled.main`
 
 const HighScoreTableWrapper = styled.div`
   position: relative;
-  height: 587px;
-  width: 329px;
+  height: 75vh;
+  width: 87.5%;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 28px;
   z-index: 1;

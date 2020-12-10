@@ -11,7 +11,7 @@ import {
 } from '../Services/Context';
 import Ripples from 'react-ripples';
 
-import Navigation from '../Components/Navigation/Navigation';
+import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
@@ -19,7 +19,7 @@ import WordCard from '../Components/WordCard/WordCard';
 import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
 import TimerBar from '../Components/TimerBar/TimerBar';
-import GameOver from '../Components/GameOver/GameOver';
+import GameOver from '../Modules/GameOver/GameOver';
 
 export default function GamePage({
   wordData,
@@ -37,9 +37,7 @@ export default function GamePage({
     isAnswerDisplayed,
     setIsAnswerDisplayed,
   ] = useState(true);
-  /*const [playerScore, setPlayerScore] = useState(
-    0
-  );*/
+
   const playerScore = usePlayerScore();
   const setPlayerScore = useSetPlayerScore();
   const setPlayerLives = usePlayerLives();

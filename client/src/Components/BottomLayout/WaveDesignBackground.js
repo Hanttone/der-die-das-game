@@ -1,8 +1,4 @@
-import styled, {
-  css,
-  keyframes,
-} from 'styled-components/macro';
-import { ReactComponent as WaveDesign } from '../../Assets/waveDesign.svg';
+import styled from 'styled-components/macro';
 import SVG from '../../Services/bottomDesignLayout';
 
 export default function WaveDesignBackground() {

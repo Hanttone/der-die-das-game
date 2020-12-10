@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
-import Ripples from 'react-ripples';
 
-import Navigation from '../Components/Navigation/Navigation';
+import Navigation from '../Modules/Navigation/Navigation';
 import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Button from '../Components/Button/Button';

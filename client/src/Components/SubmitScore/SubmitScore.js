@@ -2,10 +2,16 @@ import styled from 'styled-components/macro';
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import { useState } from 'react';
+import {
+  useNewHighScore,
+  useSetNewHighScore,
+} from '../../Services/Context';
 
 export default function SubmitScore({
   playerScore,
+  scoreData,
 }) {
+  console.log(scoreData);
   const [
     isScoreSubmitted,
     setIsScoreSubmitted,
@@ -14,6 +20,8 @@ export default function SubmitScore({
     playerName: '',
     score: playerScore,
   });
+  const newHighScore = useNewHighScore();
+  const setNewHighScore = useSetNewHighScore();
 
   function handleChange(event) {
     const fieldValue = event.target.value;
@@ -38,6 +46,11 @@ export default function SubmitScore({
         console.log(createdUser, 'CREATED')
       )
       .catch((error) => console.error(error));
+    setNewHighScore((newHighScore) => [
+      ...scoreData,
+      playerInfo,
+    ]);
+    console.log(newHighScore);
     setIsScoreSubmitted(true);
   }
 

@@ -7,22 +7,33 @@ import {
   AnimatePresence,
   motion,
 } from 'framer-motion';
+import { GameUpdateProvider } from './Services/Context';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
 import HighScore from './Pages/HighScore';
-import { GameUpdateProvider } from './Services/Context';
+import Loading from './Modules/Loading/Loading';
 
 function App() {
   const [gameData, setGameData] = useState([]);
+  const [
+    fetchInProgress,
+    setFetchInProgress,
+  ] = useState(true);
 
   useEffect(
     () =>
-      fetchData().then((data) =>
-        setGameData(data)
-      ),
+      fetchData()
+        .then((data) => setGameData(data))
+        .then(setLoading),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
+
+  console.log(fetchInProgress);
+  function setLoading() {
+    setFetchInProgress(!fetchInProgress);
+  }
 
   const pageVariants = {
     initial: {
@@ -52,41 +63,47 @@ function App() {
         <Switch>
           <AppWrapper>
             <GlobalStyle />
-            <Route exact path="/">
-              <motion.div
-                initial="initial"
-                animate="in"
-                exit="out"
-                transition={pageTransition}
-                variants={pageVariants}>
-                <Home />
-              </motion.div>
-            </Route>
-            <Route path="/game">
-              <motion.div
-                initial="initial"
-                animate="in"
-                exit="out"
-                transition={pageTransition}
-                variants={pageVariants}>
-                <Game
-                  wordData={gameData[1]}
-                  scoreData={gameData[0]}
-                />
-              </motion.div>
-            </Route>
-            <Route path="/highscore">
-              <motion.div
-                initial="initial"
-                animate="in"
-                exit="out"
-                transition={pageTransition}
-                variants={pageVariants}>
-                <HighScore
-                  scoreData={gameData[0]}
-                />
-              </motion.div>
-            </Route>
+            {fetchInProgress ? (
+              <Loading />
+            ) : (
+              <>
+                <Route exact path="/">
+                  <motion.div
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageVariants}>
+                    <Home />
+                  </motion.div>
+                </Route>
+                <Route path="/game">
+                  <motion.div
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageVariants}>
+                    <Game
+                      wordData={gameData[1]}
+                      scoreData={gameData[0]}
+                    />
+                  </motion.div>
+                </Route>
+                <Route path="/highscore">
+                  <motion.div
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageVariants}>
+                    <HighScore
+                      scoreData={gameData[0]}
+                    />
+                  </motion.div>
+                </Route>{' '}
+              </>
+            )}
           </AppWrapper>
         </Switch>
       </AnimatePresence>
