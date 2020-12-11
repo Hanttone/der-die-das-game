@@ -110,7 +110,7 @@ export default function GamePage({
 
   return (
     <GameWrapper>
-      <Navigation />
+      <Navigation mode={mode} />
       {playerLives === 0 ? (
         displayGameOver()
       ) : (

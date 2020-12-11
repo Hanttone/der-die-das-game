@@ -52,7 +52,7 @@ export default function Home(props) {
           },
         }}
       />
-      <Navigation />
+      <Navigation mode={props.mode} />
       <Header mt="8vh" mb="6vh">
         Der, die & das
       </Header>

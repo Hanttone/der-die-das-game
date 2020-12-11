@@ -16,7 +16,7 @@ export default function HighScore({
 
   return (
     <HighScoreWrapper>
-      <Navigation />
+      <Navigation mode={mode} />
       <Header mt="2.5vh" mb="3vh">
         High Score
       </Header>

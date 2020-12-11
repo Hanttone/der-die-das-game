@@ -1,17 +1,17 @@
 import styled from 'styled-components/macro';
-import Button from '../Button/Button';
-import Header from '../Header/Header';
 import { useState } from 'react';
 import {
   useNewHighScore,
   useSetNewHighScore,
 } from '../../Services/Context';
 
+import Button from '../Button/Button';
+import Header from '../Header/Header';
+
 export default function SubmitScore({
   playerScore,
   scoreData,
 }) {
-  console.log(scoreData);
   const [
     isScoreSubmitted,
     setIsScoreSubmitted,
@@ -25,7 +25,6 @@ export default function SubmitScore({
 
   function handleChange(event) {
     const fieldValue = event.target.value;
-    console.log(fieldValue);
     setPlayerInfo({
       ...playerInfo,
       [event.target.name]: fieldValue,

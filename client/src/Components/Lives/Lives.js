@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro';
+import { useLife } from '../../Services/Context';
+
 import { ReactComponent as Heart } from '../../Assets/heartGreen.svg';
 import { ReactComponent as LostHeart } from '../../Assets/heartLost.svg';
 import { ReactComponent as HeartBlue } from '../../Assets/heartBlue.svg';
 import { ReactComponent as LostHeartBlue } from '../../Assets/heartLostBlue.svg';
-import { useLife } from '../../Services/Context';
 
 export default function Lives({ mode }) {
   const life = useLife();

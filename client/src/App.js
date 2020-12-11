@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import GlobalStyle from './Services/GlobalStyle';
 import styled, {
   ThemeProvider,
@@ -30,7 +31,6 @@ function App() {
       fetchData()
         .then((data) => setGameData(data))
         .then(setLoading),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -38,7 +38,7 @@ function App() {
     setFetchInProgress(!fetchInProgress);
   }
 
-  //ThemeProvider
+  //Set up for light and dark themes
   const LightTheme = {
     fontColor: '#0B3142',
     colorBackground: '#F5EDF7',
@@ -66,7 +66,7 @@ function App() {
     dark: DarkTheme,
   };
 
-  //pageTransitions
+  //page animations for transitions
   const pageVariants = {
     initial: {
       opacity: 0,

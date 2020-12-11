@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
-import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+import { NavLink } from 'react-router-dom';
 
 export default function NavItem() {
   const navVariants = {

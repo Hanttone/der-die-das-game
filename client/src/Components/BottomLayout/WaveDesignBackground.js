@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+
 import SVG from '../../Services/bottomDesignLayout';
 import LightSVG from '../../Services/bottomDesignLightLayout';
 
