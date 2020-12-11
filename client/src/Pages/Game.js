@@ -24,6 +24,7 @@ import GameOver from '../Modules/GameOver/GameOver';
 export default function GamePage({
   wordData,
   scoreData,
+  mode,
 }) {
   const [
     selectedWord,
@@ -120,7 +121,7 @@ export default function GamePage({
           <Scores
             myScore={playerScore}
             highScore={scoreData}></Scores>
-          <Lives />
+          <Lives mode={mode} />
           <TimerBar
             word={selectedWord}></TimerBar>
           {isAnswerDisplayed ? (
@@ -177,7 +178,7 @@ export default function GamePage({
           </ButtonWrapper>{' '}
         </>
       )}
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={mode} />
     </GameWrapper>
   );
 }

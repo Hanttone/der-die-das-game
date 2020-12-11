@@ -6,7 +6,10 @@ import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 
-export default function HighScore({ scoreData }) {
+export default function HighScore({
+  scoreData,
+  mode,
+}) {
   const newHighScore = useNewHighScore();
   const sortedHighScores = sortScores(scoreData);
   const topTen = sortedHighScores.slice(0, 10);
@@ -35,7 +38,7 @@ export default function HighScore({ scoreData }) {
           </section>
         </div>
       </HighScoreTableWrapper>
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={mode} />
     </HighScoreWrapper>
   );
 }
@@ -52,7 +55,8 @@ const HighScoreTableWrapper = styled.div`
   position: relative;
   height: 75vh;
   width: 87.5%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: ${(props) =>
+    props.theme.cardBackgroundColor};
   border-radius: 28px;
   z-index: 1;
   display: flex;
@@ -69,7 +73,8 @@ const HighScoreTableWrapper = styled.div`
 
   h2 {
     font-size: 25px;
-    border-bottom: solid white 2px;
+    border-bottom: solid
+      ${(props) => props.theme.fontColor} 2px;
     align-self: end;
     padding-bottom: 2%;
     padding-left: 3%;

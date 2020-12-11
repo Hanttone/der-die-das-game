@@ -1,5 +1,7 @@
 import GlobalStyle from './Services/GlobalStyle';
-import styled from 'styled-components/macro';
+import styled, {
+  ThemeProvider,
+} from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchData from './Services/fetchData';
@@ -21,6 +23,8 @@ function App() {
     setFetchInProgress,
   ] = useState(true);
 
+  const [mode, setMode] = useState('dark');
+
   useEffect(
     () =>
       fetchData()
@@ -30,11 +34,39 @@ function App() {
     []
   );
 
-  console.log(fetchInProgress);
   function setLoading() {
     setFetchInProgress(!fetchInProgress);
   }
 
+  //ThemeProvider
+  const LightTheme = {
+    fontColor: '#0B3142',
+    colorBackground: '#F5EDF7',
+    colorDarkButton: '#E9C1F0',
+    colorVeryLightButton: '#FFFFFF',
+    colorNavigation: '#EFDCF2',
+    cardBackgroundColor:
+      'rgba(239, 220, 242, 0.7)',
+  };
+
+  const DarkTheme = {
+    fontColor: '#fff',
+    colorBackground: '#2C2972',
+    colorDarkButton: '#6C24B4',
+    colorLighterButton: '#a626b7',
+    colorLightButton: '#b12dc3',
+    colorVeryLightButton: '#dc45f0',
+    colorNavigation: '#32A19E',
+    cardBackgroundColor:
+      'rgba(255, 255, 255, 0.1)',
+  };
+
+  const themes = {
+    light: LightTheme,
+    dark: DarkTheme,
+  };
+
+  //pageTransitions
   const pageVariants = {
     initial: {
       opacity: 0,
@@ -58,56 +90,63 @@ function App() {
   };
 
   return (
-    <GameUpdateProvider>
-      <AnimatePresence>
-        <Switch>
-          <AppWrapper>
-            <GlobalStyle />
-            {fetchInProgress ? (
-              <Loading />
-            ) : (
-              <>
-                <Route exact path="/">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <Home />
-                  </motion.div>
-                </Route>
-                <Route path="/game">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <Game
-                      wordData={gameData[1]}
-                      scoreData={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/highscore">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <HighScore
-                      scoreData={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>{' '}
-              </>
-            )}
-          </AppWrapper>
-        </Switch>
-      </AnimatePresence>
-    </GameUpdateProvider>
+    <ThemeProvider theme={themes[mode]}>
+      <GameUpdateProvider>
+        <AnimatePresence>
+          <Switch>
+            <AppWrapper>
+              <GlobalStyle />
+              {fetchInProgress ? (
+                <Loading mode={mode} />
+              ) : (
+                <>
+                  <Route exact path="/">
+                    <motion.div
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageVariants}>
+                      <Home
+                        mode={mode}
+                        setMode={setMode}
+                      />
+                    </motion.div>
+                  </Route>
+                  <Route path="/game">
+                    <motion.div
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageVariants}>
+                      <Game
+                        wordData={gameData[1]}
+                        scoreData={gameData[0]}
+                        mode={mode}
+                      />
+                    </motion.div>
+                  </Route>
+                  <Route path="/highscore">
+                    <motion.div
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageVariants}>
+                      <HighScore
+                        scoreData={gameData[0]}
+                        mode={mode}
+                      />
+                    </motion.div>
+                  </Route>{' '}
+                </>
+              )}
+            </AppWrapper>
+          </Switch>
+        </AnimatePresence>
+      </GameUpdateProvider>
+    </ThemeProvider>
   );
 }
 
@@ -116,5 +155,6 @@ export default App;
 const AppWrapper = styled.section`
   width: 100%;
   height: 100vh;
-  background-color: #2c2972;
+  background-color: ${(props) =>
+    props.theme.colorBackground};
 `;

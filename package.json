@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "framer-motion": "^2.9.5",
+    "react-input-switch": "^2.2.2",
     "react-ripples": "^2.2.1"
   }
 }

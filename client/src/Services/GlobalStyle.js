@@ -9,7 +9,7 @@ export default createGlobalStyle`
     font-size: 16px;
     font-family: Silom;
     font-weight: regular;
-    color: white;
+    color: ${(props) => props.theme.fontColor}
 }
 
 body {

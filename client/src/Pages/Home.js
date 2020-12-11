@@ -5,9 +5,18 @@ import Navigation from '../Modules/Navigation/Navigation';
 import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Button from '../Components/Button/Button';
+import Switch from 'react-input-switch';
 
-export default function Home() {
+export default function Home(props) {
   const history = useHistory();
+
+  function changeMode() {
+    if (props.mode === 'dark') {
+      props.setMode('light');
+    } else {
+      props.setMode('dark');
+    }
+  }
 
   function handleClick() {
     history.push('/game');
@@ -15,6 +24,34 @@ export default function Home() {
 
   return (
     <HomeWrapper>
+      <Switch
+        off="dark"
+        on="light"
+        value={props.mode}
+        onChange={changeMode}
+        styles={{
+          track: {
+            backgroundColor: 'grey',
+            scale: '1.5',
+            zIndex: '50',
+          },
+          trackChecked: {
+            backgroundColor: '#38CCE0',
+            scale: '1.5',
+            zIndex: '50',
+          },
+          button: {
+            backgroundColor: 'white',
+            scale: '1.5',
+            zIndex: '50',
+          },
+          buttonChecked: {
+            backgroundColor: 'white',
+            scale: '1.5',
+            zIndex: '50',
+          },
+        }}
+      />
       <Navigation />
       <Header mt="8vh" mb="6vh">
         Der, die & das
@@ -29,6 +66,7 @@ export default function Home() {
         game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
+
       <ButtonWrapper>
         <Button
           width="80%"
@@ -37,7 +75,7 @@ export default function Home() {
           onPlayerClick={handleClick}
         />
       </ButtonWrapper>
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={props.mode} />
     </HomeWrapper>
   );
 }
@@ -65,18 +103,10 @@ const HomeWrapper = styled.main`
   }
 `;
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.section`
   width: 100%;
   text-align: center;
   position: absolute;
   bottom: 8%;
   z-index: 1;
-
-  div {
-    width: 100%;
-    border-radius: 28px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-  }
 `;

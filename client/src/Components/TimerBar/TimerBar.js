@@ -41,8 +41,12 @@ export default function TimerBar({ word }) {
         <motion.div
           animate={{
             width: `${countDown * 21}px`,
-            backgroundImage:
-              'linear-gradient(-45deg, #d933f0,#a429b4,#9425a3)',
+            backgroundImage: `linear-gradient(-45deg, ${(
+              props
+            ) => props.theme.colorDarkButton},${(
+              props
+            ) =>
+              props.theme.colorVeryLightButton})`,
           }}
           transition={{
             ease: 'easeInOut',

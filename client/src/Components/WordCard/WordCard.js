@@ -23,9 +23,9 @@ const WordCardWrapper = styled.section`
     grid-column: 1;
     grid-row: 1;
     border-radius: 28px;
-    background-color: white;
-    opacity: 0.1;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: ${(props) =>
+      props.theme.cardBackgroundColor};
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 
   p {
@@ -44,7 +44,6 @@ const WordCardWrapper = styled.section`
     grid-row: 1;
     text-align: center;
     font-size: 1.5rem;
-    color: white;
     overflow-wrap: break-word;
   }
 `;

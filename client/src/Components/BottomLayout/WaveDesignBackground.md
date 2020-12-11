@@ -1,3 +1,4 @@
 ```js
-<WaveDesignBackground />
+<WaveDesignBackground mode="dark"/>
+<WaveDesignBackground mode="light"/>
 ```

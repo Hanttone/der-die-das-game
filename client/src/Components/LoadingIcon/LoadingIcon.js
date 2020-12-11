@@ -12,11 +12,11 @@ const LoadingSVG = () => {
   const pathVariants = {
     hidden: {
       opacity: 0,
-      pathLenght: 0,
+      pathlenght: 0,
     },
     visible: {
       opacity: 1,
-      pathLenght: 1,
+      pathlenght: 1,
       transition: {
         duration: 3,
         ease: 'easeInOut',

@@ -63,7 +63,8 @@ const NavWrapper = styled.nav`
   flex-direction: column;
   gap: 5%;
   justify-content: center;
-  background-color: #32a19e;
+  background-color: ${(props) =>
+    props.theme.colorNavigation};
   text-align: left;
   z-index: 14;
 `;
