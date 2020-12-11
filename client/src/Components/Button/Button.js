@@ -29,7 +29,7 @@ Button.propTypes = {
 
 const ButtonStyled = styled.button`
   width: ${(props) => props.width};
-  height: 3.93rem;
+  height: 8.5vh;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   border-radius: ${(props) => props.radius};
   border: none;

@@ -19,7 +19,7 @@ const WordCardWrapper = styled.section`
 
   div {
     width: 87.5%;
-    height: 182px;
+    height: 23vh;
     grid-column: 1;
     grid-row: 1;
     border-radius: 28px;

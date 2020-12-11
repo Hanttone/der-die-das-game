@@ -54,7 +54,7 @@ export default function TimerBar({ word }) {
 }
 
 const TimerWrapper = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 4vh;
   z-index: 20;
 
   div {

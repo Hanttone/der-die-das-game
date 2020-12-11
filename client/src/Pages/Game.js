@@ -114,7 +114,7 @@ export default function GamePage({
         displayGameOver()
       ) : (
         <>
-          <Header mt="1.31rem" mb="1.75rem">
+          <Header mt="2.5vh" mb="4vh">
             Game
           </Header>
           <Scores
@@ -197,7 +197,7 @@ const ButtonWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3%;
   position: absolute;
-  bottom: 60px;
+  bottom: 8%;
   z-index: 1;
 
   div {

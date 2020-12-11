@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Navigation />
-      <Header mt="4.8rem" mb="2rem">
+      <Header mt="8vh" mb="6vh">
         Der, die & das
       </Header>
       <p>Want to practice the German nouns?</p>
@@ -69,7 +69,7 @@ const ButtonWrapper = styled.div`
   width: 100%;
   text-align: center;
   position: absolute;
-  bottom: 43px;
+  bottom: 8%;
   z-index: 1;
 
   div {

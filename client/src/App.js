@@ -117,5 +117,4 @@ const AppWrapper = styled.section`
   width: 100%;
   height: 100vh;
   background-color: #2c2972;
-  //overflow-x: hidden;
 `;

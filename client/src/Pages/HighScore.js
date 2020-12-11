@@ -14,7 +14,7 @@ export default function HighScore({ scoreData }) {
   return (
     <HighScoreWrapper>
       <Navigation />
-      <Header mt="1.31rem" mb="1.75rem">
+      <Header mt="2.5vh" mb="3vh">
         High Score
       </Header>
       <HighScoreTableWrapper>
