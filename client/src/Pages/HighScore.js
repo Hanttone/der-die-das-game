@@ -1,41 +1,70 @@
 import styled from 'styled-components/macro';
 import sortScores from '../Services/sortScores';
+import { useEffect, useState } from 'react';
 import { useNewHighScore } from '../Services/Context';
+import fetchScores from '../Services/fetchScores';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
+import Loading from '../Modules/Loading/Loading';
 
 export default function HighScore({
-  scoreData,
   mode,
+  scores,
 }) {
   const newHighScore = useNewHighScore();
+  const [scoreData, setScoreData] = useState([]);
+  const [
+    fetchInProgress,
+    setFetchInProgress,
+  ] = useState(true);
+
+  useEffect(
+    () =>
+      fetchScores()
+        .then((data) => setScoreData(data))
+        .then(setLoading),
+    [scores]
+  );
+
+  function setLoading() {
+    setFetchInProgress(!fetchInProgress);
+  }
+
   const sortedHighScores = sortScores(scoreData);
+  console.log(sortedHighScores);
   const topTen = sortedHighScores.slice(0, 10);
 
   return (
     <HighScoreWrapper>
-      <Navigation mode={mode} />
-      <Header mt="2.5vh" mb="3vh">
-        High Score
-      </Header>
-      <HighScoreTableWrapper>
-        <div>
-          <h2>Player</h2>
-          <h2>Score</h2>
-          <section>
-            {topTen.map((player, index) => (
-              <>
-                <p key={player.id}>
-                  {index + 1}. {player.playerName}
-                </p>
-                <p>{player.score}</p>
-              </>
-            ))}
-          </section>
-        </div>
-      </HighScoreTableWrapper>
+      {fetchInProgress ? (
+        <Loading />
+      ) : (
+        <>
+          <Navigation mode={mode} />
+          <Header mt="2.5vh" mb="3vh">
+            High Score
+          </Header>
+          <HighScoreTableWrapper>
+            <div>
+              <h2>Player</h2>
+              <h2>Score</h2>
+              <section>
+                {topTen.map((player, index) => (
+                  <>
+                    <p key={player.id}>
+                      {index + 1}.{' '}
+                      {player.playerName}
+                    </p>
+                    <p>{player.score}</p>
+                  </>
+                ))}
+              </section>
+            </div>
+          </HighScoreTableWrapper>{' '}
+        </>
+      )}
       <WaveDesignBackground mode={mode} />
     </HighScoreWrapper>
   );

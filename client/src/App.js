@@ -26,9 +26,14 @@ function App() {
 
   const [mode, setMode] = useState('dark');
 
+  const dataUrls = [
+    'http://localhost:4000/api/scores',
+    'http://localhost:4000/api/germannouns',
+  ];
+
   useEffect(
     () =>
-      fetchData()
+      fetchData(dataUrls)
         .then((data) => setGameData(data))
         .then(setLoading),
     []
@@ -135,8 +140,8 @@ function App() {
                       transition={pageTransition}
                       variants={pageVariants}>
                       <HighScore
-                        scoreData={gameData[0]}
                         mode={mode}
+                        scores={gameData[0]}
                       />
                     </motion.div>
                   </Route>{' '}
