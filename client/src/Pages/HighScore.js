@@ -30,9 +30,7 @@ export default function HighScore({
                 <p key={player.id}>
                   {index + 1}. {player.playerName}
                 </p>
-                <p key={player.id}>
-                  {player.score}
-                </p>
+                <p>{player.score}</p>
               </>
             ))}
           </section>

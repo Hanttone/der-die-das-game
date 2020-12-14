@@ -1,20 +1,26 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Button from '../Components/Button/Button';
-import Switch from 'react-input-switch';
+import SwitchBtn from '../Components/Switch/Switch';
 
 export default function Home(props) {
   const history = useHistory();
+  const [isToggled, setIsToggled] = useState(
+    false
+  );
 
   function changeMode() {
     if (props.mode === 'dark') {
       props.setMode('light');
+      setIsToggled(!isToggled);
     } else {
       props.setMode('dark');
+      setIsToggled(!isToggled);
     }
   }
 
@@ -24,34 +30,6 @@ export default function Home(props) {
 
   return (
     <HomeWrapper>
-      <Switch
-        off="dark"
-        on="light"
-        value={props.mode}
-        onChange={changeMode}
-        styles={{
-          track: {
-            backgroundColor: 'grey',
-            scale: '1.5',
-            zIndex: '50',
-          },
-          trackChecked: {
-            backgroundColor: '#38CCE0',
-            scale: '1.5',
-            zIndex: '50',
-          },
-          button: {
-            backgroundColor: 'white',
-            scale: '1.5',
-            zIndex: '50',
-          },
-          buttonChecked: {
-            backgroundColor: 'white',
-            scale: '1.5',
-            zIndex: '50',
-          },
-        }}
-      />
       <Navigation mode={props.mode} />
       <Header mt="8vh" mb="6vh">
         Der, die & das
@@ -66,7 +44,11 @@ export default function Home(props) {
         game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
-
+      <SwitchBtn
+        toggled={isToggled}
+        onChange={changeMode}
+        mode={props.mode}
+      />
       <ButtonWrapper>
         <Button
           width="80%"
@@ -84,7 +66,6 @@ const HomeWrapper = styled.main`
   height: 100vh;
   width: 100%;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
   position: relative;

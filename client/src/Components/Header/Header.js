@@ -13,5 +13,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-//1.31rem

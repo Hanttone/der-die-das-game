@@ -58,46 +58,24 @@ export default function GamePage({
     return setSelectedWord(wordSelected);
   }
 
+  const index = wordData.findIndex(
+    (word) => word.germanNoun === selectedWord
+  );
+
   function timeIsOut() {
-    const index = wordData.findIndex(
-      (word) => word.germanNoun === selectedWord
-    );
     if (counter === 0) {
-      setCounter(null);
-      const correctAnswer =
-        wordData[index].gender;
-      setCorrectAnswer(correctAnswer);
-      setIsAnswerDisplayed(false);
-      setPlayerLives(1);
-      setTimeout(() => {
-        setIsAnswerDisplayed(true);
-        randomWord();
-      }, 2000);
+      showCorrectAnswer();
     }
   }
 
   function handleClick(nounGender) {
-    const index = wordData.findIndex(
-      (word) => word.germanNoun === selectedWord
-    );
     if (wordData[index].gender === nounGender) {
       setPlayerScore(playerScore + 5);
       randomWord();
     } else if (
       wordData[index].gender !== nounGender
     ) {
-      setCounter(null);
-      const correctAnswer =
-        wordData[index].gender;
-      setCorrectAnswer(correctAnswer);
-      setIsAnswerDisplayed(false);
-      setPlayerLives(1);
-      setTimeout(() => {
-        setIsAnswerDisplayed(true);
-        randomWord();
-      }, 2000);
-    } else {
-      console.log('oops error');
+      showCorrectAnswer();
     }
   }
 
@@ -106,6 +84,18 @@ export default function GamePage({
       setIsAnswerDisplayed(true);
     }, 3000);
     return <GameOver scoreData={scoreData} />;
+  }
+
+  function showCorrectAnswer() {
+    setCounter(null);
+    const correctAnswer = wordData[index].gender;
+    setCorrectAnswer(correctAnswer);
+    setIsAnswerDisplayed(false);
+    setPlayerLives(1);
+    setTimeout(() => {
+      setIsAnswerDisplayed(true);
+      randomWord();
+    }, 2000);
   }
 
   return (
