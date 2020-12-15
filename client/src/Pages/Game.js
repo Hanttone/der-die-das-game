@@ -186,6 +186,7 @@ const GameWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   position: relative;
+  overflow: hidden;
 `;
 
 const ButtonWrapper = styled.div`

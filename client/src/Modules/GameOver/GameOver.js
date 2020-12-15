@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
-import { useSetPlayerLives } from '../../Services/Context';
 import sortScore from '../../Services/sortScores';
 import {
   usePlayerScore,
   useSetPlayerScore,
+  useSetPlayerLives,
 } from '../../Services/Context';
 import PropTypes from 'prop-types';
 

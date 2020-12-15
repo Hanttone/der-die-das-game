@@ -17,8 +17,9 @@ export default function WaveDesignBackground({
   );
 }
 
-const LayoutWrapper = styled.div`
-  width: 100%;
+const LayoutWrapper = styled.span`
+  max-width: 800px;
+  min-width: 360px;
   position: absolute;
   bottom: 0;
 

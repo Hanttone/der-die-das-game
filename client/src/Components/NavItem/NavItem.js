@@ -7,21 +7,24 @@ export default function NavItem() {
   const navVariants = {
     initial: {
       opacity: 0,
-      x: '44vw',
+      y: '-40vh',
+      x: '45vw',
     },
     in: {
       opacity: 1,
-      x: '44vw',
+      y: '0vh',
+      x: '45vw',
     },
     out: {
       opacity: 0,
-      x: '44vw',
+      y: '-40vh',
+      x: '45vw',
     },
   };
 
   const navTransition = {
-    type: 'spring',
-    ease: 'easeInOut',
+    type: 'anticipate',
+    duration: '0.2',
   };
 
   return (
@@ -55,10 +58,9 @@ export default function NavItem() {
 
 const NavWrapper = styled.nav`
   height: 40vh;
-  width: 56vw;
+  width: 140%;
 
   grid-column: 2;
-  grid-row: 1;
 
   display: flex;
   flex-direction: column;

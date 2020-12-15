@@ -31,7 +31,7 @@ export default function Home(props) {
   return (
     <HomeWrapper>
       <Navigation mode={props.mode} />
-      <Header mt="6vh" mb="4vh">
+      <Header mt="5vh" mb="4vh">
         Der, die & das
       </Header>
       <p>Want to practice the German nouns?</p>

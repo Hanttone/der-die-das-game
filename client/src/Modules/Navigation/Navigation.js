@@ -57,16 +57,14 @@ const NavWrapper = styled.div`
   width: 100%;
   height: 6vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: end;
-  align-items: start;
-  text-align: right;
+  grid-template-columns: 1fr 1.5fr;
   z-index: 50;
 `;
 
 const NavIconOpenStyled = styled(NavIconOpen)`
   margin: 8%;
   grid-column: 2;
+  grid-row: 1;
   justify-self: end;
 `;
 
@@ -83,6 +81,7 @@ const NavIconOpenLightStyled = styled(
 )`
   margin: 8%;
   grid-column: 2;
+  grid-row: 1;
   justify-self: end;
 `;
 

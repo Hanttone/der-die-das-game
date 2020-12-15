@@ -1,6 +1,10 @@
 import styled from 'styled-components/macro';
 import { useState } from 'react';
-import { useSetNewHighScore } from '../../Services/Context';
+import {
+  useSetNewHighScore,
+  useSetPlayerScore,
+  useSetPlayerLives,
+} from '../../Services/Context';
 import { useHistory } from 'react-router-dom';
 import postScores from '../../Services/postScores';
 import PropTypes from 'prop-types';
@@ -11,6 +15,8 @@ import Header from '../Header/Header';
 export default function SubmitScore({
   playerScore,
 }) {
+  const setPlayerLives = useSetPlayerLives();
+  const setPlayerScore = useSetPlayerScore();
   const [
     isScoreSubmitted,
     setIsScoreSubmitted,
@@ -34,6 +40,8 @@ export default function SubmitScore({
 
   function handleClick() {
     history.push('/highscore');
+    setPlayerLives(3);
+    setPlayerScore(0);
   }
 
   function onSubmit(event) {

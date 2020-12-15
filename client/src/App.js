@@ -64,17 +64,18 @@ function App() {
 
   const pageTransition = {
     ease: 'anticipate',
+    duration: '0.15',
   };
 
   return (
     <ThemeProvider theme={themes[mode]}>
       <GameUpdateProvider>
-        <GlobalStyle />
-        <AnimatePresence>
-          <AppWrapper>
-            {fetchInProgress ? (
-              <Loading mode={mode} />
-            ) : (
+        <AppWrapper>
+          <GlobalStyle />
+          {fetchInProgress ? (
+            <Loading mode={mode} />
+          ) : (
+            <AnimatePresence>
               <Switch>
                 <Route exact path="/">
                   <motion.div
@@ -117,9 +118,9 @@ function App() {
                   </motion.div>
                 </Route>
               </Switch>
-            )}
-          </AppWrapper>
-        </AnimatePresence>
+            </AnimatePresence>
+          )}
+        </AppWrapper>
       </GameUpdateProvider>
     </ThemeProvider>
   );
