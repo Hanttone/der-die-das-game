@@ -19,7 +19,6 @@ export default function HighScore({
 
   useEffect(() => {
     if (newHighScore) {
-      debugger;
       setScoreData([...scoreData, newHighScore]);
     }
   }, []);
