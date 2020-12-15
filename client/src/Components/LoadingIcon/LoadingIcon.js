@@ -5,7 +5,7 @@ const LoadingSVG = () => {
     hidden: { rotate: -360 },
     visible: {
       rotate: 0,
-      transition: { duration: 3 },
+      transition: { duration: 30 },
     },
   };
 
