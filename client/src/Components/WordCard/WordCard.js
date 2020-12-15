@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export default function WordCard({ word, text }) {
   return (
@@ -9,6 +10,11 @@ export default function WordCard({ word, text }) {
     </WordCardWrapper>
   );
 }
+
+WordCard.propTypes = {
+  text: PropTypes.string,
+  word: PropTypes.string,
+};
 
 const WordCardWrapper = styled.section`
   width: 100%;

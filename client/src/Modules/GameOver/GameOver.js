@@ -6,6 +6,7 @@ import {
   usePlayerScore,
   useSetPlayerScore,
 } from '../../Services/Context';
+import PropTypes from 'prop-types';
 
 import Button from '../../Components/Button/Button';
 import Header from '../../Components/Header/Header';
@@ -65,6 +66,10 @@ export default function GameOver({ scoreData }) {
     </GameOverWrapper>
   );
 }
+
+GameOver.propTypes = {
+  scoreData: PropTypes.array,
+};
 
 const GameOverWrapper = styled.div`
   width: 80%;

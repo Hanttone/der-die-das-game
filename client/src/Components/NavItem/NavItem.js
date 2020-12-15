@@ -56,14 +56,18 @@ export default function NavItem() {
 const NavWrapper = styled.nav`
   height: 40vh;
   width: 56vw;
+
   grid-column: 2;
   grid-row: 1;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 28px 0px 28px 28px;
+
   display: flex;
   flex-direction: column;
-  gap: 5%;
   justify-content: center;
+  gap: 5%;
+
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 28px 0px 28px 28px;
+
   background-color: ${(props) =>
     props.theme.colorNavigation};
   text-align: left;

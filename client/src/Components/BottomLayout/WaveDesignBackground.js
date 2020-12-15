@@ -20,8 +20,9 @@ export default function WaveDesignBackground({
 const LayoutWrapper = styled.div`
   width: 100%;
   position: absolute;
+  bottom: 0;
+
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  bottom: 0;
 `;

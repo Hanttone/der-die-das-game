@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 
 export default function SwitchBtn({
   onChange,
   toggled,
-  mode,
 }) {
   return (
     <SwitchWrapper>
@@ -21,12 +21,21 @@ export default function SwitchBtn({
   );
 }
 
+SwitchBtn.propTypes = {
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+};
+
 const SwitchWrapper = styled.div`
-  display: flex;
-  width: 100%;
   height: 5vh;
-  align-items: center;
+  width: 100%;
+
+  display: flex;
+
+  margin-top: 3vh;
   padding-left: 9%;
+
+  align-items: center;
   z-index: 15;
 
   span {
@@ -43,12 +52,14 @@ const SwitchInput = styled.input`
 `;
 
 const SwitchLabel = styled.label`
+  width: 40px;
+  height: 25px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   cursor: pointer;
-  width: 40px;
-  height: 25px;
   border-radius: 50px;
   border: 2px solid
     ${(props) => props.theme.fontColor};
@@ -57,14 +68,16 @@ const SwitchLabel = styled.label`
 `;
 
 const SwitchButton = styled.span`
+  width: 17px;
+  height: 17px;
+
   content: '';
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 17px;
-  height: 17px;
   border-radius: 45px;
   transition: 0.3s;
+
   background: ${(props) => props.theme.fontColor};
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
   ${SwitchInput}:checked + ${SwitchLabel} & {

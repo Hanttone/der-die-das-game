@@ -10,6 +10,7 @@ import {
   useSetPlayerScore,
 } from '../Services/Context';
 import Ripples from 'react-ripples';
+import PropTypes from 'prop-types';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -165,13 +166,18 @@ export default function GamePage({
                 />
               </Ripples>
             </div>
-          </ButtonWrapper>{' '}
+          </ButtonWrapper>
         </>
       )}
       <WaveDesignBackground mode={mode} />
     </GameWrapper>
   );
 }
+
+GamePage.propTypes = {
+  scoreData: PropTypes.array,
+  wordData: PropTypes.array,
+};
 
 const GameWrapper = styled.main`
   height: 100vh;
