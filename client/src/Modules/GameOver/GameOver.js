@@ -8,9 +8,9 @@ import {
   useSetPlayerScore,
 } from '../../Services/Context';
 
-import Button from '../Button/Button';
-import Header from '../Header/Header';
-import SubmitScore from '../SubmitScore/SubmitScore';
+import Button from '../../Components/Button/Button';
+import Header from '../../Components/Header/Header';
+import SubmitScore from '../../Components/SubmitScore/SubmitScore';
 
 export default function GameOver({ scoreData }) {
   const sortedHighScores = sortScore(scoreData);
@@ -27,12 +27,13 @@ export default function GameOver({ scoreData }) {
   function playerScoreIsHigher() {
     if (playerScore !== 0) {
       if (
-        playerScore > sortedHighScores[0].score ||
-        sortedHighScores[9] === undefined
+        sortedHighScores[9] === undefined ||
+        playerScore > sortedHighScores[9].score
       ) {
         return (
           <SubmitScore
             playerScore={playerScore}
+            scoreData={scoreData}
           />
         );
       }
@@ -68,15 +69,18 @@ export default function GameOver({ scoreData }) {
 
 const GameOverWrapper = styled.div`
   width: 80%;
-  height: 50vh;
+  height: 90vh;
   z-index: 10;
   margin-top: 5vh;
+  position: relative;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2vh;
-  margin-top: 10vh;
+  gap: 1vh;
+  width: 100%;
+  position: absolute;
+  bottom: 4vh;
 `;

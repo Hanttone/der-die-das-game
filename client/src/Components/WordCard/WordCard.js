@@ -19,7 +19,7 @@ const WordCardWrapper = styled.section`
 
   div {
     width: 87.5%;
-    height: 182px;
+    height: 23vh;
     grid-column: 1;
     grid-row: 1;
     border-radius: 28px;
@@ -39,11 +39,12 @@ const WordCardWrapper = styled.section`
   }
 
   h2 {
-    width: 100%;
+    width: 80%;
     grid-column: 1;
     grid-row: 1;
     text-align: center;
-    font-size: 1.78rem;
+    font-size: 1.5rem;
     color: white;
+    overflow-wrap: break-word;
   }
 `;

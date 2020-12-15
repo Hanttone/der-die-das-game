@@ -26,7 +26,7 @@ export default function Scores({ highScore }) {
 
 const ScoreWrapper = styled.section`
   width: 87.5%;
-  margin-bottom: 35px;
+  margin-bottom: 4vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;

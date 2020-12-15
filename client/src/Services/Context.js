@@ -17,6 +17,10 @@ export function GameUpdateProvider({ children }) {
   const [playerScore, setPlayerScore] = useState(
     0
   );
+  const [
+    newHighScore,
+    setNewHighScore,
+  ] = useState([]);
 
   function changePlayerLives(life) {
     setPlayerLives(playerLives - life);
@@ -32,6 +36,8 @@ export function GameUpdateProvider({ children }) {
         setCounter,
         playerScore,
         setPlayerScore,
+        newHighScore,
+        setNewHighScore,
       }}>
       {children}
     </GameUpdateContext.Provider>
@@ -54,3 +60,7 @@ export const usePlayerScore = () =>
   useGameUpdate().playerScore;
 export const useSetPlayerScore = () =>
   useGameUpdate().setPlayerScore;
+export const useNewHighScore = () =>
+  useGameUpdate().newHighScore;
+export const useSetNewHighScore = () =>
+  useGameUpdate().setNewHighScore;

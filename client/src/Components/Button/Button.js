@@ -29,8 +29,8 @@ Button.propTypes = {
 
 const ButtonStyled = styled.button`
   width: ${(props) => props.width};
-  height: 63px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  height: 8.5vh;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
   border-radius: ${(props) => props.radius};
   border: none;
   background-image: linear-gradient(

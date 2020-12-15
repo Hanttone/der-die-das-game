@@ -1,34 +1,60 @@
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function NavItem() {
-  /*<NavLinkStyled to="/settings" activeClassName="active">Settings</NavLinkStyled> */
+  const navVariants = {
+    initial: {
+      opacity: 0,
+      x: '44vw',
+    },
+    in: {
+      opacity: 1,
+      x: '44vw',
+    },
+    out: {
+      opacity: 0,
+      x: '44vw',
+    },
+  };
+
+  const navTransition = {
+    type: 'spring',
+    ease: 'easeInOut',
+  };
 
   return (
-    <NavWrapper>
-      <NavLinkStyled
-        exact
-        to="/"
-        activeClassName="active">
-        Home
-      </NavLinkStyled>
-      <NavLinkStyled
-        to="/game"
-        activeClassName="active">
-        Game
-      </NavLinkStyled>
-      <NavLinkStyled
-        to="/highscore"
-        activeClassName="active">
-        High Score
-      </NavLinkStyled>
-    </NavWrapper>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={navTransition}
+      variants={navVariants}>
+      <NavWrapper>
+        <NavLinkStyled
+          exact
+          to="/"
+          activeClassName="active">
+          Home
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/game"
+          activeClassName="active">
+          Game
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/highscore"
+          activeClassName="active">
+          High Score
+        </NavLinkStyled>
+      </NavWrapper>
+    </motion.div>
   );
 }
 
 const NavWrapper = styled.nav`
-  height: 299px;
-  width: 211px;
+  height: 40vh;
+  width: 56vw;
   grid-column: 2;
   grid-row: 1;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -46,9 +72,9 @@ const NavLinkStyled = styled(NavLink)`
   padding-left: 10%;
   font-size: 1.87rem;
   text-decoration: none;
-  opacity: 1;
+  opacity: 0.5;
 
   &.active {
-    opacity: 0.5;
+    opacity: 1;
   }
 `;

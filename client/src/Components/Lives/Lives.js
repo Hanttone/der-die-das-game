@@ -43,7 +43,7 @@ export default function Lives() {
 
 const LivesWrapper = styled.section`
   width: 80%;
-  margin-bottom: 25px;
+  margin-bottom: 3vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 `;

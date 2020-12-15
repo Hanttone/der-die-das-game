@@ -9,8 +9,9 @@ import {
   usePlayerScore,
   useSetPlayerScore,
 } from '../Services/Context';
+import Ripples from 'react-ripples';
 
-import Navigation from '../Components/Navigation/Navigation';
+import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
@@ -18,7 +19,7 @@ import WordCard from '../Components/WordCard/WordCard';
 import Scores from '../Components/Scores/Scores';
 import Lives from '../Components/Lives/Lives';
 import TimerBar from '../Components/TimerBar/TimerBar';
-import GameOver from '../Components/GameOver/GameOver';
+import GameOver from '../Modules/GameOver/GameOver';
 
 export default function GamePage({
   wordData,
@@ -113,7 +114,9 @@ export default function GamePage({
         displayGameOver()
       ) : (
         <>
-          <Header>Game</Header>
+          <Header mt="2.5vh" mb="4vh">
+            Game
+          </Header>
           <Scores
             myScore={playerScore}
             highScore={scoreData}
@@ -129,36 +132,48 @@ export default function GamePage({
             />
           )}
           <ButtonWrapper>
-            <Button
-              width="100%"
-              radius="20px"
-              text="der"
-              zindex="1"
-              onPlayerClick={() =>
-                handleCorrectAnswer('der')
-              }
-              disabled={!isAnswerDisplayed}
-            />
-            <Button
-              width="100%"
-              radius="20px"
-              text="die"
-              zindex="1"
-              onPlayerClick={() =>
-                handleCorrectAnswer('die')
-              }
-              disabled={!isAnswerDisplayed}
-            />
-            <Button
-              width="100%"
-              radius="20px"
-              text="das"
-              zindex="1"
-              onPlayerClick={() =>
-                handleCorrectAnswer('das')
-              }
-              disabled={!isAnswerDisplayed}
-            />
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Der"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleCorrectAnswer('der')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Die"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleCorrectAnswer('die')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
+            <div>
+              <Ripples during={1200}>
+                <Button
+                  width="100%"
+                  radius="20px"
+                  text="Das"
+                  zindex="1"
+                  onPlayerClick={() =>
+                    handleCorrectAnswer('das')
+                  }
+                  disabled={!isAnswerDisplayed}
+                />
+              </Ripples>
+            </div>
           </ButtonWrapper>{' '}
         </>
       )}
@@ -182,6 +197,13 @@ const ButtonWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3%;
   position: absolute;
-  bottom: 60px;
+  bottom: 8%;
   z-index: 1;
+
+  div {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  }
 `;

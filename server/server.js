@@ -58,14 +58,6 @@ server.post('/api/scores', (req, res) => {
     .then(() => res.json(playerScoreData));
 });
 
-server.post('/api/germannouns', (req, res) => {
-  const germanNounData = req.body;
-  const germanNoun = new Noun(germanNounData);
-  germanNoun
-    .save()
-    .then(() => res.json(germanNounData));
-});
-
 server.listen(port, () => {
   console.log(`server is open at: ${port}`);
 });

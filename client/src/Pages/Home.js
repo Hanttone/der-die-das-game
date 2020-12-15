@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 
+import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Navigation from '../Components/Navigation/Navigation';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
@@ -16,11 +16,17 @@ export default function Home() {
   return (
     <HomeWrapper>
       <Navigation />
-      <Header mt="118px">Der, die & das</Header>
+      <Header mt="8vh" mb="6vh">
+        Der, die & das
+      </Header>
       <p>Want to practice the German nouns?</p>
       <p>
-        Look no further, click on the play button
-        and your game will start.
+        Look no further, with this game you can
+        practice over 100 000 German Nouns.
+      </p>
+      <p>
+        Simply click on the play button and your
+        game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
       <ButtonWrapper>
@@ -50,9 +56,12 @@ const HomeWrapper = styled.main`
       'Segoe UI', Roboto, Oxygen, Ubuntu,
       Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
-    font-size: 20px;
-    margin-bottom: 3vh;
+    font-size: 1.3rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 2vh;
     width: 80%;
+    z-index: 2;
+    line-height: 1.5;
   }
 `;
 
@@ -60,6 +69,14 @@ const ButtonWrapper = styled.div`
   width: 100%;
   text-align: center;
   position: absolute;
-  bottom: 43px;
+  bottom: 8%;
   z-index: 1;
+
+  div {
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
 `;

@@ -4,15 +4,16 @@ import {
   useCounter,
   useSetCounter,
 } from '../../Services/Context';
+import { motion } from 'framer-motion';
 
 export default function TimerBar({ word }) {
-  const counter = useCounter();
+  const countDown = useCounter();
   const setCounter = useSetCounter();
   const timer = useRef();
 
   function setTimer() {
-    if (counter > 0) {
-      setCounter(counter - 1);
+    if (countDown > 0) {
+      setCounter(countDown - 1);
     }
   }
 
@@ -27,7 +28,7 @@ export default function TimerBar({ word }) {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [counter]);
+  }, [countDown]);
 
   useEffect(() => {
     setCounter(15);
@@ -35,35 +36,31 @@ export default function TimerBar({ word }) {
   }, [word]);
 
   return (
-    <TimerWrapper width={counter * 21}>
+    <TimerWrapper>
       <div>
-        <section />
+        <motion.div
+          animate={{
+            width: `${countDown * 21}px`,
+            backgroundImage:
+              'linear-gradient(-45deg, #d933f0,#a429b4,#9425a3)',
+          }}
+          transition={{
+            ease: 'easeInOut',
+            duration: 0.5,
+          }}></motion.div>
       </div>
     </TimerWrapper>
   );
 }
 
 const TimerWrapper = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 4vh;
+  z-index: 20;
 
   div {
     width: 315px;
     height: 11px;
     background-color: rgba(192, 192, 192, 0.3);
     border-radius: 5px;
-    
-  }
-
-  section {
-    width: ${(props) => props.width + 'px'};
-    height: 11px;
-    background-image: linear-gradient(
-      -45deg,
-      #d933f0,
-      #a429b4,
-      #9425a3
-    );
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 `;
