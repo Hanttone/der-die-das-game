@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro';
+import onSubmitScore from '../../Services/onSubmitScore';
+
 import Button from '../Button/Button';
 import Header from '../Header/Header';
 import { useState } from 'react';
@@ -11,7 +13,6 @@ export default function SubmitScore({
   playerScore,
   scoreData,
 }) {
-  console.log(scoreData);
   const [
     isScoreSubmitted,
     setIsScoreSubmitted,
@@ -34,23 +35,11 @@ export default function SubmitScore({
 
   function onSubmit(event) {
     event.preventDefault();
-    fetch('http://localhost:4000/api/scores', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(playerInfo),
-    })
-      .then((data) => data.json())
-      .then((createdUser) =>
-        console.log(createdUser, 'CREATED')
-      )
-      .catch((error) => console.error(error));
+    onSubmitScore(playerInfo);
     setNewHighScore((newHighScore) => [
       ...scoreData,
       playerInfo,
     ]);
-    console.log(newHighScore);
     setIsScoreSubmitted(true);
   }
 
@@ -63,7 +52,6 @@ export default function SubmitScore({
           <Header mt="5vh">High Score!</Header>
           <Header>{playerScore}</Header>
           <label htmlFor="playerName">
-            {' '}
             Enter your player name:
             <input
               type="text"
@@ -78,7 +66,7 @@ export default function SubmitScore({
             radius="28px"
             text="Submit"
             onPlayerClick={onSubmit}
-          />{' '}
+          />
         </>
       )}
     </HighScoreWrapper>

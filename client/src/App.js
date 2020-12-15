@@ -60,52 +60,51 @@ function App() {
   return (
     <GameUpdateProvider>
       <AnimatePresence>
-        <Switch>
-          <AppWrapper>
-            <GlobalStyle />
-            {fetchInProgress ? (
-              <Loading />
-            ) : (
-              <>
-                <Route exact path="/">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <Home />
-                  </motion.div>
-                </Route>
-                <Route path="/game">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <Game
-                      wordData={gameData[1]}
-                      scoreData={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/highscore">
-                  <motion.div
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageVariants}>
-                    <HighScore
-                      scoreData={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>{' '}
-              </>
-            )}
-          </AppWrapper>
-        </Switch>
+        <GlobalStyle />
+
+        <AppWrapper>
+          {fetchInProgress ? (
+            <Loading />
+          ) : (
+            <Switch>
+              <Route exact path="/">
+                <motion.div
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageVariants}>
+                  <Home />
+                </motion.div>
+              </Route>
+              <Route path="/game">
+                <motion.div
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageVariants}>
+                  <Game
+                    wordData={gameData[1]}
+                    scoreData={gameData[0]}
+                  />
+                </motion.div>
+              </Route>
+              <Route path="/highscore">
+                <motion.div
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageVariants}>
+                  <HighScore
+                    scoreData={gameData[0]}
+                  />
+                </motion.div>
+              </Route>
+            </Switch>
+          )}
+        </AppWrapper>
       </AnimatePresence>
     </GameUpdateProvider>
   );

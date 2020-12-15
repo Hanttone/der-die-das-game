@@ -7,7 +7,7 @@ export default function Loading() {
   return (
     <LoadingWrapper>
       <section>
-        <LoadingIcon></LoadingIcon>
+        <LoadingIcon />
       </section>
       <WaveDesignBackground />
     </LoadingWrapper>
