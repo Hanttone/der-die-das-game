@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+
 import { useHistory } from 'react-router-dom';
 import { useSetPlayerLives } from '../../Services/Context';
 import sortScore from '../../Services/sortScores';

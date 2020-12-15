@@ -1,4 +1,3 @@
-import GlobalStyle from './Services/GlobalStyle';
 import styled from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -8,6 +7,7 @@ import {
   motion,
 } from 'framer-motion';
 import { GameUpdateProvider } from './Services/Context';
+import GlobalStyle from './Services/GlobalStyle';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';

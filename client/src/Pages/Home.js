@@ -2,8 +2,8 @@ import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 
 import Navigation from '../Modules/Navigation/Navigation';
-import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
+import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 
 export default function Home() {
