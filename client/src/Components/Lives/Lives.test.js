@@ -1,14 +1,54 @@
 import Lives from './Lives';
-import {
-  screen,
-  render,
-} from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { GameUpdateProvider } from '../../Services/Context';
 
 describe('Player lives component', () => {
-  it('Displays Green lives when mode equals to dark', () => {
-    render(<Lives mode="dark" />);
-    expect(
-      screen.queryAllByRole('img')
-    ).toBeInDocument();
+  it('Has an attribute mode', () => {
+    const { container } = render(
+      <GameUpdateProvider>
+        <Lives mode="dark" />
+      </GameUpdateProvider>
+    );
+
+    container
+      .querySelector('section')
+      .hasAttribute('mode');
+  });
+  it('Has childnodes of type SVG', () => {
+    const { container } = render(
+      <GameUpdateProvider>
+        <Lives mode="dark" />
+      </GameUpdateProvider>
+    );
+
+    container
+      .querySelector('section')
+      .hasChildNodes('svg');
+  });
+  it('The SVGs are of type green', () => {
+    const { container } = render(
+      <GameUpdateProvider>
+        <Lives mode="dark" />
+      </GameUpdateProvider>
+    );
+
+    const svg = container.querySelector('svg');
+
+    expect(svg).toHaveTextContent(
+      'heartGreen.svg'
+    );
+  });
+  it('The SVGs are of type heartBlue', () => {
+    const { container } = render(
+      <GameUpdateProvider>
+        <Lives mode="light" />
+      </GameUpdateProvider>
+    );
+
+    const svg = container.querySelector('svg');
+
+    expect(svg).toHaveTextContent(
+      'heartBlue.svg'
+    );
   });
 });

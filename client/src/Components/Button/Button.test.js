@@ -2,7 +2,6 @@ import Button from './Button';
 import {
   render,
   fireEvent,
-  screen,
 } from '@testing-library/react';
 
 describe('Testing button click', () => {
@@ -19,14 +18,15 @@ describe('Testing button click', () => {
     expect(onPlayerClick).toHaveBeenCalled();
   });
   it('The button displays text correctly', () => {
-    const onPlayerClick = jest.fn();
-    render(
-      <Button
-        onPlayerClick={onPlayerClick}
-        text="Play"
-      />
+    const { getByText } = render(
+      <Button text="Play" />
     );
-    const text = screen.getByText('Play');
-    expect(text).toHaveTextContent('Play');
+    getByText('Play');
+  });
+  it('Has disabled attribute', () => {
+    const { getByText } = render(
+      <Button text="Play" disabled />
+    );
+    getByText('Play').hasAttribute('disabled');
   });
 });
