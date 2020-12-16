@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   useSetNewHighScore,
   useSetPlayerScore,
@@ -21,7 +21,10 @@ export default function SubmitScore({
     isScoreSubmitted,
     setIsScoreSubmitted,
   ] = useState(false);
-
+  const [
+    isButtonDisabled,
+    setIsButtonDisabled,
+  ] = useState(false);
   const [playerInfo, setPlayerInfo] = useState({
     playerName: '',
     score: playerScore,
@@ -30,6 +33,13 @@ export default function SubmitScore({
   const setNewHighScore = useSetNewHighScore();
   const history = useHistory();
 
+  useEffect(
+    () =>
+      setIsButtonDisabled(
+        validateName(playerInfo.playerName)
+      ),
+    [playerInfo]
+  );
   function handleChange(event) {
     const fieldValue = event.target.value;
     setPlayerInfo({
@@ -46,7 +56,9 @@ export default function SubmitScore({
 
   function onSubmit(event) {
     event.preventDefault();
-    postScores(playerInfo);
+    if (validateName(playerInfo.playerName)) {
+      postScores(playerInfo);
+    }
     setNewHighScore(playerInfo);
     setIsScoreSubmitted(true);
   }
@@ -81,6 +93,7 @@ export default function SubmitScore({
             width="80%"
             radius="28px"
             text="Submit"
+            disabled={!isButtonDisabled}
             onPlayerClick={onSubmit}
           />
         </>
@@ -88,6 +101,9 @@ export default function SubmitScore({
     </HighScoreWrapper>
   );
 }
+
+const validateName = (name) =>
+  name.length > 0 && name.length < 15;
 
 SubmitScore.propTypes = {
   playerScore: PropTypes.number,
@@ -121,6 +137,7 @@ const HighScoreWrapper = styled.div`
     border-radius: 28px;
     border: none;
     outline: none;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 
     color: black;
     text-align: center;

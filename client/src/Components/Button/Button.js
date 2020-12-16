@@ -42,4 +42,6 @@ const ButtonStyled = styled.button`
   );
   font-size: 1.78rem;
   outline: none;
+  filter: ${(props) =>
+    props.disabled && 'saturate(0.5)'};
 `;

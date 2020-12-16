@@ -1,8 +1,5 @@
 import styled from 'styled-components/macro';
-import {
-  motion,
-  AnimatePresence,
-} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { NavLink } from 'react-router-dom';
 
@@ -28,32 +25,30 @@ export default function NavItem({ navState }) {
   };
 
   return (
-    <AnimatePresence>
-      <NavWrapper
-        key="navigation"
-        initial="initial"
-        animate="in"
-        exit="out"
-        transition={navTransition}
-        variants={variants}>
-        <NavLinkStyled
-          exact
-          to="/"
-          activeClassName="active">
-          Home
-        </NavLinkStyled>
-        <NavLinkStyled
-          to="/game"
-          activeClassName="active">
-          Game
-        </NavLinkStyled>
-        <NavLinkStyled
-          to="/highscore"
-          activeClassName="active">
-          High Score
-        </NavLinkStyled>
-      </NavWrapper>
-    </AnimatePresence>
+    <NavWrapper
+      key="navigation"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={navTransition}
+      variants={variants}>
+      <NavLinkStyled
+        exact
+        to="/"
+        activeClassName="active">
+        Home
+      </NavLinkStyled>
+      <NavLinkStyled
+        to="/game"
+        activeClassName="active">
+        Game
+      </NavLinkStyled>
+      <NavLinkStyled
+        to="/highscore"
+        activeClassName="active">
+        High Score
+      </NavLinkStyled>
+    </NavWrapper>
   );
 }
 
