@@ -48,7 +48,9 @@ export default function Navigation({ mode }) {
   return (
     <NavWrapper>
       {navigationMode()}
-      {!toggleNav && <NavItem />}
+      {!toggleNav && (
+        <NavItem navState={toggleNav} />
+      )}
     </NavWrapper>
   );
 }

@@ -63,7 +63,10 @@ function App() {
   };
 
   const pageTransition = {
-    ease: 'anticipate',
+    type: 'spring',
+    ease: 'easeInOut',
+    stiffness: 300,
+    damping: 25,
     duration: '0.15',
   };
 
@@ -79,6 +82,7 @@ function App() {
               <Switch>
                 <Route exact path="/">
                   <motion.div
+                    key="home"
                     initial="initial"
                     animate="in"
                     exit="out"
@@ -92,6 +96,7 @@ function App() {
                 </Route>
                 <Route path="/game">
                   <motion.div
+                    key="game"
                     initial="initial"
                     animate="in"
                     exit="out"
@@ -106,6 +111,7 @@ function App() {
                 </Route>
                 <Route path="/highscore">
                   <motion.div
+                    key="highscore"
                     initial="initial"
                     animate="in"
                     exit="out"

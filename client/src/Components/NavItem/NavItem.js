@@ -1,24 +1,24 @@
 import styled from 'styled-components/macro';
-import { motion } from 'framer-motion';
+import {
+  motion,
+  AnimatePresence,
+} from 'framer-motion';
 
 import { NavLink } from 'react-router-dom';
 
-export default function NavItem() {
-  const navVariants = {
+export default function NavItem({ navState }) {
+  const variants = {
     initial: {
       opacity: 0,
       y: '-40vh',
-      x: '45vw',
     },
     in: {
       opacity: 1,
       y: '0vh',
-      x: '45vw',
     },
     out: {
       opacity: 0,
       y: '-40vh',
-      x: '45vw',
     },
   };
 
@@ -28,13 +28,14 @@ export default function NavItem() {
   };
 
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      transition={navTransition}
-      variants={navVariants}>
-      <NavWrapper>
+    <AnimatePresence>
+      <NavWrapper
+        key="navigation"
+        initial="initial"
+        animate="in"
+        exit="out"
+        transition={navTransition}
+        variants={variants}>
         <NavLinkStyled
           exact
           to="/"
@@ -52,15 +53,16 @@ export default function NavItem() {
           High Score
         </NavLinkStyled>
       </NavWrapper>
-    </motion.div>
+    </AnimatePresence>
   );
 }
 
-const NavWrapper = styled.nav`
+const NavWrapper = styled(motion.nav)`
   height: 40vh;
-  width: 140%;
+  width: 100%;
 
   grid-column: 2;
+  grid-row: 1;
 
   display: flex;
   flex-direction: column;
