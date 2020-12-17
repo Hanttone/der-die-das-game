@@ -26,14 +26,9 @@ function App() {
 
   const [mode, setMode] = useState('dark');
 
-  const dataUrls = [
-    'http://localhost:4000/api/scores',
-    'http://localhost:4000/api/germannouns',
-  ];
-
   useEffect(
     () =>
-      fetchData(dataUrls)
+      fetchData()
         .then((data) => setGameData(data))
         .then(setLoading),
     []
