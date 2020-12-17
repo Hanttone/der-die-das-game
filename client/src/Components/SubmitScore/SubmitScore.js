@@ -15,7 +15,6 @@ import Header from '../Header/Header';
 export default function SubmitScore({
   playerScore,
 }) {
-
   const setPlayerLives = useSetPlayerLives();
   const setPlayerScore = useSetPlayerScore();
 
@@ -23,10 +22,12 @@ export default function SubmitScore({
     isScoreSubmitted,
     setIsScoreSubmitted,
   ] = useState(false);
+
   const [
     isButtonDisabled,
     setIsButtonDisabled,
   ] = useState(false);
+
   const [playerInfo, setPlayerInfo] = useState({
     playerName: '',
     score: playerScore,
@@ -42,6 +43,7 @@ export default function SubmitScore({
       ),
     [playerInfo]
   );
+
   function handleChange(event) {
     const fieldValue = event.target.value;
     setPlayerInfo({
