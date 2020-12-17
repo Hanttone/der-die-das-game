@@ -25,6 +25,8 @@ Button.propTypes = {
   width: PropTypes.string,
   radius: PropTypes.string,
   text: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const ButtonStyled = styled.button`
@@ -35,11 +37,11 @@ const ButtonStyled = styled.button`
   border: none;
   background-image: linear-gradient(
     40deg,
-    #6c24b4 15%,
-    #a626b7,
-    #b12dc3,
-    #dc45f0
+    ${(props) => props.theme.colorDarkButton},
+    ${(props) => props.theme.colorVeryLightButton}
   );
   font-size: 1.78rem;
   outline: none;
+  filter: ${(props) =>
+    props.disabled && 'grayscale()'};
 `;

@@ -1,13 +1,28 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
+import SwitchBtn from '../Components/Switch/Switch';
 
-export default function Home() {
+export default function Home(props) {
   const history = useHistory();
+  const [isToggled, setIsToggled] = useState(
+    false
+  );
+
+  function changeMode() {
+    if (props.mode === 'dark') {
+      props.setMode('light');
+      setIsToggled(!isToggled);
+    } else {
+      props.setMode('dark');
+      setIsToggled(!isToggled);
+    }
+  }
 
   function handleClick() {
     history.push('/game');
@@ -15,8 +30,8 @@ export default function Home() {
 
   return (
     <HomeWrapper>
-      <Navigation />
-      <Header mt="8vh" mb="6vh">
+      <Navigation mode={props.mode} />
+      <Header mt="5vh" mb="4vh">
         Der, die & das
       </Header>
       <p>Want to practice the German nouns?</p>
@@ -29,6 +44,11 @@ export default function Home() {
         game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
+      <SwitchBtn
+        toggled={isToggled}
+        onChange={changeMode}
+        mode={props.mode}
+      />
       <ButtonWrapper>
         <Button
           width="80%"
@@ -37,7 +57,7 @@ export default function Home() {
           onPlayerClick={handleClick}
         />
       </ButtonWrapper>
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={props.mode} />
     </HomeWrapper>
   );
 }
@@ -46,7 +66,6 @@ const HomeWrapper = styled.main`
   height: 100vh;
   width: 100%;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -58,25 +77,17 @@ const HomeWrapper = styled.main`
       sans-serif;
     font-size: 1.3rem;
     letter-spacing: 0.05rem;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     width: 80%;
     z-index: 2;
     line-height: 1.5;
   }
 `;
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.section`
   width: 100%;
   text-align: center;
   position: absolute;
   bottom: 8%;
   z-index: 1;
-
-  div {
-    width: 100%;
-    border-radius: 28px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-  }
 `;

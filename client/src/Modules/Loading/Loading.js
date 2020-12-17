@@ -3,13 +3,13 @@ import styled from 'styled-components/macro';
 import WaveDesignBackground from '../../Components/BottomLayout/WaveDesignBackground';
 import LoadingIcon from '../../Components/LoadingIcon/LoadingIcon';
 
-export default function Loading() {
+export default function Loading({ mode }) {
   return (
     <LoadingWrapper>
       <section>
         <LoadingIcon />
       </section>
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={mode} />
     </LoadingWrapper>
   );
 }

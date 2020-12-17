@@ -10,6 +10,7 @@ import {
   useSetPlayerScore,
 } from '../Services/Context';
 import Ripples from 'react-ripples';
+import PropTypes from 'prop-types';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -24,6 +25,7 @@ import GameOver from '../Modules/GameOver/GameOver';
 export default function GamePage({
   wordData,
   scoreData,
+  mode,
 }) {
   const [
     selectedWord,
@@ -57,46 +59,25 @@ export default function GamePage({
     return setSelectedWord(wordSelected);
   }
 
+  const index = wordData.findIndex(
+    (word) => word.germanNoun === selectedWord
+  );
+
   function timeIsOut() {
-    const index = wordData.findIndex(
-      (word) => word.germanNoun === selectedWord
-    );
     if (counter === 0) {
-      setCounter(null);
-      const correctAnswer =
-        wordData[index].gender;
-      setCorrectAnswer(correctAnswer);
-      setIsAnswerDisplayed(false);
-      setPlayerLives(1);
-      setTimeout(() => {
-        setIsAnswerDisplayed(true);
-        randomWord();
-      }, 2000);
+      showCorrectAnswer();
     }
   }
 
-  function handleCorrectAnswer(nounGender) {
-    const index = wordData.findIndex(
-      (word) => word.germanNoun === selectedWord
-    );
+
+  function handleClick(nounGender) {
     if (wordData[index].gender === nounGender) {
       setPlayerScore(playerScore + 5);
       randomWord();
     } else if (
       wordData[index].gender !== nounGender
     ) {
-      setCounter(null);
-      const correctAnswer =
-        wordData[index].gender;
-      setCorrectAnswer(correctAnswer);
-      setIsAnswerDisplayed(false);
-      setPlayerLives(1);
-      setTimeout(() => {
-        setIsAnswerDisplayed(true);
-        randomWord();
-      }, 2000);
-    } else {
-      console.log('oops error');
+      showCorrectAnswer();
     }
   }
 
@@ -107,9 +88,21 @@ export default function GamePage({
     return <GameOver scoreData={scoreData} />;
   }
 
+  function showCorrectAnswer() {
+    setCounter(null);
+    const correctAnswer = wordData[index].gender;
+    setCorrectAnswer(correctAnswer);
+    setIsAnswerDisplayed(false);
+    setPlayerLives(1);
+    setTimeout(() => {
+      setIsAnswerDisplayed(true);
+      randomWord();
+    }, 2000);
+  }
+
   return (
     <GameWrapper>
-      <Navigation />
+      <Navigation mode={mode} />
       {playerLives === 0 ? (
         displayGameOver()
       ) : (
@@ -119,10 +112,11 @@ export default function GamePage({
           </Header>
           <Scores
             myScore={playerScore}
-            highScore={scoreData}
-          />
-          <Lives />
-          <TimerBar word={selectedWord} />
+
+            highScore={scoreData} />
+          <Lives mode={mode} />
+          <TimerBar
+            word={selectedWord} />
           {isAnswerDisplayed ? (
             <WordCard word={selectedWord} />
           ) : (
@@ -174,13 +168,18 @@ export default function GamePage({
                 />
               </Ripples>
             </div>
-          </ButtonWrapper>{' '}
+          </ButtonWrapper>
         </>
       )}
-      <WaveDesignBackground />
+      <WaveDesignBackground mode={mode} />
     </GameWrapper>
   );
 }
+
+GamePage.propTypes = {
+  scoreData: PropTypes.array,
+  wordData: PropTypes.array,
+};
 
 const GameWrapper = styled.main`
   height: 100vh;
@@ -189,6 +188,7 @@ const GameWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   position: relative;
+  overflow: hidden;
 `;
 
 const ButtonWrapper = styled.div`

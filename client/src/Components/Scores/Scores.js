@@ -5,7 +5,7 @@ export default function Scores({ highScore }) {
   const maxScore = highScore?.reduce(
     (max, player) =>
       player.score > max ? player.score : max,
-    highScore[0].score
+    highScore[0]?.score
   );
 
   const playerScore = usePlayerScore();
@@ -18,7 +18,9 @@ export default function Scores({ highScore }) {
       </section>
       <div>
         <p>High Score</p>
-        <div className="left">{maxScore}</div>
+        <div className="left">
+          {maxScore === undefined ? 0 : maxScore}
+        </div>
       </div>
     </ScoreWrapper>
   );
@@ -27,6 +29,7 @@ export default function Scores({ highScore }) {
 const ScoreWrapper = styled.section`
   width: 87.5%;
   margin-bottom: 4vh;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;

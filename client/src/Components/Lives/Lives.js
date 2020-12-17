@@ -1,10 +1,12 @@
 import styled from 'styled-components/macro';
+import { useLife } from '../../Services/Context';
 
 import { ReactComponent as Heart } from '../../Assets/heartGreen.svg';
 import { ReactComponent as LostHeart } from '../../Assets/heartLost.svg';
-import { useLife } from '../../Services/Context';
+import { ReactComponent as HeartBlue } from '../../Assets/heartBlue.svg';
+import { ReactComponent as LostHeartBlue } from '../../Assets/heartLostBlue.svg';
 
-export default function Lives() {
+export default function Lives({ mode }) {
   const life = useLife();
   let livesArray = [];
   let lostLivesArray = [];
@@ -31,12 +33,24 @@ export default function Lives() {
 
   return (
     <LivesWrapper>
-      {livesArray.map((life, index) => (
-        <Heart key={index} />
-      ))}
-      {lostLivesArray.map((lostlife, index) => (
-        <LostHeart key={index} />
-      ))}
+      {mode === 'dark'
+        ? livesArray.map((life, index) => (
+            <Heart key={index} />
+          ))
+        : livesArray.map((life, index) => (
+            <HeartBlue key={index} />
+          ))}
+      {mode === 'dark'
+        ? lostLivesArray.map(
+            (lostlife, index) => (
+              <LostHeart key={index} />
+            )
+          )
+        : lostLivesArray.map(
+            (lostlife, index) => (
+              <LostHeartBlue key={index} />
+            )
+          )}
     </LivesWrapper>
   );
 }
