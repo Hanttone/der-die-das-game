@@ -1,3 +1,4 @@
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import GlobalStyle from './Services/GlobalStyle';
 import styled, {
@@ -11,6 +12,7 @@ import {
   motion,
 } from 'framer-motion';
 import { GameUpdateProvider } from './Services/Context';
+import GlobalStyle from './Services/GlobalStyle';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
@@ -38,8 +40,7 @@ function App() {
     setFetchInProgress(!fetchInProgress);
   }
 
-  //page animations for transitions
-  const pageVariants = {
+  const pageAnimations = {
     initial: {
       opacity: 0,
       x: '100vw',
@@ -82,7 +83,7 @@ function App() {
                     animate="in"
                     exit="out"
                     transition={pageTransition}
-                    variants={pageVariants}>
+                    variants={pageAnimations}>
                     <Home
                       mode={mode}
                       setMode={setMode}
@@ -96,7 +97,7 @@ function App() {
                     animate="in"
                     exit="out"
                     transition={pageTransition}
-                    variants={pageVariants}>
+                    variants={pageAnimations}>
                     <Game
                       wordData={gameData[1]}
                       scoreData={gameData[0]}
@@ -111,7 +112,7 @@ function App() {
                     animate="in"
                     exit="out"
                     transition={pageTransition}
-                    variants={pageVariants}>
+                    variants={pageAnimations}>
                     <HighScore
                       mode={mode}
                       scores={gameData[0]}

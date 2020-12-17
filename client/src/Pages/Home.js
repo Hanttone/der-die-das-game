@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 import Navigation from '../Modules/Navigation/Navigation';
-import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
+import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import SwitchBtn from '../Components/Switch/Switch';
 

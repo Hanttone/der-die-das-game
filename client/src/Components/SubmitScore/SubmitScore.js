@@ -15,8 +15,10 @@ import Header from '../Header/Header';
 export default function SubmitScore({
   playerScore,
 }) {
+
   const setPlayerLives = useSetPlayerLives();
   const setPlayerScore = useSetPlayerScore();
+
   const [
     isScoreSubmitted,
     setIsScoreSubmitted,

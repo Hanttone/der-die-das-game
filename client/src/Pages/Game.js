@@ -69,6 +69,7 @@ export default function GamePage({
     }
   }
 
+
   function handleClick(nounGender) {
     if (wordData[index].gender === nounGender) {
       setPlayerScore(playerScore + 5);
@@ -111,10 +112,11 @@ export default function GamePage({
           </Header>
           <Scores
             myScore={playerScore}
-            highScore={scoreData}></Scores>
+
+            highScore={scoreData} />
           <Lives mode={mode} />
           <TimerBar
-            word={selectedWord}></TimerBar>
+            word={selectedWord} />
           {isAnswerDisplayed ? (
             <WordCard word={selectedWord} />
           ) : (
@@ -132,7 +134,7 @@ export default function GamePage({
                   text="Der"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('der')
+                    handleCorrectAnswer('der')
                   }
                   disabled={!isAnswerDisplayed}
                 />
@@ -146,7 +148,7 @@ export default function GamePage({
                   text="Die"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('die')
+                    handleCorrectAnswer('die')
                   }
                   disabled={!isAnswerDisplayed}
                 />
@@ -160,7 +162,7 @@ export default function GamePage({
                   text="Das"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('das')
+                    handleCorrectAnswer('das')
                   }
                   disabled={!isAnswerDisplayed}
                 />
