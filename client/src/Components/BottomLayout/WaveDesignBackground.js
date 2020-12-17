@@ -6,8 +6,8 @@ import LightSVG from '../../Services/bottomDesignLightLayout';
 export default function WaveDesignBackground({
   mode,
 }) {
-  const Icon = made === "dark" = SVG : LightSVG;
-  
+  const Icon = mode === 'dark' ? SVG : LightSVG;
+
   return (
     <LayoutWrapper>
       <Icon width="100%" height="100%" />

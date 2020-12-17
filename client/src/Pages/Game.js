@@ -69,8 +69,7 @@ export default function GamePage({
     }
   }
 
-
-  function handleClick(nounGender) {
+  function handleCorrectAnswer(nounGender) {
     if (wordData[index].gender === nounGender) {
       setPlayerScore(playerScore + 5);
       randomWord();
@@ -112,11 +111,10 @@ export default function GamePage({
           </Header>
           <Scores
             myScore={playerScore}
-
-            highScore={scoreData} />
+            highScore={scoreData}
+          />
           <Lives mode={mode} />
-          <TimerBar
-            word={selectedWord} />
+          <TimerBar word={selectedWord} />
           {isAnswerDisplayed ? (
             <WordCard word={selectedWord} />
           ) : (

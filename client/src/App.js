@@ -1,4 +1,3 @@
-
 /* eslint-disable react-hooks/exhaustive-deps */
 import GlobalStyle from './Services/GlobalStyle';
 import styled, {
@@ -12,7 +11,6 @@ import {
   motion,
 } from 'framer-motion';
 import { GameUpdateProvider } from './Services/Context';
-import GlobalStyle from './Services/GlobalStyle';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
