@@ -5,7 +5,7 @@ import {
 } from '@testing-library/react';
 
 describe('Button', () => {
-  it('Fires a function on click', () => {
+  it('fires a function on click', () => {
     const onPlayerClick = jest.fn();
     const { getByText } = render(
       <Button
@@ -17,13 +17,13 @@ describe('Button', () => {
     fireEvent.click(getByText('Play'));
     expect(onPlayerClick).toHaveBeenCalled();
   });
-  it('The button displays text correctly', () => {
+  it('is displaying text correctly', () => {
     const { getByText } = render(
       <Button text="Play" />
     );
     getByText('Play');
   });
-  it('Has disabled attribute', () => {
+  it('has a disabled attribute', () => {
     const { getByText } = render(
       <Button text="Play" disabled />
     );
