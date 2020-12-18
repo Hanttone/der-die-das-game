@@ -3,67 +3,70 @@ import { motion } from 'framer-motion';
 
 import { NavLink } from 'react-router-dom';
 
-export default function NavItem() {
-  const navVariants = {
+export default function NavItem({ navState }) {
+  const variants = {
     initial: {
       opacity: 0,
-      x: '44vw',
+      y: '-40vh',
     },
     in: {
       opacity: 1,
-      x: '44vw',
+      y: '0vh',
     },
     out: {
       opacity: 0,
-      x: '44vw',
+      y: '-40vh',
     },
   };
 
   const navTransition = {
-    type: 'spring',
-    ease: 'easeInOut',
+    type: 'anticipate',
+    duration: '0.2',
   };
 
   return (
-    <motion.div
+    <NavWrapper
+      key="navigation"
       initial="initial"
       animate="in"
       exit="out"
       transition={navTransition}
-      variants={navVariants}>
-      <NavWrapper>
-        <NavLinkStyled
-          exact
-          to="/"
-          activeClassName="active">
-          Home
-        </NavLinkStyled>
-        <NavLinkStyled
-          to="/game"
-          activeClassName="active">
-          Game
-        </NavLinkStyled>
-        <NavLinkStyled
-          to="/highscore"
-          activeClassName="active">
-          High Score
-        </NavLinkStyled>
-      </NavWrapper>
-    </motion.div>
+      variants={variants}>
+      <NavLinkStyled
+        exact
+        to="/"
+        activeClassName="active">
+        Home
+      </NavLinkStyled>
+      <NavLinkStyled
+        to="/game"
+        activeClassName="active">
+        Game
+      </NavLinkStyled>
+      <NavLinkStyled
+        to="/highscore"
+        activeClassName="active">
+        High Score
+      </NavLinkStyled>
+    </NavWrapper>
   );
 }
 
-const NavWrapper = styled.nav`
+const NavWrapper = styled(motion.nav)`
   height: 40vh;
-  width: 56vw;
+  width: 100%;
+
   grid-column: 2;
   grid-row: 1;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 28px 0px 28px 28px;
+
   display: flex;
   flex-direction: column;
-  gap: 5%;
   justify-content: center;
+  gap: 5%;
+
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 28px 0px 28px 28px;
+
   background-color: ${(props) =>
     props.theme.colorNavigation};
   text-align: left;

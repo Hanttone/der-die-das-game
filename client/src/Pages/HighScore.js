@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
 import sortScores from '../Services/sortScores';
+import { useState, useEffect } from 'react';
 import { useNewHighScore } from '../Services/Context';
 
 import Navigation from '../Modules/Navigation/Navigation';
@@ -7,10 +9,20 @@ import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackgroun
 import Header from '../Components/Header/Header';
 
 export default function HighScore({
-  scoreData,
   mode,
+  scores,
 }) {
   const newHighScore = useNewHighScore();
+  const [scoreData, setScoreData] = useState(
+    scores
+  );
+
+  useEffect(() => {
+    if (newHighScore) {
+      setScoreData([...scoreData, newHighScore]);
+    }
+  }, []);
+
   const sortedHighScores = sortScores(scoreData);
   const topTen = sortedHighScores.slice(0, 10);
 
@@ -21,20 +33,19 @@ export default function HighScore({
         High Score
       </Header>
       <HighScoreTableWrapper>
-        <div>
+        <section>
           <h2>Player</h2>
           <h2>Score</h2>
-          <section>
-            {topTen.map((player, index) => (
-              <>
-                <p key={player.id}>
-                  {index + 1}. {player.playerName}
-                </p>
-                <p>{player.score}</p>
-              </>
-            ))}
-          </section>
-        </div>
+          {topTen.map((player, index) => (
+            <ScoreWrapper key={player._id}>
+              <p>{index + 1}.</p>
+              <p>{player.playerName}</p>
+              <p className="score">
+                {player.score}
+              </p>
+            </ScoreWrapper>
+          ))}
+        </section>
       </HighScoreTableWrapper>
       <WaveDesignBackground mode={mode} />
     </HighScoreWrapper>
@@ -59,14 +70,16 @@ const HighScoreTableWrapper = styled.div`
   z-index: 1;
   display: flex;
   justify-content: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  align-items: flex-start;
+  box-shadow: 0px 0p x 10px rgba(0, 0, 0, 0.2);
 
-  div {
+  section {
     height: 98%;
+    width: 90%;
+    padding-top: 2vh;
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: 1fr 9fr;
-    width: 95%;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(11, 1fr);
   }
 
   h2 {
@@ -76,19 +89,23 @@ const HighScoreTableWrapper = styled.div`
     align-self: end;
     padding-bottom: 2%;
     padding-left: 3%;
+    margin-bottom: 2.5vh;
   }
+`;
 
-  section {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-template-rows: repeat(10, 1fr);
-    grid-column: span 2;
-    align-items: center;
-  }
+const ScoreWrapper = styled.div`
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 0.2fr 1.5fr 1fr;
+  gap: 2%;
+  margin-bottom: 1%;
 
   p {
     font-size: 20px;
     font-family: Silom;
-    padding-left: 5%;
+  }
+
+  .score {
+    text-align: center;
   }
 `;

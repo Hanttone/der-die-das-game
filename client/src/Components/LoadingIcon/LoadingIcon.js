@@ -2,24 +2,31 @@ import { motion } from 'framer-motion';
 
 export default function LoadingSVG() {
   const svgVariants = {
-    hidden: { rotate: -360 },
+    hidden: {
+      rotate: -360,
+    },
     visible: {
       rotate: 0,
-      transition: { duration: 3 },
+      transition: {
+        duration: 3,
+        ease: 'easeInOut',
+        yoyo: Infinity,
+      },
     },
   };
 
   const pathVariants = {
     hidden: {
-      opacity: 0,
-      pathlenght: 0,
+      pathLength: 0,
+      pathOffset: 1,
     },
     visible: {
-      opacity: 1,
-      pathlenght: 1,
+      pathLength: 1,
+      pathOffset: 0,
       transition: {
         duration: 3,
         ease: 'easeInOut',
+        yoyo: Infinity,
       },
     },
   };
@@ -31,6 +38,7 @@ export default function LoadingSVG() {
       height="110.656"
       viewBox="0 0 117.446 110.656"
       variants={svgVariants}
+      key="loading"
       initial="hidden"
       animate="visible">
       <motion.path

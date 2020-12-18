@@ -25,6 +25,8 @@ Button.propTypes = {
   width: PropTypes.string,
   radius: PropTypes.string,
   text: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const ButtonStyled = styled.button`
@@ -40,4 +42,6 @@ const ButtonStyled = styled.button`
   );
   font-size: 1.78rem;
   outline: none;
+  filter: ${(props) =>
+    props.disabled && 'grayscale()'};
 `;

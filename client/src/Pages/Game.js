@@ -10,6 +10,7 @@ import {
   useSetPlayerScore,
 } from '../Services/Context';
 import Ripples from 'react-ripples';
+import PropTypes from 'prop-types';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -68,7 +69,7 @@ export default function GamePage({
     }
   }
 
-  function handleClick(nounGender) {
+  function handleCorrectAnswer(nounGender) {
     if (wordData[index].gender === nounGender) {
       setPlayerScore(playerScore + 5);
       randomWord();
@@ -110,10 +111,10 @@ export default function GamePage({
           </Header>
           <Scores
             myScore={playerScore}
-            highScore={scoreData}></Scores>
+            highScore={scoreData}
+          />
           <Lives mode={mode} />
-          <TimerBar
-            word={selectedWord}></TimerBar>
+          <TimerBar word={selectedWord} />
           {isAnswerDisplayed ? (
             <WordCard word={selectedWord} />
           ) : (
@@ -131,7 +132,7 @@ export default function GamePage({
                   text="Der"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('der')
+                    handleCorrectAnswer('der')
                   }
                   disabled={!isAnswerDisplayed}
                 />
@@ -145,7 +146,7 @@ export default function GamePage({
                   text="Die"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('die')
+                    handleCorrectAnswer('die')
                   }
                   disabled={!isAnswerDisplayed}
                 />
@@ -159,19 +160,24 @@ export default function GamePage({
                   text="Das"
                   zindex="1"
                   onPlayerClick={() =>
-                    handleClick('das')
+                    handleCorrectAnswer('das')
                   }
                   disabled={!isAnswerDisplayed}
                 />
               </Ripples>
             </div>
-          </ButtonWrapper>{' '}
+          </ButtonWrapper>
         </>
       )}
       <WaveDesignBackground mode={mode} />
     </GameWrapper>
   );
 }
+
+GamePage.propTypes = {
+  scoreData: PropTypes.array,
+  wordData: PropTypes.array,
+};
 
 const GameWrapper = styled.main`
   height: 100vh;
@@ -180,6 +186,7 @@ const GameWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   position: relative;
+  overflow: hidden;
 `;
 
 const ButtonWrapper = styled.div`

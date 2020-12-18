@@ -4,12 +4,14 @@ import Noun from './Models/Noun';
 import connectDB from './Database/Connection';
 import path from 'path';
 import cors from 'cors';
+//has to be imported here otherwise server not working in dev mode
 import dotenv from 'dotenv';
 
 const server = express();
 connectDB();
+dotenv.config();
 
-const Port = process.env.Port || 4000;
+const port = process.env.PORT || 4000;
 
 server.use(express.json());
 server.use(cors());
@@ -56,8 +58,6 @@ server.post('/api/scores', (req, res) => {
     .then(() => res.json(playerScoreData));
 });
 
-server.listen(Port, () => {
-  console.log(
-    `server is open at: http://localhost:${Port}`
-  );
+server.listen(port, () => {
+  console.log(`server is open at: ${port}`);
 });

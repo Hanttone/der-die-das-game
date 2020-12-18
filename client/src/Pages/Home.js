@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 import Navigation from '../Modules/Navigation/Navigation';
-import Header from '../Components/Header/Header';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
+import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
 import SwitchBtn from '../Components/Switch/Switch';
 
@@ -31,7 +31,7 @@ export default function Home(props) {
   return (
     <HomeWrapper>
       <Navigation mode={props.mode} />
-      <Header mt="8vh" mb="6vh">
+      <Header mt="5vh" mb="4vh">
         Der, die & das
       </Header>
       <p>Want to practice the German nouns?</p>
@@ -77,7 +77,7 @@ const HomeWrapper = styled.main`
       sans-serif;
     font-size: 1.3rem;
     letter-spacing: 0.05rem;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     width: 80%;
     z-index: 2;
     line-height: 1.5;

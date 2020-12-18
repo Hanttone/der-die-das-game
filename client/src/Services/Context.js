@@ -19,7 +19,7 @@ export function GameUpdateProvider({ children }) {
   const [
     newHighScore,
     setNewHighScore,
-  ] = useState([]);
+  ] = useState({});
 
   function changePlayerLives(life) {
     setPlayerLives(playerLives - life);

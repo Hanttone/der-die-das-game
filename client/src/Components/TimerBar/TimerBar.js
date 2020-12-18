@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
 import { useEffect, useRef } from 'react';
 import {
@@ -5,6 +6,7 @@ import {
   useSetCounter,
 } from '../../Services/Context';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 export default function TimerBar({ word }) {
   const countDown = useCounter();
@@ -27,12 +29,10 @@ export default function TimerBar({ word }) {
         clearTimeout(timer.current);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countDown]);
 
   useEffect(() => {
     setCounter(15);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [word]);
 
   return (
@@ -52,6 +52,10 @@ export default function TimerBar({ word }) {
     </TimerWrapper>
   );
 }
+
+TimerBar.propTypes = {
+  word: PropTypes.string,
+};
 
 const TimerWrapper = styled.div`
   margin-bottom: 4vh;
