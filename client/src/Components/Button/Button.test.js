@@ -4,7 +4,7 @@ import {
   fireEvent,
 } from '@testing-library/react';
 
-describe('Testing button click', () => {
+describe('Button', () => {
   it('Fires a function on click', () => {
     const onPlayerClick = jest.fn();
     const { getByText } = render(
