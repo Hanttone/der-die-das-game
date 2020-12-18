@@ -25,10 +25,7 @@ describe('Word card showing new words in game', () => {
     expect(selector).toBeTruthy();
   });
   it('has a section with a class attribute', () => {
-    const { debug, container } = render(
-      <WordCard />
-    );
-    debug();
+    const { container } = render(<WordCard />);
     const selector = container.querySelector(
       'section'
     );
