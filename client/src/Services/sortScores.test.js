@@ -1,7 +1,7 @@
 import sortScores from './sortScores';
 
 describe('sortScores', () => {
-  it('Sorts scores from biggest to smalles', () => {
+  it('sorts scores from biggest to smalles', () => {
     const objectToSort = [
       { score: 0 },
       { score: 5 },

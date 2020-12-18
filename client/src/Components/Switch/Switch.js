@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
 
-export default function SwitchBtn({
+export default function Switch({
   onChange,
   toggled,
 }) {
@@ -21,7 +21,7 @@ export default function SwitchBtn({
   );
 }
 
-SwitchBtn.propTypes = {
+Switch.propTypes = {
   checked: PropTypes.bool,
   onChange: PropTypes.func,
 };

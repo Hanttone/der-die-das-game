@@ -4,8 +4,8 @@ import {
   fireEvent,
 } from '@testing-library/react';
 
-describe('Test Switch', () => {
-  it('Fires a function on change', () => {
+describe('Switch', () => {
+  it('fires a function on change', () => {
     const onChange = jest.fn();
     const { container } = render(
       <Switch onChange={onChange} />
@@ -17,5 +17,18 @@ describe('Test Switch', () => {
 
     fireEvent.click(SwitchInput);
     expect(onChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('is changing checked states when clicked on', () => {
+    const { container } = render(<Switch />);
+    const checkboxInput = container.querySelector(
+      'input'
+    );
+    expect(checkboxInput.checked).toEqual(false);
+    fireEvent.click(checkboxInput);
+    expect(checkboxInput.checked).toEqual(true);
+    fireEvent.click(checkboxInput);
+    expect(checkboxInput.checked).toEqual(false);
   });
 });

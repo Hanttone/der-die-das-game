@@ -2,8 +2,8 @@ import Lives from './Lives';
 import { render } from '@testing-library/react';
 import { GameUpdateProvider } from '../../Services/Context';
 
-describe('Player lives component', () => {
-  it('Has an attribute mode', () => {
+describe('Player Lives', () => {
+  it('has an attribute mode', () => {
     const { container } = render(
       <GameUpdateProvider>
         <Lives mode="dark" />

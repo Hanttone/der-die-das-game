@@ -1,8 +1,8 @@
 import WordCard from './WordCard';
 import { render } from '@testing-library/react';
 
-describe('Word card showing new words in game', () => {
-  it('Is showing P-tag text', () => {
+describe('WordCard', () => {
+  it('is showing P-tag text', () => {
     const { getByText } = render(
       <WordCard text="The correct answer is" />
     );
@@ -10,7 +10,7 @@ describe('Word card showing new words in game', () => {
       getByText('The correct answer is')
     ).toBeTruthy();
   });
-  it('Is showing h2-tag text', () => {
+  it('is showing h2-tag text', () => {
     const { getByText } = render(
       <WordCard word="Stuhl" />
     );

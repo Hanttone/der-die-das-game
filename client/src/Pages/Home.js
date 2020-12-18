@@ -6,7 +6,7 @@ import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
 import Header from '../Components/Header/Header';
 import Button from '../Components/Button/Button';
-import SwitchBtn from '../Components/Switch/Switch';
+import Switch from '../Components/Switch/Switch';
 
 export default function Home(props) {
   const history = useHistory();
@@ -44,7 +44,7 @@ export default function Home(props) {
         game will start.
       </p>
       <p>You have 3 lives, have fun!</p>
-      <SwitchBtn
+      <Switch
         toggled={isToggled}
         onChange={changeMode}
         mode={props.mode}
