@@ -57,7 +57,10 @@ export default function Home(props) {
           onPlayerClick={handleClick}
         />
       </ButtonWrapper>
-      <WaveDesignBackground mode={props.mode} />
+      <WaveDesignBackground
+        mode={props.mode}
+        time="5s"
+      />
     </HomeWrapper>
   );
 }
