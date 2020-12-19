@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import GlobalStyle from './Services/GlobalStyle';
 import styled from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -8,7 +7,6 @@ import {
   AnimatePresence,
   motion,
 } from 'framer-motion';
-import { GameUpdateProvider } from './Services/Context';
 import AppThemeProvider from './Services/AppThemeProvider';
 
 import Game from './Pages/Game';
@@ -65,62 +63,59 @@ function App() {
 
   return (
     <AppThemeProvider mode={mode}>
-      <GameUpdateProvider>
-        <AppWrapper>
-          <GlobalStyle />
-          {fetchInProgress ? (
-            <Loading mode={mode} />
-          ) : (
-            <AnimatePresence>
-              <Switch>
-                <Route exact path="/">
-                  <motion.div
-                    key="home"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <Home
-                      mode={mode}
-                      setMode={setMode}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/game">
-                  <motion.div
-                    key="game"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <Game
-                      wordData={gameData[1]}
-                      scoreData={gameData[0]}
-                      mode={mode}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/highscore">
-                  <motion.div
-                    key="highscore"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <HighScore
-                      mode={mode}
-                      scores={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>
-              </Switch>
-            </AnimatePresence>
-          )}
-        </AppWrapper>
-      </GameUpdateProvider>
+      <AppWrapper>
+        {fetchInProgress ? (
+          <Loading mode={mode} />
+        ) : (
+          <AnimatePresence>
+            <Switch>
+              <Route exact path="/">
+                <motion.div
+                  key="home"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageAnimations}>
+                  <Home
+                    mode={mode}
+                    setMode={setMode}
+                  />
+                </motion.div>
+              </Route>
+              <Route path="/game">
+                <motion.div
+                  key="game"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageAnimations}>
+                  <Game
+                    wordData={gameData[1]}
+                    scoreData={gameData[0]}
+                    mode={mode}
+                  />
+                </motion.div>
+              </Route>
+              <Route path="/highscore">
+                <motion.div
+                  key="highscore"
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  transition={pageTransition}
+                  variants={pageAnimations}>
+                  <HighScore
+                    mode={mode}
+                    scores={gameData[0]}
+                  />
+                </motion.div>
+              </Route>
+            </Switch>
+          </AnimatePresence>
+        )}
+      </AppWrapper>
     </AppThemeProvider>
   );
 }

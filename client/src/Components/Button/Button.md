@@ -1,13 +1,9 @@
 ```js
-import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
+import AppThemeProvider from '../../Services/AppThemeProvider';
 const [mode, setMode] = React.useState('dark');
 
 <>
   <AppThemeProvider mode={mode}>
-    <GlobalStyle />
     <Button
       width="80%"
       radius="28px"
@@ -18,14 +14,11 @@ const [mode, setMode] = React.useState('dark');
 
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
 
 const [mode, setMode] = React.useState('dark');
 
 <>
   <AppThemeProvider mode={mode}>
-    <GlobalStyle />
     <Button
       width="80%"
       radius="28px"
@@ -36,14 +29,9 @@ const [mode, setMode] = React.useState('dark');
 
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
-const [mode, setMode] = React.useState('dark');
 
 <>
-  <AppThemeProvider mode={mode}>
-    <GlobalStyle />
+  <AppThemeProvider mode="dark">
     <Button
       width="80%"
       radius="28px"
@@ -54,14 +42,8 @@ const [mode, setMode] = React.useState('dark');
 
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
-const [mode, setMode] = React.useState('dark');
-
 <>
-  <AppThemeProvider mode={mode}>
-    <GlobalStyle />
+  <AppThemeProvider mode="dark">
     <Button
       width="80%"
       radius="28px"
@@ -72,32 +54,9 @@ const [mode, setMode] = React.useState('dark');
 
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
-const [mode, setMode] = React.useState('light');
 
 <>
-  <AppThemeProvider mode={mode}>
-    <Button
-      width="80%"
-      radius="28px"
-      text="End Game"
-    />
-  </AppThemeProvider>
-</>;
-```
-
-```js
-import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
-const [mode, setMode] = React.useState('dark');
-
-<>
-  <AppThemeProvider mode={mode}>
-    <GlobalStyle />
+  <AppThemeProvider mode="dark">
     <Button
       width="80%"
       radius="28px"
@@ -108,15 +67,14 @@ const [mode, setMode] = React.useState('dark');
 
 ```js padded
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
+
 const [
   isDisabled,
   setIsDisabled,
 ] = React.useState(true);
-const [mode, setMode] = React.useState('dark');
+
 <>
-  <AppThemeProvider mode={mode}>
+  <AppThemeProvider mode="dark">
     <Button
       width="15%"
       radius="20px"
@@ -136,13 +94,9 @@ const [mode, setMode] = React.useState('dark');
 
 ```js padded
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
-
-const [mode, setMode] = React.useState('dark');
 
 <>
-  <AppThemeProvider mode={mode}>
+  <AppThemeProvider mode="dark">
     <Button
       width="15%"
       radius="20px"

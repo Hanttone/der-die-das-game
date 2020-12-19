@@ -1,5 +1,8 @@
 import { ThemeProvider } from 'styled-components/macro';
 import theme from './themes';
+import GlobalStyle from './GlobalStyle';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { GameUpdateProvider } from './Context';
 
 export default function AppThemeProvider({
   children,
@@ -7,7 +10,12 @@ export default function AppThemeProvider({
 }) {
   return (
     <ThemeProvider theme={theme[mode]}>
-      {children}
+      <Router>
+        <GlobalStyle />
+        <GameUpdateProvider>
+          {children}
+        </GameUpdateProvider>
+      </Router>
     </ThemeProvider>
   );
 }
