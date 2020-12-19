@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import GlobalStyle from './Services/GlobalStyle';
-import styled, {
-  ThemeProvider,
-} from 'styled-components/macro';
-import themes from './Services/themes';
+import styled from 'styled-components/macro';
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import fetchData from './Services/fetchData';
@@ -12,6 +9,7 @@ import {
   motion,
 } from 'framer-motion';
 import { GameUpdateProvider } from './Services/Context';
+import AppThemeProvider from './Services/AppThemeProvider';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
@@ -66,7 +64,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={themes[mode]}>
+    <AppThemeProvider mode={mode}>
       <GameUpdateProvider>
         <AppWrapper>
           <GlobalStyle />
@@ -123,7 +121,7 @@ function App() {
           )}
         </AppWrapper>
       </GameUpdateProvider>
-    </ThemeProvider>
+    </AppThemeProvider>
   );
 }
 

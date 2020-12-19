@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 
 import SVG from '../../Services/bottomDesignLayout';
 import LightSVG from '../../Services/bottomDesignLightLayout';
+import PropTypes from 'prop-types';
 
 export default function WaveDesignBackground({
   mode,
@@ -18,6 +19,10 @@ export default function WaveDesignBackground({
     </LayoutWrapper>
   );
 }
+
+WaveDesignBackground.propTypes = {
+  mode: PropTypes.string,
+};
 
 const LayoutWrapper = styled.span`
   width: 100%;
