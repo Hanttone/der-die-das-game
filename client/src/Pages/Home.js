@@ -60,6 +60,8 @@ export default function Home(props) {
       <WaveDesignBackground
         mode={props.mode}
         time="5s"
+        height="100%"
+        width="100%"
       />
     </HomeWrapper>
   );

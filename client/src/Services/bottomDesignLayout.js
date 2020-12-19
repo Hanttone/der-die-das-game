@@ -3,8 +3,8 @@ const SVG = ({ width, height, time }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="374.885"
-      height="351.671"
+      width={width}
+      height={height}
       viewBox="0 0 374.885 351.671">
       <defs>
         <radialGradient
@@ -43,7 +43,7 @@ const SVG = ({ width, height, time }) => {
             <animate
               attributeName="stop-color"
               values="#3b35de; blue; #3b35de"
-              dur="4s"
+              dur={time}
               repeatCount="indefinite"></animate>
           </stop>
           <stop
@@ -60,7 +60,7 @@ const SVG = ({ width, height, time }) => {
             <animate
               attributeName="stop-color"
               values="#41b9b0; #17767e; #41b9b0"
-              dur="4s"
+              dur={time}
               repeatCount="indefinite"></animate>
           </stop>
           <stop offset="1" stop-color="#17767e" />
