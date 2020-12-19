@@ -2,6 +2,6 @@
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
 
 <AppThemeProvider mode="dark">
-  <TimerBar />
+  <Lives mode="dark" />
 </AppThemeProvider>;
 ```

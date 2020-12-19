@@ -1,3 +1,5 @@
+#### Main button examples:
+
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider';
 const [mode, setMode] = React.useState('dark');
@@ -7,7 +9,8 @@ const [mode, setMode] = React.useState('dark');
     <Button
       width="80%"
       radius="28px"
-      text="Play"></Button>
+      text="Play"
+    />
   </AppThemeProvider>
 </>;
 ```
@@ -22,7 +25,8 @@ const [mode, setMode] = React.useState('dark');
     <Button
       width="80%"
       radius="28px"
-      text="Submit"></Button>
+      text="Submit"
+    />
   </AppThemeProvider>
 </>;
 ```
@@ -35,7 +39,8 @@ import AppThemeProvider from '../../Services/AppThemeProvider.js';
     <Button
       width="80%"
       radius="28px"
-      text="Replay"></Button>
+      text="Replay"
+    />
   </AppThemeProvider>
 </>;
 ```
@@ -47,7 +52,8 @@ import AppThemeProvider from '../../Services/AppThemeProvider.js';
     <Button
       width="80%"
       radius="28px"
-      text="High Score"></Button>
+      text="High Score"
+    />
   </AppThemeProvider>
 </>;
 ```
@@ -60,10 +66,13 @@ import AppThemeProvider from '../../Services/AppThemeProvider.js';
     <Button
       width="80%"
       radius="28px"
-      text="End Game"></Button>
+      text="End Game"
+    />
   </AppThemeProvider>
 </>;
 ```
+
+#### Example of disabled and enabled buttons
 
 ```js padded
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
@@ -81,16 +90,20 @@ const [
       text="der"
       onPlayerClick={() =>
         setIsDisabled(!isDisabled)
-      }></Button>
+      }
+    />
 
     <Button
       width="15%"
       radius="20px"
       text="der"
-      disabled={isDisabled}></Button>
+      disabled={isDisabled}
+    />
   </AppThemeProvider>
 </>;
 ```
+
+#### Example small game buttons
 
 ```js padded
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
@@ -100,15 +113,18 @@ import AppThemeProvider from '../../Services/AppThemeProvider.js';
     <Button
       width="15%"
       radius="20px"
-      text="der"></Button>
+      text="der"
+    />
     <Button
       width="15%"
       radius="20px"
-      text="die"></Button>
+      text="die"
+    />
     <Button
       width="15%"
       radius="20px"
-      text="das"></Button>
+      text="das"
+    />
   </AppThemeProvider>
 </>;
 ```

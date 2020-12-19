@@ -1,9 +1,6 @@
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
-import theme from '../../Services/themes.js';
-import GlobalStyle from '../../Services/GlobalStyle.js';
 
-const [mode, setMode] = React.useState('dark');
 const [isToggled, setIsToggled] = React.useState(
   false
 );
@@ -16,8 +13,7 @@ function changeMode() {
 }
 
 <>
-  <AppThemeProvider mode={mode}>
-    <GlobalStyle color={mode} />
+  <AppThemeProvider mode="dark">
     <Switch
       checked={isToggled}
       onChange={changeMode}
