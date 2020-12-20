@@ -12,9 +12,10 @@ export default function Switch({
         checked={toggled}
         onChange={onChange}
         id="modeSwitch"
+        data-cy="Switch_mode"
       />
       <SwitchLabel htmlFor="modeSwitch">
-        <SwitchButton />
+        <SwitchButton data-cy="Switch_btn" />
       </SwitchLabel>
       <span>Change mode</span>
     </SwitchWrapper>

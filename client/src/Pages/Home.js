@@ -62,6 +62,7 @@ export default function Home(props) {
         time="5s"
         height="100%"
         width="100%"
+        data-cy="Background_element"
       />
     </HomeWrapper>
   );

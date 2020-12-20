@@ -21,6 +21,7 @@ export default function Navigation({ mode }) {
     if (toggleNav && mode === 'dark') {
       return (
         <NavIconOpenStyled
+          data-cy="Navigation_Open"
           onClick={handleClick}
         />
       );
