@@ -14,8 +14,10 @@ export default function Switch({
         id="modeSwitch"
         data-cy="Switch_mode"
       />
-      <SwitchLabel htmlFor="modeSwitch">
-        <SwitchButton data-cy="Switch_btn" />
+      <SwitchLabel
+        htmlFor="modeSwitch"
+        data-cy="Switch_btn">
+        <SwitchButton />
       </SwitchLabel>
       <span>Change mode</span>
     </SwitchWrapper>

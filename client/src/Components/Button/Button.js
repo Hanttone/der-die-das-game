@@ -14,7 +14,8 @@ export default function Button({
         onClick={onPlayerClick}
         width={width}
         radius={radius}
-        disabled={disabled}>
+        disabled={disabled}
+        data-cy="Game_button">
         {text}
       </ButtonStyled>
     </>

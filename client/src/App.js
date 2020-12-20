@@ -11,6 +11,7 @@ import {
   motion,
 } from 'framer-motion';
 import { GameUpdateProvider } from './Services/Context';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
@@ -67,60 +68,62 @@ function App() {
   return (
     <ThemeProvider theme={themes[mode]}>
       <GameUpdateProvider>
-        <AppWrapper>
-          <GlobalStyle />
-          {fetchInProgress ? (
-            <Loading mode={mode} />
-          ) : (
-            <AnimatePresence>
-              <Switch>
-                <Route exact path="/">
-                  <motion.div
-                    key="home"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <Home
-                      mode={mode}
-                      setMode={setMode}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/game">
-                  <motion.div
-                    key="game"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <Game
-                      wordData={gameData[1]}
-                      scoreData={gameData[0]}
-                      mode={mode}
-                    />
-                  </motion.div>
-                </Route>
-                <Route path="/highscore">
-                  <motion.div
-                    key="highscore"
-                    initial="initial"
-                    animate="in"
-                    exit="out"
-                    transition={pageTransition}
-                    variants={pageAnimations}>
-                    <HighScore
-                      mode={mode}
-                      scores={gameData[0]}
-                    />
-                  </motion.div>
-                </Route>
-              </Switch>
-            </AnimatePresence>
-          )}
-        </AppWrapper>
+        <Router>
+          <AppWrapper id="root">
+            <GlobalStyle />
+            {fetchInProgress ? (
+              <Loading mode={mode} />
+            ) : (
+              <AnimatePresence>
+                <Switch>
+                  <Route exact path="/">
+                    <motion.div
+                      key="home"
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageAnimations}>
+                      <Home
+                        mode={mode}
+                        setMode={setMode}
+                      />
+                    </motion.div>
+                  </Route>
+                  <Route path="/game">
+                    <motion.div
+                      key="game"
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageAnimations}>
+                      <Game
+                        wordData={gameData[1]}
+                        scoreData={gameData[0]}
+                        mode={mode}
+                      />
+                    </motion.div>
+                  </Route>
+                  <Route path="/highscore">
+                    <motion.div
+                      key="highscore"
+                      initial="initial"
+                      animate="in"
+                      exit="out"
+                      transition={pageTransition}
+                      variants={pageAnimations}>
+                      <HighScore
+                        mode={mode}
+                        scores={gameData[0]}
+                      />
+                    </motion.div>
+                  </Route>
+                </Switch>
+              </AnimatePresence>
+            )}
+          </AppWrapper>
+        </Router>
       </GameUpdateProvider>
     </ThemeProvider>
   );

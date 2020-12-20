@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { useResetGame } from '../Services/Context';
 
 import Navigation from '../Modules/Navigation/Navigation';
 import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
@@ -10,6 +11,7 @@ import Switch from '../Components/Switch/Switch';
 
 export default function Home(props) {
   const history = useHistory();
+  const resetGame = useResetGame();
   const [isToggled, setIsToggled] = useState(
     false
   );
@@ -25,6 +27,7 @@ export default function Home(props) {
   }
 
   function handleClick() {
+    resetGame(3, 0);
     history.push('/game');
   }
 
@@ -55,6 +58,7 @@ export default function Home(props) {
           radius="28px"
           text="Play"
           onPlayerClick={handleClick}
+          data-cy="Play_button"
         />
       </ButtonWrapper>
       <WaveDesignBackground

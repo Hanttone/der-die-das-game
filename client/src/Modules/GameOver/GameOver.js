@@ -4,8 +4,7 @@ import { useHistory } from 'react-router-dom';
 import sortScore from '../../Services/sortScores';
 import {
   usePlayerScore,
-  useSetPlayerScore,
-  useSetPlayerLives,
+  useResetGame,
 } from '../../Services/Context';
 import PropTypes from 'prop-types';
 
@@ -16,12 +15,11 @@ import SubmitScore from '../../Components/SubmitScore/SubmitScore';
 export default function GameOver({ scoreData }) {
   const sortedHighScores = sortScore(scoreData);
   const history = useHistory();
-  const setPlayerLives = useSetPlayerLives();
   const playerScore = usePlayerScore();
-  const setPlayerScore = useSetPlayerScore();
+  const resetGame = useResetGame();
 
   function handleClick() {
-    resetGame();
+    resetGame(3, 0);
     history.push('/');
   }
 
@@ -41,11 +39,6 @@ export default function GameOver({ scoreData }) {
     }
   }
 
-  function resetGame() {
-    setPlayerLives(3);
-    setPlayerScore(0);
-  }
-
   return (
     <GameOverWrapper>
       <Header>Game Over</Header>
@@ -55,7 +48,7 @@ export default function GameOver({ scoreData }) {
           width="80%"
           radius="28px"
           text="Replay"
-          onPlayerClick={() => resetGame()}
+          onPlayerClick={() => resetGame(3, 0)}
         />
         <Button
           width="80%"
