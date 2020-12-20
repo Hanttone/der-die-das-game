@@ -42,13 +42,17 @@ const SVG = ({ width, height, time }) => {
           <stop offset="0" stop-color="#3b35de">
             <animate
               attributeName="stop-color"
-              values="#3b35de; blue; #3b35de"
-              dur={time}
+              values="#3b35de; red; #3b35de"
+              dur="10s"
               repeatCount="indefinite"></animate>
           </stop>
-          <stop
-            offset="1"
-            stop-color="#1e1b6f"></stop>
+          <stop offset="1" stop-color="#blue">
+            <animate
+              attributeName="stop-color"
+              values="blue; #3b35de; blue"
+              dur="10s"
+              repeatCount="indefinite"></animate>
+          </stop>
         </linearGradient>
         <linearGradient
           id="linear-gradient-2"
