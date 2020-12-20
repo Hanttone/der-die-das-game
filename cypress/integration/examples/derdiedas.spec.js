@@ -1,9 +1,10 @@
 describe('Der, die & das App end to end testing', () => {
   before(() => {
     cy.visit('http://localhost:3000');
+    cy.viewport(360, 640);
   });
   it('tests network request', () => {
-    // https://on.cypress.io/request
+    cy.viewport(360, 640);
     cy.request(
       'http://localhost:4000/api/scores'
     ).should((response) => {
@@ -18,6 +19,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('clicks through the navigation - in dark mode', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Navigation_Open]').click();
 
     cy.contains('Game').click();
@@ -42,6 +44,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('Clicks the play button to start the game', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Game_button]').click();
     cy.location('pathname').should(
       'include',
@@ -50,6 +53,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('Clicks the der, die and das buttons', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Game_button]')
       .contains('Der')
       .click();
@@ -64,6 +68,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('Changes the game layout', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Navigation_Open]').click();
     cy.contains('Home').click();
     cy.location('pathname').should(
@@ -74,6 +79,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('clicks through the navigation - in light mode', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Navigation_Open]').click();
 
     cy.contains('Game').click();
@@ -98,6 +104,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('Clicks the play button to start the game - in light mode', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Game_button]').click();
     cy.location('pathname').should(
       'include',
@@ -106,6 +113,7 @@ describe('Der, die & das App end to end testing', () => {
   });
 
   it('Clicks the der, die and das buttons - in light mode', () => {
+    cy.viewport(360, 640);
     cy.get('[data-cy=Game_button]')
       .contains('Der')
       .click();
