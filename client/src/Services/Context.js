@@ -25,6 +25,11 @@ export function GameUpdateProvider({ children }) {
     setPlayerLives(playerLives - life);
   }
 
+  function resetGame(lives, score) {
+    setPlayerLives(lives);
+    setPlayerScore(score);
+  }
+
   return (
     <GameUpdateContext.Provider
       value={{
@@ -37,6 +42,7 @@ export function GameUpdateProvider({ children }) {
         setPlayerScore,
         newHighScore,
         setNewHighScore,
+        resetGame,
       }}>
       {children}
     </GameUpdateContext.Provider>
@@ -63,3 +69,5 @@ export const useNewHighScore = () =>
   useGameUpdate().newHighScore;
 export const useSetNewHighScore = () =>
   useGameUpdate().setNewHighScore;
+export const useResetGame = () =>
+  useGameUpdate().resetGame;

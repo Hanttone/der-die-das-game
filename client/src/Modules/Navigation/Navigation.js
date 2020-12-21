@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro';
 import { useState } from 'react';
 
-import { ReactComponent as NavIconOpen } from '../../Assets/navIconOpen.svg';
-import { ReactComponent as NavIconClose } from '../../Assets/navIconClose.svg';
-import { ReactComponent as NavIconOpenLight } from '../../Assets/navIconOpenLight.svg';
-import { ReactComponent as NavIconCloseLight } from '../../Assets/navIconCloseLight.svg';
+import { ReactComponent as NavIconOpen } from 'Assets/navIconOpen.svg';
+import { ReactComponent as NavIconClose } from 'Assets/navIconClose.svg';
+import { ReactComponent as NavIconOpenLight } from 'Assets/navIconOpenLight.svg';
+import { ReactComponent as NavIconCloseLight } from 'Assets/navIconCloseLight.svg';
 
-import NavItem from '../../Components/NavItem/NavItem';
+import NavItem from 'Components/NavItem/NavItem';
 
 export default function Navigation({ mode }) {
   const [toggleNav, setToggleNav] = useState(
@@ -21,24 +21,28 @@ export default function Navigation({ mode }) {
     if (toggleNav && mode === 'dark') {
       return (
         <NavIconOpenStyled
+          data-cy="Navigation_Open"
           onClick={handleClick}
         />
       );
     } else if (toggleNav && mode === 'light') {
       return (
         <NavIconOpenLightStyled
+          data-cy="Navigation_Open"
           onClick={handleClick}
         />
       );
     } else if (!toggleNav && mode === 'dark') {
       return (
         <NavIconCloseStyled
+          data-cy="Navigation_Closed"
           onClick={handleClick}
         />
       );
     } else {
       return (
         <NavIconCloseLightStyled
+          data-cy="Navigation_Closed"
           onClick={handleClick}
         />
       );

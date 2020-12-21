@@ -9,15 +9,14 @@ export default function Button({
   disabled,
 }) {
   return (
-    <>
-      <ButtonStyled
-        onClick={onPlayerClick}
-        width={width}
-        radius={radius}
-        disabled={disabled}>
-        {text}
-      </ButtonStyled>
-    </>
+    <ButtonStyled
+      onClick={onPlayerClick}
+      width={width}
+      radius={radius}
+      disabled={disabled}
+      data-cy="Game_button">
+      {text}
+    </ButtonStyled>
   );
 }
 
@@ -43,5 +42,5 @@ const ButtonStyled = styled.button`
   font-size: 1.78rem;
   outline: none;
   filter: ${(props) =>
-    props.disabled && 'grayscale()'};
+    props.disabled && 'opacity(0.5)'};
 `;

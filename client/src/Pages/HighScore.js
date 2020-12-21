@@ -1,12 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
-import sortScores from '../Services/sortScores';
+import sortScores from 'Services/sortScores';
 import { useState, useEffect } from 'react';
-import { useNewHighScore } from '../Services/Context';
+import { useNewHighScore } from 'Services/Context';
+import { motion } from 'framer-motion';
+import {
+  pageTransition,
+  pageAnimations,
+} from 'Services/pageTransitionVariables';
 
-import Navigation from '../Modules/Navigation/Navigation';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Header from '../Components/Header/Header';
+import Navigation from 'Modules/Navigation/Navigation';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import Header from 'Components/Header/Header';
 
 export default function HighScore({
   mode,
@@ -27,7 +32,13 @@ export default function HighScore({
   const topTen = sortedHighScores.slice(0, 10);
 
   return (
-    <HighScoreWrapper>
+    <HighScoreWrapper
+      key="highscore"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageAnimations}>
       <Navigation mode={mode} />
       <Header mt="2.5vh" mb="3vh">
         High Score
@@ -52,7 +63,7 @@ export default function HighScore({
   );
 }
 
-const HighScoreWrapper = styled.main`
+const HighScoreWrapper = styled(motion.main)`
   height: 100vh;
   width: 100%;
   display: flex;

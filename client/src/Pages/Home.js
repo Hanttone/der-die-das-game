@@ -1,15 +1,22 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { useResetGame } from 'Services/Context';
+import { motion } from 'framer-motion';
+import {
+  pageAnimations,
+  pageTransition,
+} from 'Services/pageTransitionVariables';
 
-import Navigation from '../Modules/Navigation/Navigation';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Header from '../Components/Header/Header';
-import Button from '../Components/Button/Button';
-import Switch from '../Components/Switch/Switch';
+import Navigation from 'Modules/Navigation/Navigation';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import Header from 'Components/Header/Header';
+import Button from 'Components/Button/Button';
+import Switch from 'Components/Switch/Switch';
 
 export default function Home(props) {
   const history = useHistory();
+  const resetGame = useResetGame();
   const [isToggled, setIsToggled] = useState(
     false
   );
@@ -25,11 +32,18 @@ export default function Home(props) {
   }
 
   function handleClick() {
+    resetGame(3, 0);
     history.push('/game');
   }
 
   return (
-    <HomeWrapper>
+    <HomeWrapper
+      key="home"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageAnimations}>
       <Navigation mode={props.mode} />
       <Header mt="5vh" mb="4vh">
         Der, die & das
@@ -55,14 +69,18 @@ export default function Home(props) {
           radius="28px"
           text="Play"
           onPlayerClick={handleClick}
+          data-cy="Play_button"
         />
       </ButtonWrapper>
-      <WaveDesignBackground mode={props.mode} />
+      <WaveDesignBackground
+        mode={props.mode}
+        animated="true"
+      />
     </HomeWrapper>
   );
 }
 
-const HomeWrapper = styled.main`
+const HomeWrapper = styled(motion.main)`
   height: 100vh;
   width: 100%;
   display: flex;
