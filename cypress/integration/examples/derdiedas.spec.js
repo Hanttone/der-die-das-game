@@ -1,5 +1,5 @@
 describe('Der, die & das App end to end testing', () => {
-  before(() => {
+  it('visits the app page', () => {
     cy.visit('http://localhost:3000');
     cy.viewport(360, 640);
   });
