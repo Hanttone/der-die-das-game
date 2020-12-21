@@ -2,7 +2,6 @@
 
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider';
-const [mode, setMode] = React.useState('dark');
 
 <>
   <AppThemeProvider mode={mode}>
@@ -18,10 +17,8 @@ const [mode, setMode] = React.useState('dark');
 ```js
 import AppThemeProvider from '../../Services/AppThemeProvider.js';
 
-const [mode, setMode] = React.useState('dark');
-
 <>
-  <AppThemeProvider mode={mode}>
+  <AppThemeProvider mode="dark">
     <Button
       width="80%"
       radius="28px"
