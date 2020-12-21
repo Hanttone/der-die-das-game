@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import styled from 'styled-components/macro';
-import sortScores from '../Services/sortScores';
+import sortScores from 'Services/sortScores';
 import { useState, useEffect } from 'react';
-import { useNewHighScore } from '../Services/Context';
+import { useNewHighScore } from 'Services/Context';
 
-import Navigation from '../Modules/Navigation/Navigation';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Header from '../Components/Header/Header';
+import Navigation from 'Modules/Navigation/Navigation';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import Header from 'Components/Header/Header';
 
 export default function HighScore({
   mode,

@@ -44,5 +44,5 @@ const ButtonStyled = styled.button`
   font-size: 1.78rem;
   outline: none;
   filter: ${(props) =>
-    props.disabled && 'grayscale()'};
+    props.disabled && 'opacity(0.5)'};
 `;

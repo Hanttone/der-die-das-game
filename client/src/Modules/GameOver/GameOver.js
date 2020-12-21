@@ -1,16 +1,21 @@
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
 import { useHistory } from 'react-router-dom';
-import sortScore from '../../Services/sortScores';
+import sortScore from 'Services/sortScores';
 import {
   usePlayerScore,
   useResetGame,
-} from '../../Services/Context';
+} from 'Services/Context';
 import PropTypes from 'prop-types';
+import {
+  pageAnimations,
+  pageTransition,
+} from 'Services/pageTransitionVariables';
 
-import Button from '../../Components/Button/Button';
-import Header from '../../Components/Header/Header';
-import SubmitScore from '../../Components/SubmitScore/SubmitScore';
+import Button from 'Components/Button/Button';
+import Header from 'Components/Header/Header';
+import SubmitScore from 'Components/SubmitScore/SubmitScore';
 
 export default function GameOver({ scoreData }) {
   const sortedHighScores = sortScore(scoreData);
@@ -40,7 +45,13 @@ export default function GameOver({ scoreData }) {
   }
 
   return (
-    <GameOverWrapper>
+    <GameOverWrapper
+      key="gameover"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageAnimations}>
       <Header>Game Over</Header>
       {playerScoreIsHigher()}
       <ButtonWrapper>
@@ -65,11 +76,13 @@ GameOver.propTypes = {
   scoreData: PropTypes.array,
 };
 
-const GameOverWrapper = styled.div`
-  width: 80%;
+const GameOverWrapper = styled(motion.div)`
+  width: 100%;
   height: 90vh;
   z-index: 10;
   margin-top: 5vh;
+  display: flex;
+  justify-content: center;
   position: relative;
 `;
 
@@ -78,7 +91,7 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 1vh;
-  width: 100%;
+  width: 80%;
   position: absolute;
   bottom: 4vh;
 `;

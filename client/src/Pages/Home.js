@@ -1,13 +1,18 @@
 import styled from 'styled-components/macro';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-import { useResetGame } from '../Services/Context';
+import { useResetGame } from 'Services/Context';
+import { motion } from 'framer-motion';
+import {
+  pageAnimations,
+  pageTransition,
+} from 'Services/pageTransitionVariables';
 
-import Navigation from '../Modules/Navigation/Navigation';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Header from '../Components/Header/Header';
-import Button from '../Components/Button/Button';
-import Switch from '../Components/Switch/Switch';
+import Navigation from 'Modules/Navigation/Navigation';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import Header from 'Components/Header/Header';
+import Button from 'Components/Button/Button';
+import Switch from 'Components/Switch/Switch';
 
 export default function Home(props) {
   const history = useHistory();
@@ -32,7 +37,13 @@ export default function Home(props) {
   }
 
   return (
-    <HomeWrapper>
+    <HomeWrapper
+      key="game"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageAnimations}>
       <Navigation mode={props.mode} />
       <Header mt="5vh" mb="4vh">
         Der, die & das
@@ -72,7 +83,7 @@ export default function Home(props) {
   );
 }
 
-const HomeWrapper = styled.main`
+const HomeWrapper = styled(motion.main)`
   height: 100vh;
   width: 100%;
   display: flex;

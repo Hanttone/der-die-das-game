@@ -77,18 +77,10 @@ function App() {
               <AnimatePresence>
                 <Switch>
                   <Route exact path="/">
-                    <motion.div
-                      key="home"
-                      initial="initial"
-                      animate="in"
-                      exit="out"
-                      transition={pageTransition}
-                      variants={pageAnimations}>
-                      <Home
-                        mode={mode}
-                        setMode={setMode}
-                      />
-                    </motion.div>
+                    <Home
+                      mode={mode}
+                      setMode={setMode}
+                    />
                   </Route>
                   <Route path="/game">
                     <motion.div

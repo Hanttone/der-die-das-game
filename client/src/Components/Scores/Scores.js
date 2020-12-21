@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { usePlayerScore } from '../../Services/Context';
+import { usePlayerScore } from 'Services/Context';
 
 export default function Scores({ highScore }) {
   const maxScore = highScore?.reduce(

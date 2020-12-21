@@ -1,6 +1,6 @@
 import Lives from './Lives';
 import { render } from '@testing-library/react';
-import { GameUpdateProvider } from '../../Services/Context';
+import { GameUpdateProvider } from 'Services/Context';
 
 describe('Player Lives', () => {
   it('has an attribute mode', () => {

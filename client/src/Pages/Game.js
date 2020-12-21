@@ -8,19 +8,19 @@ import {
   useLife,
   usePlayerScore,
   useSetPlayerScore,
-} from '../Services/Context';
+} from 'Services/Context';
 import Ripples from 'react-ripples';
 import PropTypes from 'prop-types';
 
-import Navigation from '../Modules/Navigation/Navigation';
-import WaveDesignBackground from '../Components/BottomLayout/WaveDesignBackground';
-import Header from '../Components/Header/Header';
-import Button from '../Components/Button/Button';
-import WordCard from '../Components/WordCard/WordCard';
-import Scores from '../Components/Scores/Scores';
-import Lives from '../Components/Lives/Lives';
-import TimerBar from '../Components/TimerBar/TimerBar';
-import GameOver from '../Modules/GameOver/GameOver';
+import Navigation from 'Modules/Navigation/Navigation';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import Header from 'Components/Header/Header';
+import Button from 'Components/Button/Button';
+import WordCard from 'Components/WordCard/WordCard';
+import Scores from 'Components/Scores/Scores';
+import Lives from 'Components/Lives/Lives';
+import TimerBar from 'Components/TimerBar/TimerBar';
+import GameOver from 'Modules/GameOver/GameOver';
 
 export default function GamePage({
   wordData,

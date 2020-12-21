@@ -1,13 +1,15 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components/macro';
 
-import WaveDesignBackground from '../../Components/BottomLayout/WaveDesignBackground';
-import LoadingIcon from '../../Components/LoadingIcon/LoadingIcon';
+import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
+import LoadingIcon from 'Components/LoadingIcon/LoadingIcon';
 
 export default function Loading({ mode }) {
   return (
     <LoadingWrapper>
       <section>
         <LoadingIcon />
+        <motion.p>Loading...</motion.p>
       </section>
       <WaveDesignBackground mode={mode} />
     </LoadingWrapper>
