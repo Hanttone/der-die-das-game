@@ -14,6 +14,8 @@ Are you struggling to learn the prepositions for the German nouns? You never hav
 
 You can try out the app here: [Der, die & das](https://der-die-und-das.herokuapp.com/)
 
+### The app is currently only supported as a mobile version.
+
 ## `Tech Stacks: `
 
 - JavaScript
