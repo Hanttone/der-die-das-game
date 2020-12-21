@@ -4,7 +4,7 @@
 import AppThemeProvider from '../../Services/AppThemeProvider';
 
 <>
-  <AppThemeProvider mode={mode}>
+  <AppThemeProvider mode="dark">
     <Button
       width="80%"
       radius="28px"
