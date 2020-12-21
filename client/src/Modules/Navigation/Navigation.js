@@ -17,41 +17,35 @@ export default function Navigation({ mode }) {
     setToggleNav(!toggleNav);
   }
 
-  function navigationMode() {
-    if (toggleNav && mode === 'dark') {
-      return (
-        <NavIconOpenStyled
-          data-cy="Navigation_Open"
-          onClick={handleClick}
-        />
-      );
-    } else if (toggleNav && mode === 'light') {
-      return (
-        <NavIconOpenLightStyled
-          data-cy="Navigation_Open"
-          onClick={handleClick}
-        />
-      );
-    } else if (!toggleNav && mode === 'dark') {
-      return (
-        <NavIconCloseStyled
-          data-cy="Navigation_Closed"
-          onClick={handleClick}
-        />
-      );
-    } else {
-      return (
-        <NavIconCloseLightStyled
-          data-cy="Navigation_Closed"
-          onClick={handleClick}
-        />
-      );
-    }
-  }
+  const NavIconOpen =
+    mode === 'dark' ? (
+      <NavIconOpenStyled
+        data-cy="Navigation_Open"
+        onClick={handleClick}
+      />
+    ) : (
+      <NavIconOpenLightStyled
+        data-cy="Navigation_Open"
+        onClick={handleClick}
+      />
+    );
+
+  const NavIconClose =
+    mode === 'dark' ? (
+      <NavIconCloseStyled
+        data-cy="Navigation_Closed"
+        onClick={handleClick}
+      />
+    ) : (
+      <NavIconCloseLightStyled
+        data-cy="Navigation_Closed"
+        onClick={handleClick}
+      />
+    );
 
   return (
     <NavWrapper>
-      {navigationMode()}
+      {toggleNav ? NavIconOpen : NavIconClose}
       {!toggleNav && (
         <NavItem navState={toggleNav} />
       )}

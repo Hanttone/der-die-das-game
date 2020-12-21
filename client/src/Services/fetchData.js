@@ -5,8 +5,8 @@ export default async function fetchData(
     let allData = [];
 
     const dataUrls = [
-      'http://localhost:4000/api/scores',
-      'http://localhost:4000/api/germannouns',
+      'https://der-die-und-das.herokuapp.com/api/scores',
+      'https://der-die-und-das.herokuapp.com/api/germannouns',
     ];
 
     const arrayOfPromises = dataUrls.map((url) =>

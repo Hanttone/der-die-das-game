@@ -3,33 +3,12 @@ import { motion } from 'framer-motion';
 
 import { NavLink } from 'react-router-dom';
 
-export default function NavItem({ navState }) {
-  const variants = {
-    initial: {
-      opacity: 0,
-      y: '-40vh',
-    },
-    in: {
-      opacity: 1,
-      y: '0vh',
-    },
-    out: {
-      opacity: 0,
-      y: '-40vh',
-    },
-  };
-
-  const navTransition = {
-    type: 'anticipate',
-    duration: '0.2',
-  };
-
+export default function NavItem() {
   return (
     <NavWrapper
       key="navigation"
       initial="initial"
       animate="in"
-      exit="out"
       transition={navTransition}
       variants={variants}>
       <NavLinkStyled
@@ -51,6 +30,22 @@ export default function NavItem({ navState }) {
     </NavWrapper>
   );
 }
+
+const variants = {
+  initial: {
+    opacity: 0,
+    y: '-40vh',
+  },
+  in: {
+    opacity: 1,
+    y: '0vh',
+  },
+};
+
+const navTransition = {
+  type: 'anticipate',
+  duration: '0.2',
+};
 
 const NavWrapper = styled(motion.nav)`
   height: 40vh;

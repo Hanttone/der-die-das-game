@@ -28,7 +28,7 @@ export default function Lives({ mode }) {
       lostLivesArray = [1, 1, 1];
       break;
     default:
-      console.log('oops something went wrong');
+      return null;
   }
 
   const Heart =
