@@ -1,36 +1,6 @@
 import { motion } from 'framer-motion';
 
 export default function LoadingSVG() {
-  const svgVariants = {
-    hidden: {
-      rotate: -360,
-    },
-    visible: {
-      rotate: 0,
-      transition: {
-        duration: 3,
-        ease: 'easeInOut',
-        yoyo: Infinity,
-      },
-    },
-  };
-
-  const pathVariants = {
-    hidden: {
-      pathLength: 0,
-      pathOffset: 1,
-    },
-    visible: {
-      pathLength: 1,
-      pathOffset: 0,
-      transition: {
-        duration: 3,
-        ease: 'easeInOut',
-        yoyo: Infinity,
-      },
-    },
-  };
-
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -54,3 +24,33 @@ export default function LoadingSVG() {
     </motion.svg>
   );
 }
+
+const svgVariants = {
+  hidden: {
+    rotate: -360,
+  },
+  visible: {
+    rotate: 0,
+    transition: {
+      duration: 3,
+      ease: 'easeInOut',
+      yoyo: Infinity,
+    },
+  },
+};
+
+const pathVariants = {
+  hidden: {
+    pathLength: 0,
+    pathOffset: 1,
+  },
+  visible: {
+    pathLength: 1,
+    pathOffset: 0,
+    transition: {
+      duration: 3,
+      ease: 'easeInOut',
+      yoyo: Infinity,
+    },
+  },
+};

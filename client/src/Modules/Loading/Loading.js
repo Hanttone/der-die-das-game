@@ -9,8 +9,8 @@ export default function Loading({ mode }) {
     <LoadingWrapper>
       <section>
         <LoadingIcon />
-        <motion.p>Loading...</motion.p>
       </section>
+      <motion.p>Loading...</motion.p>
       <WaveDesignBackground mode={mode} />
     </LoadingWrapper>
   );
@@ -30,6 +30,7 @@ const LoadingWrapper = styled.div`
     gap: 3%;
     width: 100%;
     justify-content: center;
-    margin-top: 35vh;
+    margin-top: 30vh;
+    margin-bottom: 3vh;
   }
 `;

@@ -15,7 +15,7 @@ import {
 
 import Button from 'Components/Button/Button';
 import Header from 'Components/Header/Header';
-import SubmitScore from 'Components/SubmitScore/SubmitScore';
+import SubmitScore from 'Modules/SubmitScore/SubmitScore';
 
 export default function GameOver({ scoreData }) {
   const sortedHighScores = sortScore(scoreData);
