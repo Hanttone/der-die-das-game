@@ -74,10 +74,7 @@ export default function Home(props) {
       </ButtonWrapper>
       <WaveDesignBackground
         mode={props.mode}
-        time="5s"
-        height="100%"
-        width="100%"
-        data-cy="Background_element"
+        animated="true"
       />
     </HomeWrapper>
   );

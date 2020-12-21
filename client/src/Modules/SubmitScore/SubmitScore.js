@@ -121,11 +121,12 @@ const HighScoreWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2vh;
+  width: 100%;
 
   margin-bottom: 2vh;
 
   label {
-    width: 100%;
+    width: 80%;
 
     display: flex;
     justify-content: center;

@@ -1,4 +1,4 @@
-const SVG = ({ width, height, time }) => {
+const SVG = ({ width, height, animated }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,16 @@ const SVG = ({ width, height, time }) => {
           cy="0.5"
           r="0.5"
           gradientUnits="objectBoundingBox">
-          <stop offset="0" stop-color="#ad41ce" />
+          <stop offset="0" stop-color="#ad41ce">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#ad41ce; #572167; #ad41ce"
+                dur="5s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
           <stop
             offset="1"
             stop-color="#572167"
@@ -40,18 +49,24 @@ const SVG = ({ width, height, time }) => {
           y2="1"
           gradientUnits="objectBoundingBox">
           <stop offset="0" stop-color="#3b35de">
-            <animate
-              attributeName="stop-color"
-              values="#3b35de; red; #3b35de"
-              dur="10s"
-              repeatCount="indefinite"></animate>
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#3b35de; #6E33A8; #3b35de"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            )}
           </stop>
-          <stop offset="1" stop-color="#blue">
-            <animate
-              attributeName="stop-color"
-              values="blue; #3b35de; blue"
-              dur="10s"
-              repeatCount="indefinite"></animate>
+          <stop offset="1" stop-color="#1E1B6F">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#1E1B6F; #3b35de; #1E1B6F"
+                dur="15s"
+                repeatCount="indefinite"
+              />
+            )}
           </stop>
         </linearGradient>
         <linearGradient
@@ -61,13 +76,25 @@ const SVG = ({ width, height, time }) => {
           y2="1"
           gradientUnits="objectBoundingBox">
           <stop offset="0" stop-color="#41b9b0">
-            <animate
-              attributeName="stop-color"
-              values="#41b9b0; #17767e; #41b9b0"
-              dur={time}
-              repeatCount="indefinite"></animate>
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#41b9b0; #17767e; #41b9b0"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            )}
           </stop>
-          <stop offset="1" stop-color="#17767e" />
+          <stop offset="1" stop-color="#17767e">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#17767e; #41b9b0; #17767e"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
         </linearGradient>
       </defs>
       <g

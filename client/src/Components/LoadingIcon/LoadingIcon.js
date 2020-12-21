@@ -34,7 +34,7 @@ const svgVariants = {
     transition: {
       duration: 3,
       ease: 'easeInOut',
-      yoyo: Infinity,
+      loop: Infinity,
     },
   },
 };

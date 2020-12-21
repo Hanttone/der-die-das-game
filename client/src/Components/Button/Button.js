@@ -9,16 +9,14 @@ export default function Button({
   disabled,
 }) {
   return (
-    <>
-      <ButtonStyled
-        onClick={onPlayerClick}
-        width={width}
-        radius={radius}
-        disabled={disabled}
-        data-cy="Game_button">
-        {text}
-      </ButtonStyled>
-    </>
+    <ButtonStyled
+      onClick={onPlayerClick}
+      width={width}
+      radius={radius}
+      disabled={disabled}
+      data-cy="Game_button">
+      {text}
+    </ButtonStyled>
   );
 }
 

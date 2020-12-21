@@ -78,11 +78,12 @@ GameOver.propTypes = {
 
 const GameOverWrapper = styled(motion.div)`
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   z-index: 10;
   margin-top: 5vh;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: relative;
 `;
 
@@ -91,7 +92,7 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 1vh;
-  width: 80%;
+  width: 100%;
   position: absolute;
   bottom: 4vh;
 `;
