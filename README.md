@@ -6,6 +6,10 @@
 
 Are you struggling to learn the prepositions for the German nouns? You never have an idea if the noun is der, die or das? Do you struggle to find some good excercises where you could practice more nouns than 10? I had the same struggle and decided to create this simple game where you can practice more than 100 000 German nouns and their prepositions, meanwhile having fun.
 
+![Screenshot 2020-12-21 at 17 09 33](https://user-images.githubusercontent.com/63554567/102797415-f3968d80-43af-11eb-9ebf-fd115a243b7f.png)
+
+![Screenshot 2020-12-21 at 17 13 23](https://user-images.githubusercontent.com/63554567/102797429-f6917e00-43af-11eb-9ad6-50236532a8fd.png)
+
 ## `Demo`
 
 You can try out the app here: [Der, die & das](https://der-die-und-das.herokuapp.com/)
