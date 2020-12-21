@@ -38,7 +38,7 @@ export default function Home(props) {
 
   return (
     <HomeWrapper
-      key="game"
+      key="home"
       initial="initial"
       animate="in"
       exit="out"

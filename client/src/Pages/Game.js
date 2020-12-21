@@ -11,6 +11,11 @@ import {
 } from 'Services/Context';
 import Ripples from 'react-ripples';
 import PropTypes from 'prop-types';
+import {
+  pageAnimations,
+  pageTransition,
+} from 'Services/pageTransitionVariables';
+import { motion } from 'framer-motion';
 
 import Navigation from 'Modules/Navigation/Navigation';
 import WaveDesignBackground from 'Components/BottomLayout/WaveDesignBackground';
@@ -100,7 +105,13 @@ export default function GamePage({
   }
 
   return (
-    <GameWrapper>
+    <GameWrapper
+      key="game"
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageAnimations}>
       <Navigation mode={mode} />
       {playerLives === 0 ? (
         displayGameOver()
@@ -179,7 +190,7 @@ GamePage.propTypes = {
   wordData: PropTypes.array,
 };
 
-const GameWrapper = styled.main`
+const GameWrapper = styled(motion.main)`
   height: 100vh;
   width: 100%;
   display: flex;

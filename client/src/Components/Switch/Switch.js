@@ -19,7 +19,11 @@ export default function Switch({
         data-cy="Switch_btn">
         <SwitchButton />
       </SwitchLabel>
-      <span>Change mode</span>
+      <span>
+        {toggled
+          ? 'To dark mode'
+          : 'To light mode'}
+      </span>
     </SwitchWrapper>
   );
 }
