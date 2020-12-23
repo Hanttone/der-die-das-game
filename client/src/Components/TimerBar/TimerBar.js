@@ -47,7 +47,8 @@ export default function TimerBar({ word }) {
           transition={{
             ease: 'easeInOut',
             duration: 0.5,
-          }}></motion.div>
+          }}
+        />
       </div>
     </TimerWrapper>
   );
