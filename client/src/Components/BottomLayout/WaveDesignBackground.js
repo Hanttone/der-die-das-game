@@ -1,9 +1,8 @@
 import styled from 'styled-components/macro';
-
+import PropTypes from 'prop-types';
 
 import SVG from '../../Services/bottomDesignLayout';
 import LightSVG from '../../Services/bottomDesignLightLayout';
-import PropTypes from 'prop-types';
 
 export default function WaveDesignBackground({
   mode,

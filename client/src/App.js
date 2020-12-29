@@ -8,6 +8,10 @@ import {
   motion,
 } from 'framer-motion';
 import AppThemeProvider from './Services/AppThemeProvider';
+import {
+  pageTransition,
+  pageAnimations,
+} from './Services/pageTransitionVariables';
 
 import Game from './Pages/Game';
 import Home from './Pages/Home';
@@ -95,8 +99,6 @@ function App() {
 }
 
 export default App;
-
-//Set up for light and dark themes
 
 const AppWrapper = styled.section`
   width: 100%;
