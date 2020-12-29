@@ -12,4 +12,5 @@ Header.propTypes = {
   mb: PropTypes.string,
 };
 
+/* @component */
 export default Header;
