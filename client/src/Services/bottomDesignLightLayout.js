@@ -1,4 +1,8 @@
-const LightSVG = ({ width, height }) => {
+const LightSVG = ({
+  width,
+  height,
+  animated,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +31,16 @@ const LightSVG = ({ width, height }) => {
           cy="0.5"
           r="0.5"
           gradientUnits="objectBoundingBox">
-          <stop offset="0" stopColor="#e2c9ea" />
+          <stop offset="0" stopColor="#e2c9ea">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#e2c9ea; #bf71d6; #e2c9ea"
+                dur="5s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
           <stop
             offset="1"
             stopColor="#bf71d6"
@@ -40,8 +53,26 @@ const LightSVG = ({ width, height }) => {
           x2="0.5"
           y2="1"
           gradientUnits="objectBoundingBox">
-          <stop offset="0" stopColor="#f8d0fa" />
-          <stop offset="1" stopColor="#c729c7" />
+          <stop offset="0" stopColor="#f8d0fa">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#f8d0fa; #c729c7; #f8d0fa"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
+          <stop offset="1" stopColor="#c729c7">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#c729c7; #f8d0fa; #c729c7"
+                dur="10s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
         </linearGradient>
         <linearGradient
           id="linear-gradient-2"
@@ -49,8 +80,26 @@ const LightSVG = ({ width, height }) => {
           x2="0.5"
           y2="1"
           gradientUnits="objectBoundingBox">
-          <stop offset="0" stopColor="#c0f0f4" />
-          <stop offset="1" stopColor="#58c6e0" />
+          <stop offset="0" stopColor="#c0f0f4">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#c0f0f4; #58c6e0; #c0f0f4"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
+          <stop offset="1" stopColor="#58c6e0">
+            {animated === 'true' && (
+              <animate
+                attributeName="stop-color"
+                values="#58c6e0; #c0f0f4; #58c6e0;"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            )}
+          </stop>
         </linearGradient>
       </defs>
       <path

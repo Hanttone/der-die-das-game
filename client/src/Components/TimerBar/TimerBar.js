@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import {
   useCounter,
   useSetCounter,
-} from '../../Services/Context';
+} from 'Services/Context';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
@@ -47,7 +47,8 @@ export default function TimerBar({ word }) {
           transition={{
             ease: 'easeInOut',
             duration: 0.5,
-          }}></motion.div>
+          }}
+        />
       </div>
     </TimerWrapper>
   );

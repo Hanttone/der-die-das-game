@@ -1,11 +1,13 @@
 import styled from 'styled-components/macro';
 
+
 import SVG from '../../Services/bottomDesignLayout';
 import LightSVG from '../../Services/bottomDesignLightLayout';
 import PropTypes from 'prop-types';
 
 export default function WaveDesignBackground({
   mode,
+  animated,
 }) {
   const WaveBackground =
     mode === 'dark' ? SVG : LightSVG;
@@ -15,6 +17,7 @@ export default function WaveDesignBackground({
       <WaveBackground
         width="100%"
         height="100%"
+        animated={animated}
       />
     </LayoutWrapper>
   );

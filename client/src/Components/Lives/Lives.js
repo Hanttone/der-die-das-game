@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
-import { useLife } from '../../Services/Context';
+import { useLife } from 'Services/Context';
 
-import { ReactComponent as HeartGreen } from '../../Assets/heartGreen.svg';
-import { ReactComponent as LostGreenHeart } from '../../Assets/heartLost.svg';
-import { ReactComponent as HeartBlue } from '../../Assets/heartBlue.svg';
-import { ReactComponent as LostHeartBlue } from '../../Assets/heartLostBlue.svg';
+import { ReactComponent as HeartGreen } from 'Assets/heartGreen.svg';
+import { ReactComponent as LostGreenHeart } from 'Assets/heartLost.svg';
+import { ReactComponent as HeartBlue } from 'Assets/heartBlue.svg';
+import { ReactComponent as LostHeartBlue } from 'Assets/heartLostBlue.svg';
 
 export default function Lives({ mode }) {
   const life = useLife();
@@ -28,7 +28,7 @@ export default function Lives({ mode }) {
       lostLivesArray = [1, 1, 1];
       break;
     default:
-      console.log('oops something went wrong');
+      return null;
   }
 
   const Heart =

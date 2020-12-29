@@ -2,21 +2,19 @@ import styled from 'styled-components/macro';
 import { useEffect, useState } from 'react';
 import {
   useSetNewHighScore,
-  useSetPlayerScore,
-  useSetPlayerLives,
-} from '../../Services/Context';
+  useResetGame,
+} from 'Services/Context';
 import { useHistory } from 'react-router-dom';
-import postScores from '../../Services/postScores';
+import postScores from 'Services/postScores';
 import PropTypes from 'prop-types';
 
-import Button from '../Button/Button';
-import Header from '../Header/Header';
+import Button from 'Components/Button/Button';
+import Header from 'Components/Header/Header';
 
 export default function SubmitScore({
   playerScore,
 }) {
-  const setPlayerLives = useSetPlayerLives();
-  const setPlayerScore = useSetPlayerScore();
+  const resetGame = useResetGame();
 
   const [
     isScoreSubmitted,
@@ -53,9 +51,8 @@ export default function SubmitScore({
   }
 
   function handleClick() {
+    resetGame(3, 0);
     history.push('/highscore');
-    setPlayerLives(3);
-    setPlayerScore(0);
   }
 
   function onSubmit(event) {
@@ -85,6 +82,11 @@ export default function SubmitScore({
           <Header>{playerScore}</Header>
           <label htmlFor="playerName">
             Enter your player name:
+            {isButtonDisabled ? null : (
+              <span>
+                (between 1-15 carachters)
+              </span>
+            )}
             <input
               type="text"
               name="playerName"
@@ -119,11 +121,12 @@ const HighScoreWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2vh;
+  width: 100%;
 
   margin-bottom: 2vh;
 
   label {
-    width: 100%;
+    width: 80%;
 
     display: flex;
     justify-content: center;
@@ -131,6 +134,15 @@ const HighScoreWrapper = styled.div`
 
     text-align: center;
     font-size: 1.25rem;
+  }
+
+  span {
+    font-size: 0.6rem;
+    font-family: -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    color: red;
   }
 
   input {
@@ -149,8 +161,8 @@ const HighScoreWrapper = styled.div`
   }
 
   p {
-    margin-top: 25vh;
-
+    margin-top: 30vh;
+    margin-bottom: 2vh;
     font-size: 1.2rem;
     font-family: -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu,
