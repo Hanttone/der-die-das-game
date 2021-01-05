@@ -104,8 +104,10 @@ export default App;
 
 const BackDrop = styled.div`
   width: 100%;
+
   display: flex;
   justify-content: center;
+
   background-color: ${(props) =>
     props.theme.colorBackground};
 `;
@@ -115,7 +117,9 @@ const AppWrapper = styled.section`
   min-width: 360px;
   max-width: 800px;
   height: 100vh;
+
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
   background-color: ${(props) =>
     props.theme.colorBackground};
 `;
