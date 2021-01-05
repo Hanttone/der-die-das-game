@@ -41,68 +41,81 @@ function App() {
 
   return (
     <AppThemeProvider mode={mode}>
-      <AppWrapper>
-        {fetchInProgress ? (
-          <Loading mode={mode} />
-        ) : (
-          <AnimatePresence>
-            <Switch>
-              <Route exact path="/">
-                <motion.div
-                  key="home"
-                  initial="initial"
-                  animate="in"
-                  exit="out"
-                  transition={pageTransition}
-                  variants={pageAnimations}>
-                  <Home
-                    mode={mode}
-                    setMode={setMode}
-                  />
-                </motion.div>
-              </Route>
-              <Route path="/game">
-                <motion.div
-                  key="game"
-                  initial="initial"
-                  animate="in"
-                  exit="out"
-                  transition={pageTransition}
-                  variants={pageAnimations}>
-                  <Game
-                    wordData={gameData[1]}
-                    scoreData={gameData[0]}
-                    mode={mode}
-                  />
-                </motion.div>
-              </Route>
-              <Route path="/highscore">
-                <motion.div
-                  key="highscore"
-                  initial="initial"
-                  animate="in"
-                  exit="out"
-                  transition={pageTransition}
-                  variants={pageAnimations}>
-                  <HighScore
-                    mode={mode}
-                    scores={gameData[0]}
-                  />
-                </motion.div>
-              </Route>
-            </Switch>
-          </AnimatePresence>
-        )}
-      </AppWrapper>
+      <BackDrop>
+        <AppWrapper>
+          {fetchInProgress ? (
+            <Loading mode={mode} />
+          ) : (
+            <AnimatePresence>
+              <Switch>
+                <Route exact path="/">
+                  <motion.div
+                    key="home"
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageAnimations}>
+                    <Home
+                      mode={mode}
+                      setMode={setMode}
+                    />
+                  </motion.div>
+                </Route>
+                <Route path="/game">
+                  <motion.div
+                    key="game"
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageAnimations}>
+                    <Game
+                      wordData={gameData[1]}
+                      scoreData={gameData[0]}
+                      mode={mode}
+                    />
+                  </motion.div>
+                </Route>
+                <Route path="/highscore">
+                  <motion.div
+                    key="highscore"
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    transition={pageTransition}
+                    variants={pageAnimations}>
+                    <HighScore
+                      mode={mode}
+                      scores={gameData[0]}
+                    />
+                  </motion.div>
+                </Route>
+              </Switch>
+            </AnimatePresence>
+          )}
+        </AppWrapper>
+      </BackDrop>
     </AppThemeProvider>
   );
 }
 
 export default App;
 
+const BackDrop = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) =>
+    props.theme.colorBackground};
+`;
+
 const AppWrapper = styled.section`
   width: 100%;
+  min-width: 360px;
+  max-width: 800px;
   height: 100vh;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   background-color: ${(props) =>
     props.theme.colorBackground};
 `;
