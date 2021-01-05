@@ -53,6 +53,7 @@ export default function Lives({ mode }) {
 const LivesWrapper = styled.section`
   width: 80%;
   margin-bottom: 3vh;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-around;
+  z-index: 5;
 `;

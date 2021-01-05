@@ -63,8 +63,8 @@ const TimerWrapper = styled.div`
   z-index: 20;
 
   div {
-    width: 315px;
-    height: 11px;
+    width: 345px;
+    height: 1.2vh;
     background-color: rgba(192, 192, 192, 0.3);
     border-radius: 5px;
   }

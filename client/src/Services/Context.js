@@ -10,7 +10,7 @@ export function GameUpdateProvider({ children }) {
     3
   );
 
-  const [counter, setCounter] = useState(15);
+  const [counter, setCounter] = useState(10);
 
   const [playerScore, setPlayerScore] = useState(
     0
